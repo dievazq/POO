@@ -1,5 +1,7 @@
 package academia;
 
+import java.util.ArrayList;
+
 public class Curso {
 	private String identificador;
 	private String idioma;
