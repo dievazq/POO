@@ -1,38 +1,54 @@
 package academia;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Curso {
-	private String identificador;
+	private String id;
 	private String idioma;
 	private int nivel;
-	private String fechainicio;
-	private String fechafinal;
-	private String hora;
-	private int numeroalumnosmaximo;
+	private Date fechaInicio;
+	private Date fechaFinal;
+	private int hora;
+	private int num_max_alumnos;
 	private int precio;
 
-//lista de alumnos inscritos	
+	// lista de alumnos inscritos
 	private ArrayList<Matricula> matriculas = new ArrayList<Matricula>();
-	
-	public Curso(String identificador, String idioma, int nivel, String fechainicio, String fechafinal, String hora, int numeroalumnosmaximo, int precio){
-		this.identificador = identificador;
+
+	public Curso(String id, String idioma, int nivel, Date fechaInicio, Date fechaFinal, int hora,
+			int num_max_alumnos, int precio) {
+		this.id = id;
 		this.idioma = idioma;
 		this.nivel = nivel;
-		this.fechainicio = fechainicio;
-		this.fechafinal = fechafinal;
+		this.fechaInicio = fechaInicio;
+		this.fechaFinal = fechaFinal;
 		this.hora = hora;
-		this.numeroalumnosmaximo = numeroalumnosmaximo;
+		this.num_max_alumnos = num_max_alumnos;
 		this.precio = precio;
 	}
-	
-	public ArrayList<Matricula> getMatriculas(){
+
+	public ArrayList<Matricula> getMatriculas() {
 		return matriculas;
 	}
-    public int getNumeroalumnosmaximo(){
-    	return numeroalumnosmaximo;
-    }
-    public int getNivel(){
-    	return nivel;
-    }
+
+	public void setMatriculas(ArrayList<Matricula> matriculas) {
+		this.matriculas = matriculas;
+	}
+
+	/**
+	 * @return the nivel
+	 */
+	public int getNivel() {
+		return nivel;
+	}
+
+	/**
+	 * @param nivel the nivel to set
+	 */
+	public void setNivel(int nivel) {
+		this.nivel = nivel;
+	}
+	
+
 }
