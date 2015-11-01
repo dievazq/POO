@@ -1,5 +1,6 @@
 package academia;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Matricula {
@@ -7,14 +8,10 @@ public class Matricula {
 	private Boolean pagado;
 	private Alumno alumno;
 	private Curso curso;
-	
-	// inscribir(Alumno, Curso)-> comprobarmatricula(Alumno),
-	// comprobaralumnos(Curso)
-	// pagar(matricula)
-	// cambiarnivel(matricula)-> comprobaralumnos(Curso)
+
 	public Matricula(int numero, Alumno alumno, Curso curso) {
 		
-		// Comprueba si ya existe una matrícula igual (duplicada) y si supera el max de alumnos
+		// Comprueba si ya existe un alumno en el curso y si supera el max de alumnos
 		if (comprobarDuplicado(alumno, curso) == false && comprobarMaxAlumnos(curso) == false) {
 			
 			this.alumno = alumno;
@@ -42,11 +39,21 @@ public class Matricula {
 		this.pagado = pagado;
 	}
 
+	public Boolean comprobarDuplicado(Alumno alumno, Curso curso) {
+		
+	}
 			
-	public void cambiarnivel(int nivel, String idioma, Alumno alumno){
+	public void cambiarnivel(Alumno alumno, Curso curso, int nivel){
 		if (nivel == (curso.getNivel() + 1) || nivel == (curso.getNivel() - 1) && comprobarMaxAlumnos(curso) == false) {
-			
+			curso.setNivel(nivel);
 		}
 	    
+	}
+	
+	public Boolean comprobarMaxAlumnos(Curso curso) {
+		if ( (curso.getNumMaxAlumnos() + 1) <= curso.getNumMaxAlumnos() )
+			return false;
+		else
+			return true;
 	}
 }

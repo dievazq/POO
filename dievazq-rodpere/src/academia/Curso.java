@@ -14,7 +14,7 @@ public class Curso {
 	private int precio;
 
 	// lista de alumnos inscritos
-	private ArrayList<Matricula> matriculas = new ArrayList<Matricula>();
+	private ArrayList<Alumno> alumnos_inscritos = new ArrayList<Alumno>();
 
 	public Curso(String id, String idioma, int nivel, Date fechaInicio, Date fechaFinal, int hora,
 			int num_max_alumnos, int precio) {
@@ -30,12 +30,30 @@ public class Curso {
 
 	
 	// GETTERS
-	public int getNivel() {
-		return nivel;
+	public String getID() {
+		return id;
 	}
 	
 	public String getIdioma() {
 		return idioma;
+	}
+	
+	public int getNivel() {
+		return nivel;
+	}
+	
+	public int getNumMaxAlumnos() {
+		return num_max_alumnos;
+	}
+	
+	public ArrayList<Alumno> getAlumnos(String id, ArrayList<Matricula> matriculas) {
+		
+		for(int i=0; i < matriculas.size(); i++) {
+			if (matriculas.get(i).getCurso().getID() == id)
+				alumnos_inscritos.add(matriculas.get(i).getAlumno());
+		}
+		
+		return alumnos_inscritos;
 	}
 	
 	

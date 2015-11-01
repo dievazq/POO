@@ -22,11 +22,10 @@ public class Alumno {
 	public String getDNI() {
 		return dni;
 	}
-
-	// SETTERS
-
 	
-	
+	public int getDeuda() {
+		
+	}
 	
 	public ArrayList<Curso> getCursos(String dni, ArrayList<Matricula> matriculas) {
 		
@@ -37,4 +36,8 @@ public class Alumno {
 		
 		return cursos_inscritos;
 	}
+
+	// SETTERS
+
+	
 }
