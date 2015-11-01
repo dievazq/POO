@@ -28,27 +28,28 @@ public class Curso {
 		this.precio = precio;
 	}
 
+	
+	// GETTERS
 	public ArrayList<Matricula> getMatriculas() {
 		return matriculas;
 	}
 
-	public void setMatriculas(ArrayList<Matricula> matriculas) {
-		this.matriculas = matriculas;
-	}
-
-	/**
-	 * @return the nivel
-	 */
 	public int getNivel() {
 		return nivel;
 	}
-
-	/**
-	 * @param nivel the nivel to set
-	 */
+	
+	public String getIdioma() {
+		return idioma;
+	}
+	
+	
+	// SETTERS
+	public void setMatriculas(ArrayList<Matricula> matriculas) {
+		this.matriculas = matriculas;
+	}
+	
 	public void setNivel(int nivel) {
 		this.nivel = nivel;
 	}
-	
 
 }

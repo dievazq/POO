@@ -17,10 +17,12 @@ public class Alumno {
 		this.dni = dni;
 	}
 
+	// GETTERS
 	public ArrayList<Matricula> getMatriculas() {
 		return matriculas;
 	}
 
+	// SETTERS
 	public void setMatriculas(ArrayList<Matricula> matriculas) {
 		this.matriculas = matriculas;
 	}

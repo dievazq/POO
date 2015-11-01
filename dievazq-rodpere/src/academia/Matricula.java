@@ -24,17 +24,21 @@ public class Matricula {
 		}
 	}
 
+	// GETTERS
 	public Boolean getPagado() {
 		return pagado;
 	}
 
+	// SETTERS
 	public void setPagado(Boolean pagado) {
 		this.pagado = pagado;
 	}
-	
-	
-	public void cambiarnivel(int nivel, Alumno alumno){
-		if nivel == ( (curso.getNivel() + 1) || nivel == (curso.getNivel() - 1) && ) 
+
+			
+	public void cambiarnivel(int nivel, String idioma, Alumno alumno){
+		if (nivel == (curso.getNivel() + 1) || nivel == (curso.getNivel() - 1) && comprobarMaxAlumnos(curso) == false) {
+			
+		}
 	    
 	}
 }
