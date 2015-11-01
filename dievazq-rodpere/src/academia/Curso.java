@@ -30,10 +30,6 @@ public class Curso {
 
 	
 	// GETTERS
-	public ArrayList<Matricula> getMatriculas() {
-		return matriculas;
-	}
-
 	public int getNivel() {
 		return nivel;
 	}
@@ -44,10 +40,6 @@ public class Curso {
 	
 	
 	// SETTERS
-	public void setMatriculas(ArrayList<Matricula> matriculas) {
-		this.matriculas = matriculas;
-	}
-	
 	public void setNivel(int nivel) {
 		this.nivel = nivel;
 	}

@@ -20,11 +20,19 @@ public class Matricula {
 			this.alumno = alumno;
 			this.curso = curso;
 			this.num = numero;
-			this.pagado = false;
+			pagado = false;
 		}
 	}
 
 	// GETTERS
+	public Alumno getAlumno() {
+		return alumno;
+	}
+	
+	public Curso getCurso() {
+		return curso;
+	}
+	
 	public Boolean getPagado() {
 		return pagado;
 	}
