@@ -8,8 +8,9 @@ public class Alumno {
 	private String dni;
 	private int deuda;
 
-	// lista de cursos en los que se inscribe
 	private ArrayList<Curso> cursos_inscritos = new ArrayList<Curso>();
+	
+	private ArrayList<Matricula> matriculas = new ArrayList<Matricula>();
 
 	public Alumno(String nombre, String apellidos, String dni) {
 		this.nombre = nombre;
@@ -25,9 +26,26 @@ public class Alumno {
 	
 	public int getDeuda() {
 		
+		Matricula matricula = new Matricula();
+		
+		matriculas.addAll(matricula.getMatriculas());
+
+		deuda = 0;
+		
+		for(int i=0; i < matriculas.size(); i++) {
+			if ( (this.dni == matriculas.get(i).getAlumno().getDNI()) &&
+					(matriculas.get(i).getPagado() == false) )
+				deuda += matriculas.get(i).getCurso().getPrecio();
+		}
+		
+		return deuda;
 	}
 	
-	public ArrayList<Curso> getCursos(String dni, ArrayList<Matricula> matriculas) {
+	public ArrayList<Curso> getCursos(String dni) {
+		
+		Matricula matricula = new Matricula();
+		
+		matriculas.addAll(matricula.getMatriculas());
 		
 		for(int i=0; i < matriculas.size(); i++) {
 			if (matriculas.get(i).getAlumno().getDNI() == dni)
@@ -36,9 +54,4 @@ public class Alumno {
 		
 		return cursos_inscritos;
 	}
-
-
-	// SETTERS
-
-	
 }
