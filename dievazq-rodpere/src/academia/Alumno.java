@@ -33,7 +33,7 @@ public class Alumno {
 		deuda = 0;
 		
 		for(int i=0; i < matriculas.size(); i++) {
-			if ( (this.dni == matriculas.get(i).getAlumno().getDNI()) &&
+			if ( (dni == matriculas.get(i).getAlumno().getDNI()) &&
 					(matriculas.get(i).getPagado() == false) )
 				deuda += matriculas.get(i).getCurso().getPrecio();
 		}
