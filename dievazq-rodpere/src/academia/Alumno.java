@@ -8,9 +8,10 @@ public class Alumno {
 	private String dni;
 	private int deuda;
 
-	private ArrayList<Curso> cursos_inscritos = new ArrayList<Curso>();
+	private ArrayList<Curso> cursos_inscritos;
 	
 	public Alumno(String nombre, String apellidos, String dni) {
+		cursos_inscritos = new ArrayList<Curso>();
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.dni = dni;
