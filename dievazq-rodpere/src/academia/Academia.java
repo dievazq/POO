@@ -1,7 +1,10 @@
 package academia;
 
+import java.util.Date;
+
 public class Academia {
 
+	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
 		
 		Alumno alumno1 = new Alumno("Rodrigo", "Perez Hidalgo", "24348131P");
