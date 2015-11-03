@@ -13,10 +13,11 @@ public class Curso {
 	private int num_max_alumnos;
 	private int precio;
 
-	private ArrayList<Alumno> alumnos_inscritos = new ArrayList<Alumno>();
+	private ArrayList<Alumno> alumnos_inscritos;
 	
 	public Curso(String id, String idioma, int nivel, Date fechaInicio, Date fechaFinal, int hora,
 			int num_max_alumnos, int precio) {
+		alumnos_inscritos = new ArrayList<Alumno>();
 		this.id = id;
 		this.idioma = idioma;
 		this.nivel = nivel;
