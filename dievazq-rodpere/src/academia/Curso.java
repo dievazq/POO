@@ -50,7 +50,7 @@ public class Curso {
 		return precio;
 	}
 	
-	public ArrayList<Alumno> getAlumnos(String id) {
+	public ArrayList<Alumno> getAlumnos() {
 		
 		Academia academia = new Academia();
 		
@@ -62,7 +62,7 @@ public class Curso {
 		return alumnos_inscritos;
 	}
 	
-	public int getNumAlumnos(String id) {
+	public int getNumAlumnos() {
 		
 		Academia academia = new Academia();
 		

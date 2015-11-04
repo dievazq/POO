@@ -70,8 +70,8 @@ public class Academia {
 	
 	public Boolean comprobarDuplicadoMatricula(Alumno alumno, Curso curso) {
 		
-		for (int i=0; i < curso.getAlumnos(curso.getID()).size(); i++) {
-			if (alumno.getDNI() == curso.getAlumnos(curso.getID()).get(i).getDNI())
+		for (int i=0; i < curso.getAlumnos().size(); i++) {
+			if (alumno.getDNI() == curso.getAlumnos().get(i).getDNI())
 				return true;
 		}
 		return false;
@@ -79,7 +79,7 @@ public class Academia {
 	
 	public Boolean comprobarMaxAlumnos(Curso curso) {
 		
-		if ( (curso.getNumAlumnos(curso.getID()) + 1) <= curso.getNumMaxAlumnos() )
+		if ( (curso.getNumAlumnos() + 1) <= curso.getNumMaxAlumnos() )
 			return false;
 		else
 			return true;
