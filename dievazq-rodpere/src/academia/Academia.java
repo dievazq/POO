@@ -54,7 +54,7 @@ public class Academia {
 		if (i == cursos.size())
 			cursos.add(curso);
 		else
-			System.err.println("El alumno ya existe.");
+			System.err.println("El curso ya existe.");
 	}
 	
 	public void anadirMatricula(Matricula matricula) {
