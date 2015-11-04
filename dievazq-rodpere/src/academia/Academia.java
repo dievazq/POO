@@ -1,22 +1,104 @@
 package academia;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Academia {
 
-	@SuppressWarnings("deprecation")
-	public static void main(String[] args) {
+	private ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
+	private ArrayList<Curso> cursos = new ArrayList<Curso>();
+	private ArrayList<Matricula> matriculas = new ArrayList<Matricula>();
+	
+	public Academia(){
 		
-		Alumno alumno1 = new Alumno("Rodrigo", "Perez Hidalgo", "24348131P");
-		Alumno alumno2 = new Alumno("Diego", "Vazquez Blanco", "39831381K");
-		Alumno alumno3 = new Alumno("Felix", "Prieto Arambillet", "45323239D");
-		Curso curso1 = new Curso("F1", "Frances", 1, new Date(115, 9, 31), new Date(116, 6, 30), 12, 30, 200);
-		Curso curso2 = new Curso("F2", "Frances", 2, new Date(115, 9, 31), new Date(116, 6, 30), 12, 30, 200);
-		Curso curso3 = new Curso("I1", "Ingles", 1, new Date(115, 10, 6), new Date(116, 5, 20), 13, 40, 300);
-		Matricula matricula1 = new Matricula(1, alumno1, curso3);
-		Matricula matricula2 = new Matricula(2, alumno2, curso1);
-		Matricula matricula3 = new Matricula(3, alumno3, curso1);
-
+	}
+	
+	public ArrayList<Alumno> getAlumnos() {
+		return alumnos;
+	}
+	
+	public ArrayList<Curso> getCursos() {
+		return cursos;
+	}
+	
+	public ArrayList<Matricula> getMatriculas() {
+		return matriculas;
+	}
+	
+	public void anadirAlumno(Alumno alumno) {
+		
+		int i = 0;
+		
+		while (i < alumnos.size()) {
+			if (alumnos.get(i).getDNI() == alumno.getDNI())
+				break;
+			i++;
+		}
+		
+		if (i == alumnos.size())
+			alumnos.add(alumno);
+		else
+			System.err.println("El alumno ya existe.");
+	}
+	
+	public void anadirCurso(Curso curso) {
+		
+		int i = 0;
+		
+		while (i < cursos.size()) {
+			if (cursos.get(i).getID() == curso.getID())
+				break;
+			i++;
+		}
+		
+		if (i == cursos.size())
+			cursos.add(curso);
+		else
+			System.err.println("El alumno ya existe.");
+	}
+	
+	public void anadirMatricula(Matricula matricula) {
+		
+		// Comprueba si ya existe un alumno en el curso y si supera el max de alumnos
+		if (comprobarDuplicadoMatricula(matricula.getAlumno(), matricula.getCurso()) == true)
+			System.err.println("El alumno ya existe en ese curso.");
+		else if (comprobarMaxAlumnos(matricula.getCurso()) == true)
+			System.err.println("Curso completo. No caben más alumnos.");
+		else
+			matriculas.add(matricula);
+	}
+	
+	public Boolean comprobarDuplicadoMatricula(Alumno alumno, Curso curso) {
+		
+		for (int i=0; i < curso.getAlumnos(curso.getID()).size(); i++) {
+			if (alumno.getDNI() == curso.getAlumnos(curso.getID()).get(i).getDNI())
+				return true;
+		}
+		return false;
+	}
+	
+	public Boolean comprobarMaxAlumnos(Curso curso) {
+		
+		if ( (curso.getNumAlumnos(curso.getID()) + 1) <= curso.getNumMaxAlumnos() )
+			return false;
+		else
+			return true;
+	}
+			
+	public void cambiarnivel(Alumno alumno, Curso curso, int nivel){
+		
+		if (nivel == (curso.getNivel() + 1) || nivel == (curso.getNivel() - 1) &&
+				comprobarMaxAlumnos(curso) == false)
+			curso.setNivel(nivel);
+	}
+	
+	public void pagarMatricula(Alumno alumno, Curso curso) {
+		
+		for (int i=0; i < matriculas.size(); i++) {
+			if ( (alumno.getDNI() == matriculas.get(i).getAlumno().getDNI()) && 
+					(curso.getID() == matriculas.get(i).getCurso().getID()) )
+				matriculas.get(i).setPagado(true);
+		}
 	}
 
 }

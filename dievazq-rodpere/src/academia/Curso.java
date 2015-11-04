@@ -13,12 +13,11 @@ public class Curso {
 	private int num_max_alumnos;
 	private int precio;
 
-	private ArrayList<Alumno> alumnos_inscritos = new ArrayList<Alumno>();
+	private ArrayList<Alumno> alumnos_inscritos;
 	
-	private ArrayList<Matricula> matriculas = new ArrayList<Matricula>();
-
 	public Curso(String id, String idioma, int nivel, Date fechaInicio, Date fechaFinal, int hora,
-			int num_max_alumnos, int precio) {
+					int num_max_alumnos, int precio) {
+		alumnos_inscritos = new ArrayList<Alumno>();
 		this.id = id;
 		this.idioma = idioma;
 		this.nivel = nivel;
@@ -53,13 +52,11 @@ public class Curso {
 	
 	public ArrayList<Alumno> getAlumnos(String id) {
 		
-		Matricula matricula = new Matricula();
+		Academia academia = new Academia();
 		
-		matriculas.addAll(matricula.getMatriculas());
-		
-		for(int i=0; i < matriculas.size(); i++) {
-			if (matriculas.get(i).getCurso().getID() == id)
-				alumnos_inscritos.add(matriculas.get(i).getAlumno());
+		for(int i=0; i < academia.getMatriculas().size(); i++) {
+			if (academia.getMatriculas().get(i).getCurso().getID() == id)
+				alumnos_inscritos.add(academia.getMatriculas().get(i).getAlumno());
 		}
 		 
 		return alumnos_inscritos;
@@ -67,13 +64,11 @@ public class Curso {
 	
 	public int getNumAlumnos(String id) {
 		
-		Matricula matricula = new Matricula();
+		Academia academia = new Academia();
 		
-		matriculas.addAll(matricula.getMatriculas());
-		
-		for(int i=0; i < matriculas.size(); i++) {
-			if (matriculas.get(i).getCurso().getID() == id)
-				alumnos_inscritos.add(matriculas.get(i).getAlumno());
+		for(int i=0; i < academia.getMatriculas().size(); i++) {
+			if (academia.getMatriculas().get(i).getCurso().getID() == id)
+				alumnos_inscritos.add(academia.getMatriculas().get(i).getAlumno());
 		}
 		 
 		return alumnos_inscritos.size();
