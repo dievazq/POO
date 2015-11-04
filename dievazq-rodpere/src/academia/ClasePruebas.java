@@ -56,13 +56,9 @@ public class ClasePruebas {
 			System.out.println(academia.getMatriculas().get(i).getPagado());
 		}
 		
-		System.out.println("Intentamos añadir alumno ya existente en un curso:");
-		academia.anadirMatricula(matricula1);
-		
-		System.out.println("Matriculas ¿pagadas?:");
-		for(int i=0; i < academia.getMatriculas().size(); i++) {
-			System.out.println(academia.getMatriculas().get(i).getPagado());
-		}
+		System.out.println("Intentamos añadir alumno y curso ya existentes:");
+		academia.anadirAlumno(alumno3);
+		academia.anadirCurso(curso1);
 
 	}
 	

@@ -38,7 +38,7 @@ public class Alumno {
 		return deuda;
 	}
 	
-	public ArrayList<Curso> getCursos(String dni) {
+	public ArrayList<Curso> getCursos() {
 		
 		Academia academia = new Academia();
 		
