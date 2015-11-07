@@ -9,11 +9,11 @@ import java.util.ArrayList;
  */
 public class Alumno {
 	/**
-	 * @param nombre guarda el nombre del alumno
-	 * @param apellidos guarda los apellidos del alumno
-	 * @param dni guarda el dni del alumno
-	 * @param deuda guarda la deuda del alumno
-	 * @param cursos_inscritos es un objeto de tipo ArrayList que guarda la lista de cursos 
+	 * @param nombre guarda el nombre del alumno.
+	 * @param apellidos guarda los apellidos del alumno.
+	 * @param dni guarda el dni del alumno.
+	 * @param deuda guarda la deuda del alumno.
+	 * @param cursos_inscritos es un objeto de tipo ArrayList que guarda la lista de cursos.
 	 * en los que está matriculado un alumno.
 	 */
 	private String nombre;
@@ -40,8 +40,8 @@ public class Alumno {
 
 	// GETTERS
 	/**
-	 * método getter para obtener DNI existente
-	 * @return deveulve el DNI
+	 * Método getter para obtener DNI existente.
+	 * @return deveulve el DNI.
 	 */
 	public String getDNI() {
 		return dni;
