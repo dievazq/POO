@@ -11,7 +11,13 @@ import java.util.Date;
  * Prueba el resto de métodos públicos de las clases Alumno, Curso y Matrícula.
  */
 public class Academia {
-
+        /**
+	 * @param alumnos es un objeto de tipo ArrayList que guarda la lista de alumnos matriculados 
+	 * en la academia.
+	 * @param cursos es un objeto de tipo ArrayList que guarda la lista de cursos con matrículas 
+	 * en la academia.
+	 * @param matriculas es un objeto de tipo ArrayList que guarda la lista de matrículas en la academia.
+	 */
 	private ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
 	private ArrayList<Curso> cursos = new ArrayList<Curso>();
 	private ArrayList<Matricula> matriculas = new ArrayList<Matricula>();
