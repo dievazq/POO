@@ -2,7 +2,14 @@ package academia;
 
 import java.util.ArrayList;
 import java.util.Date;
-
+/**
+ * @author Rodrigo Pérez Hidalgo y Diego Vázquez Blanco.
+ * Implementa una academia donde se imparten cursos. Comprueba el buen funcionamiento de las clases Alumno, Curso y Matrícula.
+ * Crea y mantiene la lista de cursos, alumnos y matrículas. 
+ * Permite marcar una matrícula como pagada y cambiar de nivel a un alumno.
+ * Comprueba si se dan las condiciones previas para las matrículas y si es posible crearlas. 
+ * Prueba el resto de métodos públicos de las clases Alumno, Curso y Matrícula.
+ */
 public class Academia {
 
 	private ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
