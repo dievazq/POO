@@ -11,16 +11,16 @@ import java.util.Date;
  */
 public class Curso {
 	/**
-	 * @param id guarda el identificador único del curso
-	 * @param idioma guarda el idioma del curso que se imparte
-	 * @param nivel guarda el nivel del curso
-	 * @param fechaInicio guarda la fecha de inicio del curso
-	 * @param fechaFinal guarda la fecha final del curso
-	 * @param hora guarda la hora a la que se imparte el curso
-	 * @param num_max_alumnos guarda el número máximo de alumnos que puede contener un determinado curso
-	 * @param precio guarda el precio del curso
+	 * @param id guarda el identificador único del curso.
+	 * @param idioma guarda el idioma del curso que se imparte.
+	 * @param nivel guarda el nivel del curso.
+	 * @param fechaInicio guarda la fecha de inicio del curso.
+	 * @param fechaFinal guarda la fecha final del curso.
+	 * @param hora guarda la hora a la que se imparte el curso.
+	 * @param num_max_alumnos guarda el número máximo de alumnos que puede contener un determinado curso.
+	 * @param precio guarda el precio del curso.
 	 * @param alumnos_inscritos es un objeto de tipo ArrayList que guarda la lista de alumnos matriculados 
-	 * en un curso
+	 * en un curso.
 	 */	
 	private String id;
 	private String idioma;
@@ -59,36 +59,36 @@ public class Curso {
 	
 	// GETTERS
 	/**
-	 * método getter para obtener el identificador único del curso.
-	 * @return devuelve el identificador del curso
+	 * Método getter para obtener el identificador único del curso.
+	 * @return devuelve el identificador del curso.
 	 */
 	public String getID() {
 		return id;
 	}
 	/**
-	 * método getter para obtener el idioma del curso que se imparte.
-	 * @return devuelve el idioma del curso que se imparte
+	 * Método getter para obtener el idioma del curso que se imparte.
+	 * @return devuelve el idioma del curso que se imparte.
 	 */
 	public String getIdioma() {
 		return idioma;
 	}
 	/**
-	 * método getter para obtener el nivel del curso.
-	 * @return devuelve el nivel del curso
+	 * Método getter para obtener el nivel del curso.
+	 * @return devuelve el nivel del curso.
 	 */	
 	public int getNivel() {
 		return nivel;
 	}
 	/**
-	 * método getter para obtener el número máximo de alumnos que puede contener un determinado curso.
-	 * @return devuelve el número máximo de alumnos que puede contener un determinado curso
+	 * Método getter para obtener el número máximo de alumnos que puede contener un determinado curso.
+	 * @return devuelve el número máximo de alumnos que puede contener un determinado curso.
 	 */	
 	public int getNumMaxAlumnos() {
 		return num_max_alumnos;
 	}
 	/**
-	 * método getter para obtener el precio de un curso.
-	 * @return devuelve el precio del curso
+	 * Método getter para obtener el precio de un curso.
+	 * @return devuelve el precio del curso.
 	 */	
 	public int getPrecio() {
 		return precio;
@@ -96,7 +96,7 @@ public class Curso {
 	/**
 	 * Devuelve la lista de alumnos matriculados en un curso. Recorre la lista de matrículas 
 	 * realizadas en la academia y si encuentra una matrícula del curso, identificada por comparación con su identificador, 
-	 * añade al alumno a la lista de alumnos que se han matriculado en el curso
+	 * añade al alumno a la lista de alumnos que se han matriculado en el curso.
 	 * @return devuelve la lista de alumnos matriculados en un curso.
 	 */	
 	public ArrayList<Alumno> getAlumnos() {
@@ -132,7 +132,7 @@ public class Curso {
 	
 	// SETTERS
 	/**
-	 * método setter para modificar el nivel del curso.
+	 * Método setter para modificar el nivel del curso.
 	 * @param nivel modifica el atributo 'nivel' al valor pasado por este parámetro.
 	 */
 	public void setNivel(int nivel) {
