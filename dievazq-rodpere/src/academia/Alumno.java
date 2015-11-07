@@ -70,7 +70,7 @@ public class Alumno {
 	/**
 	 * Devuelve la lista de cursos en los que está matriculado un alumno. Recorre la lista de matrículas 
 	 * realizadas en la academia y si encuentra una matrícula del alumno, identificada por comparación con su DNI, 
-	 * la añade a la lista de cursos en los que se ha matriculado el alumno.
+	 * añade el curso a la lista de cursos en los que se ha matriculado el alumno.
 	 * @return devuelve la lista de cursos en los que está matriculado un alumno.
 	 */
 	public ArrayList<Curso> getCursos() {
