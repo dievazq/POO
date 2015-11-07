@@ -86,7 +86,11 @@ public class Academia {
 		else
 			System.err.println("El curso ya existe.");
 	}
-	
+	/**
+	 * Añade una matrícula a la lista de matrículas en la academia. Comprueba tanto que un alumno no se matricula dos veces en un mismo curso 
+	 * como que el curso no tendría más alumnos que los máximos autorizados antes de añadir una matrícula.
+	 * @param matricula es la matrícula que queremos añadir a la lista de matriculas en la academia.
+	 */	
 	public void anadirMatricula(Matricula matricula) {
 		
 		// Comprueba si ya existe un alumno en el curso y si supera el max de alumnos
@@ -97,7 +101,14 @@ public class Academia {
 		else
 			matriculas.add(matricula);
 	}
-	
+	/**
+	 * Comprueba si un alumno se encuentra matrículado en curso. Si en la lista de alumnos del curso dado se encuentra 
+	 * un alumno con el mismo valor de DNI que el alumno dado se considera que el alumno dado ya se encuentra matriculado
+	 * y devuelve true, en caso contrario, no se encuentra matriculado en tal curso y devuelve false.
+	 * @param alumno es el alumno que se quiere comprobar si está matriculado en un determinado curso.
+	 * @param curso es el curso en el que se quiere comprobar si un alumno determinado ya está matriculado.
+	 * @return true si el alumno dado ya se encuentra matriculado en el curso, false si no lo está.
+	 */
 	public Boolean comprobarDuplicadoMatricula(Alumno alumno, Curso curso) {
 		
 		for (int i=0; i < curso.getAlumnos().size(); i++) {
@@ -106,7 +117,12 @@ public class Academia {
 		}
 		return false;
 	}
-	
+	/**
+	 * Comprueba si la matrícula de un nuevo alumno en un determinado curso sobrepasaría el número máximo de alumnos 
+	 * de ese curso. Devuelve true si lo sobrepasase y false si no lo hace.
+	 * @param curso es el curso del que se quiere comprobar si la inscripción de un nuevo alumno sobrepasaría su número máximo de alumnos permitido.
+	 * @return true si el numero maximo de alumnos en el curso es sobrepasado, false si no lo es.
+	 */
 	public Boolean comprobarMaxAlumnos(Curso curso) {
 		
 		if ( (curso.getNumAlumnos() + 1) <= curso.getNumMaxAlumnos() )
@@ -114,7 +130,13 @@ public class Academia {
 		else
 			return true;
 	}
-			
+	/**
+	 * Cambia de nivel a un alumno dado, dentro de un mismo idioma. Antes de realizar el cambio se comprueba que cumple
+	 * con las siguiente restricciones: solo se puede subir o bajar un nivel y no se puede superar el número máximo de alumnos del nuevo nivel.
+	 * @param alumno es el alumno al que se quiere cambiar de nivel.
+	 * @param curso es el curso en el que se encuentra matriculado el alumno antes del cambio de nivel
+	 * @param nivel es el nuevo nivel en el que se quiere incribir al alumno
+	 */			
 	public void cambiarnivel(Alumno alumno, Curso curso, int nivel){
 		
 		if (nivel == (curso.getNivel() + 1) || nivel == (curso.getNivel() - 1) &&
