@@ -143,7 +143,14 @@ public class Academia {
 				comprobarMaxAlumnos(curso) == false)
 			curso.setNivel(nivel);
 	}
-	
+	/**
+	 * Paga la matrícula de un alumno en curso. Busca la matrícula del alumno y el curso dados 
+	 * en la lista de matrículas de la academia, comparando sus atributos de dni del alumno e identificador de curso
+	 * con aquellos en las matrículas en la lista de matrículas. Una vez ha sido encontrada cambia el estado de pago
+	 * de esa matrícula a 'Pagada', asignando el valor true a su atibuto 'pagado'.
+	 * @param alumno es el alumno cuya matrícula en un curso determinado se quiere pagar.
+	 * @param curso es el curso de la matrícula que se quiere pagar.
+	 */
 	public void pagarMatricula(Alumno alumno, Curso curso) {
 		
 		for (int i=0; i < matriculas.size(); i++) {
