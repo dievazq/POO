@@ -25,15 +25,24 @@ public class Academia {
 	public Academia(){
 		
 	}
-	
+	/**
+	 * Método getter para obtener la lista de alumnos matriculados en la academia.
+	 * @return devuelve la lista de alumnos.
+	 */	
 	public ArrayList<Alumno> getAlumnos() {
 		return alumnos;
 	}
-	
+	/**
+	 * Método getter para obtener la lista de cursos con matrículas en la academia.
+	 * @return devuelve la lista de cursos.
+	 */	
 	public ArrayList<Curso> getCursos() {
 		return cursos;
 	}
-	
+	/**
+	 * Método getter para obtener la lista de matrículas en la academia.
+	 * @return devuelve la lista de matrículas.
+	 */	
 	public ArrayList<Matricula> getMatriculas() {
 		return matriculas;
 	}
