@@ -12,10 +12,8 @@ import java.util.Date;
  */
 public class Academia {
         /**
-	 * @param alumnos es un objeto de tipo ArrayList que guarda la lista de alumnos matriculados 
-	 * en la academia.
-	 * @param cursos es un objeto de tipo ArrayList que guarda la lista de cursos con matrículas 
-	 * en la academia.
+	 * @param alumnos es un objeto de tipo ArrayList que guarda la lista de alumnos en la academia.
+	 * @param cursos es un objeto de tipo ArrayList que guarda la lista de cursos en la academia.
 	 * @param matriculas es un objeto de tipo ArrayList que guarda la lista de matrículas en la academia.
 	 */
 	private ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
@@ -26,14 +24,14 @@ public class Academia {
 		
 	}
 	/**
-	 * Método getter para obtener la lista de alumnos matriculados en la academia.
+	 * Método getter para obtener la lista de alumnos en la academia.
 	 * @return devuelve la lista de alumnos.
 	 */	
 	public ArrayList<Alumno> getAlumnos() {
 		return alumnos;
 	}
 	/**
-	 * Método getter para obtener la lista de cursos con matrículas en la academia.
+	 * Método getter para obtener la lista de cursos en la academia.
 	 * @return devuelve la lista de cursos.
 	 */	
 	public ArrayList<Curso> getCursos() {
@@ -46,7 +44,12 @@ public class Academia {
 	public ArrayList<Matricula> getMatriculas() {
 		return matriculas;
 	}
-	
+	/**
+	 * Añade un alumno a la lista de alumnos en la academia. Recorre la lista de alumnos en la academia 
+	 * y si el DNI de alguno de ellos coincide con el del alumno que se quiere añadir se informa de su existencia en la lista, 
+	 * en caso contrario se añade el alumno a la lista.
+	 * @param alumno es el alumno que queremos añadir a la lista de alumnos en la academia.
+	 */
 	public void anadirAlumno(Alumno alumno) {
 		
 		int i = 0;
@@ -62,7 +65,12 @@ public class Academia {
 		else
 			System.err.println("El alumno ya existe.");
 	}
-	
+	/**
+	 * Añade un curso a la lista de cursos en la academia. Recorre la lista de cursos en la academia 
+	 * y si el identificador de alguno de ellos coincide con el del curso que se quiere añadir se informa de su existencia en la lista, 
+	 * en caso contrario se añade el curso a la lista.
+	 * @param curso es el curso que queremos añadir a la lista de cursos en la academia.
+	 */	
 	public void anadirCurso(Curso curso) {
 		
 		int i = 0;
