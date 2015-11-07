@@ -24,7 +24,7 @@ public class Alumno {
 	private ArrayList<Curso> cursos_inscritos;
 	
 	/**
-	 * Constructor de la clase. Crea una lista de cursos con inscripción (inicialmente vacia) e 
+	 * Constructor de la clase. Crea una lista de cursos con inscripción vacia e 
 	 * inicializa la deuda con valor 0.
 	 * @param nombre inicializa el atributo 'nombre' al valor pasado por este parámetro.
 	 * @param apellidos inicializa el atributo 'apellidos' al valor pasado por este parámetro.
