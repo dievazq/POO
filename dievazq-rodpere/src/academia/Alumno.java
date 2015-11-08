@@ -1,6 +1,7 @@
 package academia;
 
 import java.util.ArrayList;
+
 /**
  * @author Rodrigo Pérez Hidalgo y Diego Vázquez Blanco.
  * 
@@ -8,6 +9,7 @@ import java.util.ArrayList;
  * además del nombre, apellidos y DNI. Es capaz de informar de la deuda total del alumno. 
  */
 public class Alumno {
+	
 	/**
 	 * @param nombre guarda el nombre del alumno.
 	 * @param apellidos guarda los apellidos del alumno.
@@ -46,6 +48,7 @@ public class Alumno {
 	public String getDNI() {
 		return dni;
 	}
+	
 	/**
 	 * Devuelve la deuda adquirida por un alumno. Recorre la lista de matrículas realizadas en la 
 	 * academia y si encuentra una matrícula del alumno, identificada por comparación con su DNI, y
@@ -67,12 +70,14 @@ public class Alumno {
 		
 		return deuda;
 	}
+	
 	/**
 	 * Devuelve la lista de cursos en los que está matriculado un alumno. Recorre la lista de matrículas 
 	 * realizadas en la academia y si encuentra una matrícula del alumno, identificada por comparación con su DNI, 
 	 * añade el curso a la lista de cursos en los que se ha matriculado el alumno.
 	 * @return devuelve la lista de cursos en los que está matriculado un alumno.
 	 */
+	
 	public ArrayList<Curso> getCursos() {
 		
 		Academia academia = new Academia();

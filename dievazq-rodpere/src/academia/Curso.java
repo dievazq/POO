@@ -2,6 +2,7 @@ package academia;
 
 import java.util.ArrayList;
 import java.util.Date;
+
 /**
  * @author Rodrigo Pérez Hidalgo y Diego Vázquez Blanco.
  * 
@@ -10,6 +11,7 @@ import java.util.Date;
  * Tiene un número de alumnos máximo, un precio de matrícula y mantiene una lista de los alumnos inscritos.  
  */
 public class Curso {
+	
 	/**
 	 * @param id guarda el identificador único del curso.
 	 * @param idioma guarda el idioma del curso que se imparte.
@@ -32,6 +34,7 @@ public class Curso {
 	private int precio;
 
 	private ArrayList<Alumno> alumnos_inscritos;
+	
 	/**
 	 * Constructor de la clase. Crea una lista de alumnos inscritos vacia.
 	 * @param id inicializa el atributo 'id' al valor pasado por este parámetro.
@@ -65,6 +68,7 @@ public class Curso {
 	public String getID() {
 		return id;
 	}
+	
 	/**
 	 * Método getter para obtener el idioma del curso que se imparte.
 	 * @return devuelve el idioma del curso que se imparte.
@@ -72,6 +76,7 @@ public class Curso {
 	public String getIdioma() {
 		return idioma;
 	}
+	
 	/**
 	 * Método getter para obtener el nivel del curso.
 	 * @return devuelve el nivel del curso.
@@ -79,6 +84,7 @@ public class Curso {
 	public int getNivel() {
 		return nivel;
 	}
+	
 	/**
 	 * Método getter para obtener el número máximo de alumnos que puede contener un determinado curso.
 	 * @return devuelve el número máximo de alumnos que puede contener un determinado curso.
@@ -86,6 +92,7 @@ public class Curso {
 	public int getNumMaxAlumnos() {
 		return num_max_alumnos;
 	}
+	
 	/**
 	 * Método getter para obtener el precio de un curso.
 	 * @return devuelve el precio del curso.
@@ -93,6 +100,7 @@ public class Curso {
 	public int getPrecio() {
 		return precio;
 	}
+	
 	/**
 	 * Devuelve la lista de alumnos matriculados en un curso. Recorre la lista de matrículas 
 	 * realizadas en la academia y si encuentra una matrícula del curso, identificada por comparación con su identificador, 
@@ -110,6 +118,7 @@ public class Curso {
 		 
 		return alumnos_inscritos;
 	}
+	
 	/**
 	 * Devuelve el número de alumnos matriculados en un curso. Recorre la lista de matrículas 
 	 * realizadas en la academia y si encuentra una matrícula del curso, identificada por comparación con su identificador, 
@@ -128,15 +137,4 @@ public class Curso {
 		 
 		return alumnos_inscritos.size();
 	}
-	
-	
-	// SETTERS
-	/**
-	 * Método setter para modificar el nivel del curso.
-	 * @param nivel modifica el atributo 'nivel' al valor pasado por este parámetro.
-	 */
-	public void setNivel(int nivel) {
-		this.nivel = nivel;
-	}
-
 }

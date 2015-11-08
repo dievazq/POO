@@ -61,5 +61,4 @@ public class ClasePruebas {
 		academia.anadirCurso(curso1);
 
 	}
-	
 }

@@ -20,6 +20,7 @@ public class Matricula {
 	private Boolean pagado;
 	
 	private ArrayList<Matricula> matriculas_sin_pagar = new ArrayList<Matricula>();
+	
 	/**
 	 * Constructor de la clase. Inicializa el valor del atributo 'pagado' a false, siendo el estado de pago 
 	 * de la matrícula el de 'pendiente'.
@@ -27,19 +28,24 @@ public class Matricula {
 	 * @param alumno inicializa el atributo 'alumno' al valor pasado por este parámetro.
 	 * @param curso inicializa el atributo 'curso' al valor pasado por este parámetro.
 	 */
-        public Matricula(int numero, Alumno alumno, Curso curso) {
-		
-			this.num = numero;
-			this.alumno = alumno;
-			this.curso = curso;
-			pagado = false;
-	}
+    public Matricula(int numero, Alumno alumno, Curso curso) {
 	
-	public Matricula() {
-		
-	}
+		this.num = numero;
+		this.alumno = alumno;
+		this.curso = curso;
+		pagado = false;
+    }
+
 
 	// GETTERS
+    /**
+	 * Método getter para obtener el numero de matrícula.
+	 * @return devuelve el numero de matrícula 
+	 */
+	public int getNum() {
+		return num;
+	}
+	
 	/**
 	 * Método getter para obtener el alumno matriculado.
 	 * @return devuelve el alumno 
@@ -47,6 +53,7 @@ public class Matricula {
 	public Alumno getAlumno() {
 		return alumno;
 	}
+	
 	/**
 	 * Método getter para obtener el curso de la matrícula.
 	 * @return devuelve el curso
@@ -54,6 +61,7 @@ public class Matricula {
 	public Curso getCurso() {
 		return curso;
 	}
+	
 	/**
 	 * Método getter para obtener el estado de pago de la matrícula. 
 	 * Será false si está pendiente y true si está pagada
@@ -62,6 +70,7 @@ public class Matricula {
 	public Boolean getPagado() {
 		return pagado;
 	}
+	
 	/**
 	 * Devuelve la lista de matrículas sin pagar. Recorre la lista de matrículas realizadas en la academia 
 	 * y si encuentra una matrícula no pagada, siendo el valor se su atributo 'pagado' false, 
@@ -89,5 +98,4 @@ public class Matricula {
 	public void setPagado(Boolean pagado) {
 		this.pagado = pagado;
 	}
-	
 }
