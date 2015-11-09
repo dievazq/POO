@@ -37,6 +37,7 @@ public class Curso {
 	
 	/**
 	 * Constructor de la clase. Crea una lista de alumnos inscritos vacia.
+	 * 
 	 * @param id inicializa el atributo 'id' al valor pasado por este parámetro.
 	 * @param idioma inicializa el atributo 'idioma' al valor pasado por este parámetro.
 	 * @param nivel inicializa el atributo 'nivel' al valor pasado por este parámetro.
@@ -63,6 +64,7 @@ public class Curso {
 	// GETTERS
 	/**
 	 * Método getter para obtener el identificador único del curso.
+	 * 
 	 * @return devuelve el identificador del curso.
 	 */
 	public String getID() {
@@ -71,6 +73,7 @@ public class Curso {
 	
 	/**
 	 * Método getter para obtener el idioma del curso que se imparte.
+	 * 
 	 * @return devuelve el idioma del curso que se imparte.
 	 */
 	public String getIdioma() {
@@ -79,6 +82,7 @@ public class Curso {
 	
 	/**
 	 * Método getter para obtener el nivel del curso.
+	 * 
 	 * @return devuelve el nivel del curso.
 	 */	
 	public int getNivel() {
@@ -87,6 +91,7 @@ public class Curso {
 	
 	/**
 	 * Método getter para obtener el número máximo de alumnos que puede contener un determinado curso.
+	 * 
 	 * @return devuelve el número máximo de alumnos que puede contener un determinado curso.
 	 */	
 	public int getNumMaxAlumnos() {
@@ -95,6 +100,7 @@ public class Curso {
 	
 	/**
 	 * Método getter para obtener el precio de un curso.
+	 * 
 	 * @return devuelve el precio del curso.
 	 */	
 	public int getPrecio() {
@@ -105,11 +111,14 @@ public class Curso {
 	 * Devuelve la lista de alumnos matriculados en un curso. Recorre la lista de matrículas 
 	 * realizadas en la academia y si encuentra una matrícula del curso, identificada por comparación con su identificador, 
 	 * añade al alumno a la lista de alumnos que se han matriculado en el curso.
+	 * 
 	 * @return devuelve la lista de alumnos matriculados en un curso.
 	 */	
 	public ArrayList<Alumno> getAlumnos() {
 		
 		Academia academia = new Academia();
+		
+		alumnos_inscritos.clear();
 		
 		for(int i=0; i < academia.getMatriculas().size(); i++) {
 			if (academia.getMatriculas().get(i).getCurso().getID() == id)
@@ -124,6 +133,7 @@ public class Curso {
 	 * realizadas en la academia y si encuentra una matrícula del curso, identificada por comparación con su identificador, 
 	 * añade al alumno a la lista de alumnos que se han matriculado en el curso. El tamaño de esa lista
 	 * es el número de alumnos matriculados en un curso.
+	 * 
 	 * @return devuelve el número de alumnos matriculados en un curso.
 	 */	
 	public int getNumAlumnos() {

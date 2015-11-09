@@ -1,12 +1,15 @@
 package academia;
 
 import java.util.ArrayList;
+
 /**
  * @author Rodrigo Pérez Hidalgo y Diego Vázquez Blanco.
+ * 
  * Implementa la inscripción de un alumno en un curso concreto. Cada matrícula tiene un número único 
  * y puede estar pagada o pendiente de pago (estado inicial). Mantiene la lista de inscripciones sin pagar.
  */
 public class Matricula {
+	
 	/**
 	 * @param num guarda el número único de la matrícula
 	 * @param alumno es un objeto de tipo Alumno que guarda el alumno al que corresponde la matrícula
@@ -24,6 +27,7 @@ public class Matricula {
 	/**
 	 * Constructor de la clase. Inicializa el valor del atributo 'pagado' a false, siendo el estado de pago 
 	 * de la matrícula el de 'pendiente'.
+	 * 
 	 * @param num inicializa el atributo 'num' al valor pasado por este parámetro.
 	 * @param alumno inicializa el atributo 'alumno' al valor pasado por este parámetro.
 	 * @param curso inicializa el atributo 'curso' al valor pasado por este parámetro.
@@ -40,6 +44,7 @@ public class Matricula {
 	// GETTERS
     /**
 	 * Método getter para obtener el numero de matrícula.
+	 * 
 	 * @return devuelve el numero de matrícula 
 	 */
 	public int getNum() {
@@ -48,6 +53,7 @@ public class Matricula {
 	
 	/**
 	 * Método getter para obtener el alumno matriculado.
+	 * 
 	 * @return devuelve el alumno 
 	 */
 	public Alumno getAlumno() {
@@ -56,6 +62,7 @@ public class Matricula {
 	
 	/**
 	 * Método getter para obtener el curso de la matrícula.
+	 * 
 	 * @return devuelve el curso
 	 */	
 	public Curso getCurso() {
@@ -64,7 +71,8 @@ public class Matricula {
 	
 	/**
 	 * Método getter para obtener el estado de pago de la matrícula. 
-	 * Será false si está pendiente y true si está pagada
+	 * Será false si está pendiente y true si está pagada.
+	 * 
 	 * @return devuelve true si la matrícula ha sido pagada y false si no lo ha sido.
 	 */	
 	public Boolean getPagado() {
@@ -75,6 +83,7 @@ public class Matricula {
 	 * Devuelve la lista de matrículas sin pagar. Recorre la lista de matrículas realizadas en la academia 
 	 * y si encuentra una matrícula no pagada, siendo el valor se su atributo 'pagado' false, 
 	 * la añade a la lista de matrículas sin pagar.
+	 * 
 	 * @return devuelve la lista de matrículas sin pagar.
 	 */
 	public ArrayList<Matricula> getMatriculasSinPagar() {
@@ -93,6 +102,7 @@ public class Matricula {
 	/**
 	 * Método setter para modificar el estado de pago de la matrícula. 
 	 * Será false si está pendiente y true si está pagada.
+	 * 
 	 * @param pagado modifica el atributo 'pagado' al valor pasado por este parámetro. Será false si está pendiente y true si está pagada.
 	 */
 	public void setPagado(Boolean pagado) {
