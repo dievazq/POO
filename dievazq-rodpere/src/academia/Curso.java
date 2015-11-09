@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * @author Rodrigo Perez Hidalgo y Diego Vazquez Blanco.
- * 
  * Implementa cada uno de los cursos que organiza la academia. Cada curso tiene un codigo identificador unico 
  * e informacion sobre el idioma, nivel, fechas de inicio y final, asi como la hora en que se imparte. 
- * Tiene un numero de alumnos maximo, un precio de matricula y mantiene una lista de los alumnos inscritos.  
+ * Tiene un numero de alumnos maximo, un precio de matricula y mantiene una lista de los alumnos inscritos.
+ * 
+ * @author Rodrigo Perez Hidalgo y Diego Vazquez Blanco.
  */
 public class Curso {
 	

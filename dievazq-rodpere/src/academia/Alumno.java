@@ -3,10 +3,10 @@ package academia;
 import java.util.ArrayList;
 
 /**
- * @author Rodrigo Perez Hidalgo y Diego Vazquez Blanco.
- * 
  * Implementa cada uno de los alumnos de una academia. Mantiene informacion sobre la lista de los cursos en que se inscribe, 
- * ademas del nombre, apellidos y DNI. Es capaz de informar de la deuda total del alumno. 
+ * ademas del nombre, apellidos y DNI. Es capaz de informar de la deuda total del alumno.
+ *  
+ * @author Rodrigo Perez Hidalgo y Diego Vazquez Blanco.
  */
 public class Alumno {
 	

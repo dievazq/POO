@@ -1,10 +1,10 @@
 package academia;
 
 /**
- * @author Rodrigo Perez Hidalgo y Diego Vazquez Blanco.
- * 
  * Implementa la inscripcion de un alumno en un curso concreto. Cada matricula tiene un numero unico 
  * y puede estar pagada o pendiente de pago (estado inicial). Mantiene la lista de inscripciones sin pagar.
+ * 
+ * @author Rodrigo Perez Hidalgo y Diego Vazquez Blanco.
  */
 public class Matricula {
 	

@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * @author Rodrigo Perez Hidalgo y Diego Vazquez Blanco.
- * 
  * Implementa una academia donde se imparten cursos. Comprueba el buen funcionamiento de las clases Alumno, Curso y Matricula.
  * Crea y mantiene la lista de cursos, alumnos y matriculas. 
  * Permite marcar una matricula como pagada y cambiar de nivel a un alumno.
  * Comprueba si se dan las condiciones previas para las matriculas y si es posible crearlas. 
  * Prueba el resto de metodos publicos de las clases Alumno, Curso y Matricula.
+ * 
+ * @author Rodrigo Perez Hidalgo y Diego Vazquez Blanco.
  */
 public class Academia {
 	
