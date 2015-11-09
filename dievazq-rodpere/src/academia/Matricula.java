@@ -104,7 +104,7 @@ public class Matricula {
 	 * 
 	 * @param pagado modifica el atributo 'pagado' al valor pasado por este parámetro. Será false si está pendiente y true si está pagada.
 	 */
-	public void setPagado(Boolean pagado) {
-		this.pagado = pagado;
+	public void setPagado() {
+		this.pagado = true;
 	}
 }

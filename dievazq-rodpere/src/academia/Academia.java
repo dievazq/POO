@@ -110,8 +110,8 @@ public class Academia {
 			System.out.println(academia.getMatriculas().get(i).getPagado() + " ");
 		}
 		
-		System.out.println("\nPagar matricula2(alumno2, curso1)");
-		academia.pagarMatricula(alumno2, curso1);
+		System.out.println("\nPagar matricula2");
+		matricula2.setPagado();
 		
 		System.out.println("\nMatriculas con matricula2 pagada:");
 		for(int i=0; i < academia.getMatriculas().size(); i++) {
@@ -291,12 +291,21 @@ public class Academia {
 	 * @param alumno es el alumno cuya matrícula en un curso determinado se quiere pagar.
 	 * @param curso es el curso de la matrícula que se quiere pagar.
 	 */
+	/*
 	public void pagarMatricula(Alumno alumno, Curso curso) {
+		
+		int aux = 0;
 		
 		for (int i=0; i < matriculas.size(); i++) {
 			if ( (alumno.getDNI() == matriculas.get(i).getAlumno().getDNI()) && 
 					(curso.getID() == matriculas.get(i).getCurso().getID()) )
 				matriculas.get(i).setPagado(true);
+			else
+				aux += 1;
 		}
+		
+		if (aux == matriculas.size())
+			System.out.println("No existe el alumno " + alumno.getNombre() + " en el curso " + curso.getID());
 	}
+	*/
 }
