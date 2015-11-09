@@ -114,17 +114,15 @@ public class Curso {
 	 * 
 	 * @return devuelve la lista de alumnos matriculados en un curso.
 	 */	
-	public ArrayList<Alumno> getAlumnos() {
-		
-		Academia academia = new Academia();
+	public ArrayList<Alumno> getAlumnos(ArrayList<Matricula> matriculas) {
 		
 		alumnos_inscritos.clear();
 		
-		for(int i=0; i < academia.getMatriculas().size(); i++) {
-			if (academia.getMatriculas().get(i).getCurso().getID() == id)
-				alumnos_inscritos.add(academia.getMatriculas().get(i).getAlumno());
+		for(int i=0; i < matriculas.size(); i++) {
+			if (matriculas.get(i).getCurso().getID() == id) 
+				alumnos_inscritos.add(matriculas.get(i).getAlumno());
 		}
-		 
+		
 		return alumnos_inscritos;
 	}
 	
@@ -136,13 +134,13 @@ public class Curso {
 	 * 
 	 * @return devuelve el número de alumnos matriculados en un curso.
 	 */	
-	public int getNumAlumnos() {
+	public int getNumAlumnos(ArrayList<Matricula> matriculas) {
 		
-		Academia academia = new Academia();
+		alumnos_inscritos.clear();
 		
-		for(int i=0; i < academia.getMatriculas().size(); i++) {
-			if (academia.getMatriculas().get(i).getCurso().getID() == id)
-				alumnos_inscritos.add(academia.getMatriculas().get(i).getAlumno());
+		for(int i=0; i < matriculas.size(); i++) {
+			if (matriculas.get(i).getCurso().getID() == id)
+				alumnos_inscritos.add(matriculas.get(i).getAlumno());
 		}
 		 
 		return alumnos_inscritos.size();

@@ -58,10 +58,10 @@ public class Academia {
 		
 		System.out.println("\nAlumnos matriculados en los cursos (Cuando no hay):");
 		for(int i = 0; i < academia.getCursos().size(); i++) {
-			if (academia.getCursos().get(i).getAlumnos().size() > 0){
-				for(int j = 0; j < academia.getCursos().get(i).getAlumnos().size(); j++){
+			if (academia.getCursos().get(i).getAlumnos(academia.getMatriculas()).size() > 0){
+				for(int j = 0; j < academia.getCursos().get(i).getAlumnos(academia.getMatriculas()).size(); j++){
 					System.out.println("Curso: " + academia.getCursos().get(i).getID() +
-									"Alumno:" + academia.getCursos().get(i).getAlumnos().get(j));
+									"Alumno:" + academia.getCursos().get(i).getAlumnos(academia.getMatriculas()).get(j).getNombre());
 				}
 			}
 			else{
@@ -81,10 +81,10 @@ public class Academia {
 		
 		System.out.println("\nAlumnos matriculados en los cursos:");
 		for(int i = 0; i < academia.getCursos().size(); i++) {
-			if (academia.getCursos().get(i).getAlumnos().size() > 0){
-				for(int j = 0; j < academia.getCursos().get(i).getAlumnos().size(); j++){
+			if (academia.getCursos().get(i).getAlumnos(academia.getMatriculas()).size() > 0){
+				for(int j = 0; j < academia.getCursos().get(i).getAlumnos(academia.getMatriculas()).size(); j++){
 					System.out.println("Curso: " + academia.getCursos().get(i).getID() +
-									", Alumno:" + academia.getCursos().get(i).getAlumnos().get(j));
+									", Alumno:" + academia.getCursos().get(i).getAlumnos(academia.getMatriculas()).get(j).getNombre());
 				}
 			}
 			else{
@@ -211,9 +211,9 @@ public class Academia {
 	public void anadirMatricula(Matricula matricula) {
 		
 		// Comprueba si ya existe un alumno en el curso y si supera el max de alumnos
-		if (comprobarDuplicadoMatricula(matricula.getAlumno(), matricula.getCurso()) == true)
+		if (comprobarDuplicadoMatricula(matricula.getAlumno(), matricula.getCurso(), matriculas) == true)
 			System.err.println("El alumno ya existe en ese curso.");
-		else if (comprobarMaxAlumnos(matricula.getCurso()) == true)
+		else if (comprobarMaxAlumnos(matricula.getCurso(), matriculas) == true)
 			System.err.println("Curso completo. No caben más alumnos.");
 		else
 			matriculas.add(matricula);
@@ -228,10 +228,10 @@ public class Academia {
 	 * @param curso es el curso en el que se quiere comprobar si un alumno determinado ya está matriculado.
 	 * @return true si el alumno dado ya se encuentra matriculado en el curso, false si no lo está.
 	 */
-	public Boolean comprobarDuplicadoMatricula(Alumno alumno, Curso curso) {
+	public Boolean comprobarDuplicadoMatricula(Alumno alumno, Curso curso, ArrayList<Matricula> matriculas) {
 		
-		for (int i=0; i < curso.getAlumnos().size(); i++) {
-			if (alumno.getDNI() == curso.getAlumnos().get(i).getDNI())
+		for (int i=0; i < curso.getAlumnos(matriculas).size(); i++) {
+			if (alumno.getDNI() == curso.getAlumnos(matriculas).get(i).getDNI())
 				return true;
 		}
 		return false;
@@ -245,9 +245,9 @@ public class Academia {
 	 * @return true si el numero maximo de alumnos en el curso es sobrepasado, false si no lo es.
 	 */
 	
-	public Boolean comprobarMaxAlumnos(Curso curso) {
+	public Boolean comprobarMaxAlumnos(Curso curso, ArrayList<Matricula> matriculas) {
 		
-		if ( (curso.getNumAlumnos() + 1) <= curso.getNumMaxAlumnos() )
+		if ( (curso.getNumAlumnos(matriculas) + 1) <= curso.getNumMaxAlumnos() )
 			return false;
 		else
 			return true;
@@ -268,7 +268,7 @@ public class Academia {
 		int numero;
 		
 		if ( (nuevoCurso.getNivel() == (curso.getNivel() + 1) || nuevoCurso.getNivel() == (curso.getNivel() - 1)) &&
-				nuevoCurso.getIdioma() == curso.getIdioma() && comprobarMaxAlumnos(nuevoCurso) == false ){
+				nuevoCurso.getIdioma() == curso.getIdioma() && comprobarMaxAlumnos(nuevoCurso, matriculas) == false ){
 			for(int i = 0; i < matriculas.size(); i++){
 				if (alumno.equals(matriculas.get(i).getAlumno()) && curso.equals(matriculas.get(i).getCurso())){
 					numero = matriculas.get(i).getNum();

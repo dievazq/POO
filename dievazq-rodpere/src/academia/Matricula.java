@@ -86,13 +86,11 @@ public class Matricula {
 	 * 
 	 * @return devuelve la lista de matrículas sin pagar.
 	 */
-	public ArrayList<Matricula> getMatriculasSinPagar() {
+	public ArrayList<Matricula> getMatriculasSinPagar(ArrayList<Matricula> matriculas) {
 		
-		Academia academia = new Academia();
-		
-		for (int i=0; i < academia.getMatriculas().size(); i++) {
-			if (academia.getMatriculas().get(i).getPagado() == false)
-				matriculas_sin_pagar.add(academia.getMatriculas().get(i));
+		for (int i=0; i < matriculas.size(); i++) {
+			if (matriculas.get(i).getPagado() == false)
+				matriculas_sin_pagar.add(matriculas.get(i));
 		}
 		return matriculas_sin_pagar;
 	}

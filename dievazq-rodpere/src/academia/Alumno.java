@@ -67,16 +67,14 @@ public class Alumno {
 	 * 
 	 * @return devuelve el valor de la deuda adquirida por un alumno.
 	 */
-	public int getDeuda() {
+	public int getDeuda(ArrayList<Matricula> matriculas) {
 		
-		Academia academia = new Academia();
-
 		deuda = 0;
 		
-		for(int i=0; i < academia.getMatriculas().size(); i++) {
-			if ( (dni == academia.getMatriculas().get(i).getAlumno().getDNI()) &&
-					(academia.getMatriculas().get(i).getPagado() == false) )
-				deuda += academia.getMatriculas().get(i).getCurso().getPrecio();
+		for(int i=0; i < matriculas.size(); i++) {
+			if ( (dni == matriculas.get(i).getAlumno().getDNI()) &&
+					(matriculas.get(i).getPagado() == false) )
+				deuda += matriculas.get(i).getCurso().getPrecio();
 		}
 		
 		return deuda;
@@ -90,15 +88,13 @@ public class Alumno {
 	 * @return devuelve la lista de cursos en los que está matriculado un alumno.
 	 */
 	
-	public ArrayList<Curso> getCursos() {
-		
-		Academia academia = new Academia();
+	public ArrayList<Curso> getCursos(ArrayList<Matricula> matriculas) {
 		
 		cursos_inscritos.clear();
 		
-		for(int i=0; i < academia.getMatriculas().size(); i++) {
-			if (academia.getMatriculas().get(i).getAlumno().getDNI() == dni)
-				cursos_inscritos.add(academia.getMatriculas().get(i).getCurso());
+		for(int i=0; i < matriculas.size(); i++) {
+			if (matriculas.get(i).getAlumno().getDNI() == dni)
+				cursos_inscritos.add(matriculas.get(i).getCurso());
 		}
 		
 		return cursos_inscritos;
