@@ -147,4 +147,14 @@ public class Curso {
 		 
 		return alumnos_inscritos.size();
 	}
+	
+	/**
+	 * Metodo toString sobreescrito para retornar los atributos de la clase a la hora de querer imprimirlos por la salida estandar.
+	 * 
+	 * @return devuelve los atributos de la clase en forma de String
+	 */
+	public String toString() {
+		
+		return "ID: " + id + ", Idioma: " + idioma + ", Nivel: " + nivel + ", Precio: " + precio;
+	}
 }

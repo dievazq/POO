@@ -1,7 +1,5 @@
 package academia;
 
-import java.util.ArrayList;
-
 /**
  * @author Rodrigo Pérez Hidalgo y Diego Vázquez Blanco.
  * 
@@ -21,8 +19,6 @@ public class Matricula {
 	private Alumno alumno;
 	private Curso curso;
 	private Boolean pagado;
-	
-	private ArrayList<Matricula> matriculas_sin_pagar = new ArrayList<Matricula>();
 	
 	/**
 	 * Constructor de la clase. Inicializa el valor del atributo 'pagado' a false, siendo el estado de pago 
@@ -79,23 +75,6 @@ public class Matricula {
 		return pagado;
 	}
 	
-	/**
-	 * Devuelve la lista de matrículas sin pagar. Recorre la lista de matrículas realizadas en la academia 
-	 * y si encuentra una matrícula no pagada, siendo el valor se su atributo 'pagado' false, 
-	 * la añade a la lista de matrículas sin pagar.
-	 * 
-	 * @param matriculas son todas las matriculas que hay en la academia.
-	 * @return devuelve la lista de matrículas sin pagar.
-	 */
-	public ArrayList<Matricula> getMatriculasSinPagar(ArrayList<Matricula> matriculas) {
-		
-		for (int i=0; i < matriculas.size(); i++) {
-			if (matriculas.get(i).getPagado() == false)
-				matriculas_sin_pagar.add(matriculas.get(i));
-		}
-		return matriculas_sin_pagar;
-	}
-	
 
 	// SETTERS
 	/**
@@ -105,6 +84,16 @@ public class Matricula {
 	 * @param pagado modifica el atributo 'pagado' al valor pasado por este parámetro. Será false si está pendiente y true si está pagada.
 	 */
 	public void setPagado() {
-		this.pagado = true;
+		pagado = true;
+	}
+	
+	/**
+	 * Metodo toString sobreescrito para retornar los atributos de la clase a la hora de querer imprimirlos por la salida estandar.
+	 * 
+	 * @return devuelve los atributos de la clase en forma de String
+	 */
+	public String toString() {
+		
+		return "nº: " + num + ", Alumno: " + alumno.getNombre() + ", Curso: " + curso.getID() + ", Pagado: " + pagado;
 	}
 }
