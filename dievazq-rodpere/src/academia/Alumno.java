@@ -15,8 +15,7 @@ public class Alumno {
 	 * @param apellidos guarda los apellidos del alumno.
 	 * @param dni guarda el dni del alumno.
 	 * @param deuda guarda la deuda del alumno.
-	 * @param cursos_inscritos es un objeto de tipo ArrayList que guarda la lista de cursos.
-	 * en los que está matriculado un alumno.
+	 * @param cursos_inscritos es un objeto de tipo ArrayList que guarda la lista de cursos en los que está matriculado un alumno.
 	 */
 	private String nombre;
 	private String apellidos;

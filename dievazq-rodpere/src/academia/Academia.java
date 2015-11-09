@@ -14,23 +14,21 @@ import java.util.Date;
  */
 public class Academia {
 	
-     /**
-	 * @param alumnos es un objeto de tipo ArrayList que guarda la lista de alumnos en la academia.
-	 * @param cursos es un objeto de tipo ArrayList que guarda la lista de cursos en la academia.
-	 * @param matriculas es un objeto de tipo ArrayList que guarda la lista de matrículas en la academia.
-	 */
-	private ArrayList<Alumno> alumnos = new ArrayList<Alumno>();
-	private ArrayList<Curso> cursos = new ArrayList<Curso>();
-	private ArrayList<Matricula> matriculas = new ArrayList<Matricula>();
-	private ArrayList<Matricula> matriculas_sin_pagar = new ArrayList<Matricula>();
+	private ArrayList<Alumno> alumnos;
+	private ArrayList<Curso> cursos;
+	private ArrayList<Matricula> matriculas;
+	private ArrayList<Matricula> matriculas_sin_pagar;
 	
 	/**
 	 * Constructor vacío de la clase que nos va a permitir utilizar los métodos públicos de Academia en otras clases.
 	 */
 	public Academia(){
-		
+		alumnos = new ArrayList<Alumno>();
+		cursos = new ArrayList<Curso>();
+		matriculas = new ArrayList<Matricula>();
+		matriculas_sin_pagar = new ArrayList<Matricula>();
 	}
-	
+
 	
 	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
