@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * @author Rodrigo Pérez Hidalgo y Diego Vázquez Blanco.
+ * @author Rodrigo Perez Hidalgo y Diego Vazquez Blanco.
  * 
- * Implementa una academia donde se imparten cursos. Comprueba el buen funcionamiento de las clases Alumno, Curso y Matrícula.
- * Crea y mantiene la lista de cursos, alumnos y matrículas. 
- * Permite marcar una matrícula como pagada y cambiar de nivel a un alumno.
- * Comprueba si se dan las condiciones previas para las matrículas y si es posible crearlas. 
- * Prueba el resto de métodos públicos de las clases Alumno, Curso y Matrícula.
+ * Implementa una academia donde se imparten cursos. Comprueba el buen funcionamiento de las clases Alumno, Curso y Matricula.
+ * Crea y mantiene la lista de cursos, alumnos y matriculas. 
+ * Permite marcar una matricula como pagada y cambiar de nivel a un alumno.
+ * Comprueba si se dan las condiciones previas para las matriculas y si es posible crearlas. 
+ * Prueba el resto de metodos publicos de las clases Alumno, Curso y Matricula.
  */
 public class Academia {
 	
@@ -20,7 +20,7 @@ public class Academia {
 	private ArrayList<Matricula> matriculas_sin_pagar;
 	
 	/**
-	 * Constructor vacío de la clase que nos va a permitir utilizar los métodos públicos de Academia en otras clases.
+	 * Constructor vacio de la clase que nos va a permitir utilizar los metodos publicos de Academia en otras clases.
 	 */
 	public Academia(){
 		alumnos = new ArrayList<Alumno>();
@@ -33,7 +33,7 @@ public class Academia {
 	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
 		
-		// Construímos los objetos
+		// Construimos los objetos
 		Academia academia = new Academia();
 		
 		Alumno alumno1 = new Alumno("Rodrigo", "Perez Hidalgo", "14348131P");
@@ -94,7 +94,7 @@ public class Academia {
 		academia.anadirAlumno(alumno3);
 		academia.anadirCurso(curso1);
 		
-		// Añadimos las matriculas a la lista de matrículas
+		// Añadimos las matriculas a la lista de matriculas
 		academia.anadirMatricula(matricula1);
 		academia.anadirMatricula(matricula2);
 		academia.anadirMatricula(matricula3);
@@ -138,7 +138,7 @@ public class Academia {
 		Matricula matricula7 = new Matricula(7, alumno1, curso4);
 		academia.anadirMatricula(matricula7);
 		
-		System.out.println("\nIntento de matricular alumno en un curso en el que ya está:");
+		System.out.println("\nIntento de matricular alumno en un curso en el que ya esta:");
 		Matricula matricula8 = new Matricula(8, alumno1, curso1);
 		academia.anadirMatricula(matricula8);
 		
@@ -211,7 +211,7 @@ public class Academia {
 	
 	
 	/**
-	 * Método getter para obtener la lista de alumnos en la academia.
+	 * Metodo getter para obtener la lista de alumnos en la academia.
 	 * 
 	 * @return devuelve la lista de alumnos.
 	 */	
@@ -220,7 +220,7 @@ public class Academia {
 	}
 	
 	/**
-	 * Método getter para obtener la lista de cursos en la academia.
+	 * Metodo getter para obtener la lista de cursos en la academia.
 	 * 
 	 * @return devuelve la lista de cursos.
 	 */	
@@ -229,9 +229,9 @@ public class Academia {
 	}
 	
 	/**
-	 * Método getter para obtener la lista de matrículas en la academia.
+	 * Metodo getter para obtener la lista de matriculas en la academia.
 	 * 
-	 * @return devuelve la lista de matrículas.
+	 * @return devuelve la lista de matriculas.
 	 */	
 	public ArrayList<Matricula> getMatriculas() {
 		return matriculas;
@@ -284,10 +284,10 @@ public class Academia {
 	}
 	
 	/**
-	 * Añade una matrícula a la lista de matrículas en la academia. Comprueba tanto que un alumno no se matricula dos veces en un mismo curso 
-	 * como que el curso no tendría más alumnos que los máximos autorizados antes de añadir una matrícula.
+	 * Añade una matricula a la lista de matriculas en la academia. Comprueba tanto que un alumno no se matricula dos veces en un mismo curso 
+	 * como que el curso no tendria mas alumnos que los maximos autorizados antes de añadir una matricula.
 	 * 
-	 * @param matricula es la matrícula que queremos añadir a la lista de matriculas en la academia.
+	 * @param matricula es la matricula que queremos añadir a la lista de matriculas en la academia.
 	 */	
 	public void anadirMatricula(Matricula matricula) {
 		
@@ -297,7 +297,7 @@ public class Academia {
 		else {
 			// Comprueba si supera el max de alumnos
 			if (comprobarMaxAlumnos(matricula.getCurso()) == true) {
-				System.out.println("ERROR. Curso completo. No caben más alumnos.");
+				System.out.println("ERROR. Curso completo. No caben mas alumnos.");
 			}
 			else {
 				matriculas.add(matricula);
@@ -306,13 +306,13 @@ public class Academia {
 	}
 	
 	/**
-	 * Comprueba si un alumno se encuentra matrículado en curso. Si en la lista de alumnos del curso dado se encuentra 
+	 * Comprueba si un alumno se encuentra matriculado en curso. Si en la lista de alumnos del curso dado se encuentra 
 	 * un alumno con el mismo valor de DNI que el alumno dado se considera que el alumno dado ya se encuentra matriculado
 	 * y devuelve true, en caso contrario, no se encuentra matriculado en tal curso y devuelve false.
 	 * 
-	 * @param alumno es el alumno que se quiere comprobar si está matriculado en un determinado curso.
-	 * @param curso es el curso en el que se quiere comprobar si un alumno determinado ya está matriculado.
-	 * @return true si el alumno dado ya se encuentra matriculado en el curso, false si no lo está.
+	 * @param alumno es el alumno que se quiere comprobar si esta matriculado en un determinado curso.
+	 * @param curso es el curso en el que se quiere comprobar si un alumno determinado ya esta matriculado.
+	 * @return true si el alumno dado ya se encuentra matriculado en el curso, false si no lo esta.
 	 */
 	public Boolean comprobarDuplicadoMatricula(Alumno alumno, Curso curso) {
 		
@@ -324,10 +324,10 @@ public class Academia {
 	}
 	
 	/**
-	 * Comprueba si la matrícula de un nuevo alumno en un determinado curso sobrepasaría el número máximo de alumnos 
+	 * Comprueba si la matricula de un nuevo alumno en un determinado curso sobrepasaria el numero maximo de alumnos 
 	 * de ese curso. Devuelve true si lo sobrepasase y false si no lo hace.
 	 * 
-	 * @param curso es el curso del que se quiere comprobar si la inscripción de un nuevo alumno sobrepasaría su número máximo de alumnos permitido.
+	 * @param curso es el curso del que se quiere comprobar si la inscripcion de un nuevo alumno sobrepasaria su numero maximo de alumnos permitido.
 	 * @return true si el numero maximo de alumnos en el curso es sobrepasado, false si no lo es.
 	 */
 	
@@ -342,7 +342,7 @@ public class Academia {
 	/**
 	 * Cambia de nivel a un alumno dado, dentro de un mismo idioma. Antes de realizar el cambio se comprueba que cumple
 	 * con las siguiente restricciones: solo se puede subir o bajar un nivel, el curso antiguo y nuevo son del mismo idioma, 
-	 * y no se supera el número máximo de alumnos del nuevo nivel.
+	 * y no se supera el numero maximo de alumnos del nuevo nivel.
 	 * 
 	 * @param alumno es el alumno al que se quiere cambiar de nivel.
 	 * @param curso es el curso en el que se encuentra matriculado el alumno antes del cambio de nivel
@@ -362,7 +362,7 @@ public class Academia {
 			}
 			else {
 				if (comprobarMaxAlumnos(nuevoCurso) == true) {
-					System.out.println("ERROR. Curso completo. No caben más alumnos.");
+					System.out.println("ERROR. Curso completo. No caben mas alumnos.");
 				}
 				else {
 					for(int i = 0; i < matriculas.size(); i++){
@@ -379,12 +379,12 @@ public class Academia {
 	}
 	
 	/**
-	 * Devuelve la lista de matrículas sin pagar. Recorre la lista de matrículas realizadas en la academia 
-	 * y si encuentra una matrícula no pagada, siendo el valor se su atributo 'pagado' false, 
-	 * la añade a la lista de matrículas sin pagar.
+	 * Devuelve la lista de matriculas sin pagar. Recorre la lista de matriculas realizadas en la academia 
+	 * y si encuentra una matricula no pagada, siendo el valor se su atributo 'pagado' false, 
+	 * la añade a la lista de matriculas sin pagar.
 	 * 
 	 * @param matriculas son todas las matriculas que hay en la academia.
-	 * @return devuelve la lista de matrículas sin pagar.
+	 * @return devuelve la lista de matriculas sin pagar.
 	 */
 	public ArrayList<Matricula> getMatriculasSinPagar(ArrayList<Matricula> matriculas) {
 		

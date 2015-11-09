@@ -3,10 +3,10 @@ package academia;
 import java.util.ArrayList;
 
 /**
- * @author Rodrigo Pérez Hidalgo y Diego Vázquez Blanco.
+ * @author Rodrigo Perez Hidalgo y Diego Vazquez Blanco.
  * 
- * Implementa cada uno de los alumnos de una academia. Mantiene información sobre la lista de los cursos en que se inscribe, 
- * además del nombre, apellidos y DNI. Es capaz de informar de la deuda total del alumno. 
+ * Implementa cada uno de los alumnos de una academia. Mantiene informacion sobre la lista de los cursos en que se inscribe, 
+ * ademas del nombre, apellidos y DNI. Es capaz de informar de la deuda total del alumno. 
  */
 public class Alumno {
 	
@@ -15,7 +15,7 @@ public class Alumno {
 	 * @param apellidos guarda los apellidos del alumno.
 	 * @param dni guarda el dni del alumno.
 	 * @param deuda guarda la deuda del alumno.
-	 * @param cursos_inscritos es un objeto de tipo ArrayList que guarda la lista de cursos en los que está matriculado un alumno.
+	 * @param cursos_inscritos es un objeto de tipo ArrayList que guarda la lista de cursos en los que esta matriculado un alumno.
 	 */
 	private String nombre;
 	private String apellidos;
@@ -25,11 +25,11 @@ public class Alumno {
 	private ArrayList<Curso> cursos_inscritos;
 	
 	/**
-	 * Constructor de la clase. Crea una lista de cursos con inscripción vacia e 
+	 * Constructor de la clase. Crea una lista de cursos con inscripcion vacia e 
 	 * inicializa la deuda con valor 0.
-	 * @param nombre inicializa el atributo 'nombre' al valor pasado por este parámetro.
-	 * @param apellidos inicializa el atributo 'apellidos' al valor pasado por este parámetro.
-	 * @param dni inicializa el atributo 'dni' al valor pasado por este parámetro.
+	 * @param nombre inicializa el atributo 'nombre' al valor pasado por este parametro.
+	 * @param apellidos inicializa el atributo 'apellidos' al valor pasado por este parametro.
+	 * @param dni inicializa el atributo 'dni' al valor pasado por este parametro.
 	 */
 	public Alumno(String nombre, String apellidos, String dni) {
 		cursos_inscritos = new ArrayList<Curso>();
@@ -41,7 +41,7 @@ public class Alumno {
 
 	// GETTERS
 	/**
-	 * Método getter para obtener nombre existente.
+	 * Metodo getter para obtener nombre existente.
 	 * 
 	 * @return devuelve el nombre.
 	 */
@@ -50,7 +50,7 @@ public class Alumno {
 	}
 	
 	/**
-	 * Método getter para obtener DNI existente.
+	 * Metodo getter para obtener DNI existente.
 	 * 
 	 * @return devuelve el DNI.
 	 */
@@ -59,9 +59,9 @@ public class Alumno {
 	}
 	
 	/**
-	 * Devuelve la deuda adquirida por un alumno. Recorre la lista de matrículas realizadas en la 
-	 * academia y si encuentra una matrícula del alumno, identificada por comparación con su DNI, y
-	 * que no haya sido pagada, siendo el valor de su atributo Pagado false, añade el valor de tal matrícula
+	 * Devuelve la deuda adquirida por un alumno. Recorre la lista de matriculas realizadas en la 
+	 * academia y si encuentra una matricula del alumno, identificada por comparacion con su DNI, y
+	 * que no haya sido pagada, siendo el valor de su atributo Pagado false, añade el valor de tal matricula
 	 * al contador de la deuda.
 	 * 
 	 * @param matriculas son todas las matriculas que hay en la academia.
@@ -81,12 +81,12 @@ public class Alumno {
 	}
 	
 	/**
-	 * Devuelve la lista de cursos en los que está matriculado un alumno. Recorre la lista de matrículas 
-	 * realizadas en la academia y si encuentra una matrícula del alumno, identificada por comparación con su DNI, 
+	 * Devuelve la lista de cursos en los que esta matriculado un alumno. Recorre la lista de matriculas 
+	 * realizadas en la academia y si encuentra una matricula del alumno, identificada por comparacion con su DNI, 
 	 * añade el curso a la lista de cursos en los que se ha matriculado el alumno.
 	 * 
 	 * @param matriculas son todas las matriculas que hay en la academia.
-	 * @return devuelve la lista de cursos en los que está matriculado un alumno.
+	 * @return devuelve la lista de cursos en los que esta matriculado un alumno.
 	 */
 	
 	public ArrayList<Curso> getCursos(ArrayList<Matricula> matriculas) {
