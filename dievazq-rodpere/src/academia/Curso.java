@@ -112,6 +112,7 @@ public class Curso {
 	 * realizadas en la academia y si encuentra una matrícula del curso, identificada por comparación con su identificador, 
 	 * añade al alumno a la lista de alumnos que se han matriculado en el curso.
 	 * 
+	 * @param matriculas son todas las matriculas que hay en la academia.
 	 * @return devuelve la lista de alumnos matriculados en un curso.
 	 */	
 	public ArrayList<Alumno> getAlumnos(ArrayList<Matricula> matriculas) {
@@ -132,6 +133,7 @@ public class Curso {
 	 * añade al alumno a la lista de alumnos que se han matriculado en el curso. El tamaño de esa lista
 	 * es el número de alumnos matriculados en un curso.
 	 * 
+	 * @param matriculas son todas las matriculas que hay en la academia.
 	 * @return devuelve el número de alumnos matriculados en un curso.
 	 */	
 	public int getNumAlumnos(ArrayList<Matricula> matriculas) {

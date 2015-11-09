@@ -226,6 +226,7 @@ public class Academia {
 	 * 
 	 * @param alumno es el alumno que se quiere comprobar si está matriculado en un determinado curso.
 	 * @param curso es el curso en el que se quiere comprobar si un alumno determinado ya está matriculado.
+	 * @param matriculas son todas las matriculas que hay en la academia.
 	 * @return true si el alumno dado ya se encuentra matriculado en el curso, false si no lo está.
 	 */
 	public Boolean comprobarDuplicadoMatricula(Alumno alumno, Curso curso, ArrayList<Matricula> matriculas) {
@@ -242,6 +243,7 @@ public class Academia {
 	 * de ese curso. Devuelve true si lo sobrepasase y false si no lo hace.
 	 * 
 	 * @param curso es el curso del que se quiere comprobar si la inscripción de un nuevo alumno sobrepasaría su número máximo de alumnos permitido.
+	 * @param matriculas son todas las matriculas que hay en la academia.
 	 * @return true si el numero maximo de alumnos en el curso es sobrepasado, false si no lo es.
 	 */
 	

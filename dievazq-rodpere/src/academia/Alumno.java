@@ -65,6 +65,7 @@ public class Alumno {
 	 * que no haya sido pagada, siendo el valor de su atributo Pagado false, añade el valor de tal matrícula
 	 * al contador de la deuda.
 	 * 
+	 * @param matriculas son todas las matriculas que hay en la academia.
 	 * @return devuelve el valor de la deuda adquirida por un alumno.
 	 */
 	public int getDeuda(ArrayList<Matricula> matriculas) {
@@ -85,6 +86,7 @@ public class Alumno {
 	 * realizadas en la academia y si encuentra una matrícula del alumno, identificada por comparación con su DNI, 
 	 * añade el curso a la lista de cursos en los que se ha matriculado el alumno.
 	 * 
+	 * @param matriculas son todas las matriculas que hay en la academia.
 	 * @return devuelve la lista de cursos en los que está matriculado un alumno.
 	 */
 	

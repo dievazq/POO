@@ -84,6 +84,7 @@ public class Matricula {
 	 * y si encuentra una matrícula no pagada, siendo el valor se su atributo 'pagado' false, 
 	 * la añade a la lista de matrículas sin pagar.
 	 * 
+	 * @param matriculas son todas las matriculas que hay en la academia.
 	 * @return devuelve la lista de matrículas sin pagar.
 	 */
 	public ArrayList<Matricula> getMatriculasSinPagar(ArrayList<Matricula> matriculas) {
