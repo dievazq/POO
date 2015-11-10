@@ -151,8 +151,8 @@ public class Academia {
 		}
 		
 		System.out.println("\nMatriculas sin pagar:");
-		for(int i = 0; i < academia.getMatriculasSinPagar(academia.getMatriculas()).size(); i++) {
-			System.out.println(academia.getMatriculasSinPagar(academia.getMatriculas()).get(i).toString());
+		for(int i = 0; i < academia.getMatriculasSinPagar().size(); i++) {
+			System.out.println(academia.getMatriculasSinPagar().get(i).toString());
 		}
 		
 		System.out.println("\nCambiamos de nivel alumno2 (Diego) del curso F1 al F2:");
@@ -238,6 +238,24 @@ public class Academia {
 	}
 	
 	/**
+	 * Devuelve la lista de matriculas sin pagar. Recorre la lista de matriculas realizadas en la academia 
+	 * y si encuentra una matricula no pagada, siendo el valor se su atributo 'pagado' false, 
+	 * la añade a la lista de matriculas sin pagar.
+	 * 
+	 * @return devuelve la lista de matriculas sin pagar.
+	 */
+	public ArrayList<Matricula> getMatriculasSinPagar() {
+		
+		matriculas_sin_pagar.clear();
+		
+		for (int i=0; i < getMatriculas().size(); i++) {
+			if (getMatriculas().get(i).getPagado() == false)
+				matriculas_sin_pagar.add(getMatriculas().get(i));
+		}
+		return matriculas_sin_pagar;
+	}
+	
+	/**
 	 * Añade un alumno a la lista de alumnos en la academia. Recorre la lista de alumnos en la academia 
 	 * y si el DNI de alguno de ellos coincide con el del alumno que se quiere añadir se informa de su existencia en la lista, 
 	 * en caso contrario se añade el alumno a la lista.
@@ -248,14 +266,14 @@ public class Academia {
 		
 		int i = 0;
 		
-		while (i < alumnos.size()) {
-			if (alumnos.get(i).getDNI() == alumno.getDNI())
+		while (i < getAlumnos().size()) {
+			if (getAlumnos().get(i).getDNI() == alumno.getDNI())
 				break;
 			i++;
 		}
 		
-		if (i == alumnos.size())
-			alumnos.add(alumno);
+		if (i == getAlumnos().size())
+			getAlumnos().add(alumno);
 		else
 			System.out.println("ERROR. El alumno ya existe.");
 	}
@@ -300,7 +318,7 @@ public class Academia {
 				System.out.println("ERROR. Curso completo. No caben mas alumnos.");
 			}
 			else {
-				matriculas.add(matricula);
+				getMatriculas().add(matricula);
 			}
 		}
 	}
@@ -316,8 +334,8 @@ public class Academia {
 	 */
 	public Boolean comprobarDuplicadoMatricula(Alumno alumno, Curso curso) {
 		
-		for (int i=0; i < curso.getAlumnos(matriculas).size(); i++) {
-			if (alumno.getDNI() == curso.getAlumnos(matriculas).get(i).getDNI())
+		for (int i=0; i < curso.getAlumnos(getMatriculas()).size(); i++) {
+			if (alumno.getDNI() == curso.getAlumnos(getMatriculas()).get(i).getDNI())
 				return true;
 		}
 		return false;
@@ -330,10 +348,9 @@ public class Academia {
 	 * @param curso es el curso del que se quiere comprobar si la inscripcion de un nuevo alumno sobrepasaria su numero maximo de alumnos permitido.
 	 * @return true si el numero maximo de alumnos en el curso es sobrepasado, false si no lo es.
 	 */
-	
 	public Boolean comprobarMaxAlumnos(Curso curso) {
 		
-		if ( (curso.getNumAlumnos(matriculas) + 1) <= curso.getNumMaxAlumnos() )
+		if ( (curso.getNumAlumnos(getMatriculas()) + 1) <= curso.getNumMaxAlumnos() )
 			return false;
 		else
 			return true;
@@ -353,22 +370,25 @@ public class Academia {
 		Matricula matricula;
 		int numero;
 		
+		// Comprueba si el nivel del nuevo curso es como mucho 1 nivel superior o inferior.
 		if (nuevoCurso.getNivel() > (curso.getNivel() + 1) || nuevoCurso.getNivel() < (curso.getNivel() - 1)){
 			System.out.println("ERROR. No se puede subir o bajar mas de 1 nivel.");
 		}
 		else {
+			// Comprueba si el nuevo curso es del mismo idioma que el anterior.
 			if (nuevoCurso.getIdioma() != curso.getIdioma()) {
 				System.out.println("ERROR. El nuevo curso debe ser del mismo idioma.");
 			}
 			else {
+				// Comprueba si el nuevo curso está completo. 
 				if (comprobarMaxAlumnos(nuevoCurso) == true) {
 					System.out.println("ERROR. Curso completo. No caben mas alumnos.");
 				}
 				else {
-					for(int i = 0; i < matriculas.size(); i++){
-						if (alumno.equals(matriculas.get(i).getAlumno()) && curso.equals(matriculas.get(i).getCurso())){
-							numero = matriculas.get(i).getNum();
-							matriculas.remove(i);
+					for(int i = 0; i < getMatriculas().size(); i++){
+						if (alumno.equals(getMatriculas().get(i).getAlumno()) && curso.equals(getMatriculas().get(i).getCurso())){
+							numero = getMatriculas().get(i).getNum();
+							getMatriculas().remove(i);
 							matricula = new Matricula(numero, alumno, nuevoCurso);
 							anadirMatricula(matricula);
 						}
@@ -376,25 +396,6 @@ public class Academia {
 				}
 			}
 		}
-	}
-	
-	/**
-	 * Devuelve la lista de matriculas sin pagar. Recorre la lista de matriculas realizadas en la academia 
-	 * y si encuentra una matricula no pagada, siendo el valor se su atributo 'pagado' false, 
-	 * la añade a la lista de matriculas sin pagar.
-	 * 
-	 * @param matriculas son todas las matriculas que hay en la academia.
-	 * @return devuelve la lista de matriculas sin pagar.
-	 */
-	public ArrayList<Matricula> getMatriculasSinPagar(ArrayList<Matricula> matriculas) {
-		
-		matriculas_sin_pagar.clear();
-		
-		for (int i=0; i < matriculas.size(); i++) {
-			if (matriculas.get(i).getPagado() == false)
-				matriculas_sin_pagar.add(matriculas.get(i));
-		}
-		return matriculas_sin_pagar;
 	}
 	
 }

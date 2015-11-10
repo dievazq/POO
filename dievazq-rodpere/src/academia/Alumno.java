@@ -10,13 +10,6 @@ import java.util.ArrayList;
  */
 public class Alumno {
 	
-	/**
-	 * @param nombre guarda el nombre del alumno.
-	 * @param apellidos guarda los apellidos del alumno.
-	 * @param dni guarda el dni del alumno.
-	 * @param deuda guarda la deuda del alumno.
-	 * @param cursos_inscritos es un objeto de tipo ArrayList que guarda la lista de cursos en los que esta matriculado un alumno.
-	 */
 	private String nombre;
 	private String apellidos;
 	private String dni;
@@ -27,6 +20,7 @@ public class Alumno {
 	/**
 	 * Constructor de la clase. Crea una lista de cursos con inscripcion vacia e 
 	 * inicializa la deuda con valor 0.
+	 * 
 	 * @param nombre inicializa el atributo 'nombre' al valor pasado por este parametro.
 	 * @param apellidos inicializa el atributo 'apellidos' al valor pasado por este parametro.
 	 * @param dni inicializa el atributo 'dni' al valor pasado por este parametro.

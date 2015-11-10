@@ -12,18 +12,6 @@ import java.util.Date;
  */
 public class Curso {
 	
-	/**
-	 * @param id guarda el identificador unico del curso.
-	 * @param idioma guarda el idioma del curso que se imparte.
-	 * @param nivel guarda el nivel del curso.
-	 * @param fechaInicio guarda la fecha de inicio del curso.
-	 * @param fechaFinal guarda la fecha final del curso.
-	 * @param hora guarda la hora a la que se imparte el curso.
-	 * @param num_max_alumnos guarda el numero maximo de alumnos que puede contener un determinado curso.
-	 * @param precio guarda el precio del curso.
-	 * @param alumnos_inscritos es un objeto de tipo ArrayList que guarda la lista de alumnos matriculados 
-	 * en un curso.
-	 */	
 	private String id;
 	private String idioma;
 	private int nivel;
@@ -137,15 +125,8 @@ public class Curso {
 	 * @return devuelve el numero de alumnos matriculados en un curso.
 	 */	
 	public int getNumAlumnos(ArrayList<Matricula> matriculas) {
-		
-		alumnos_inscritos.clear();
-		
-		for(int i=0; i < matriculas.size(); i++) {
-			if (matriculas.get(i).getCurso().getID() == id)
-				alumnos_inscritos.add(matriculas.get(i).getAlumno());
-		}
-		 
-		return alumnos_inscritos.size();
+
+		return getAlumnos(matriculas).size();
 	}
 	
 	/**

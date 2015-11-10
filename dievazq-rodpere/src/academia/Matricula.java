@@ -8,13 +8,6 @@ package academia;
  */
 public class Matricula {
 	
-	/**
-	 * @param num guarda el numero unico de la matricula
-	 * @param alumno es un objeto de tipo Alumno que guarda el alumno al que corresponde la matricula
-	 * @param curso es un objeto de tipo Curso que guarda el curso al que corresponde la matricula
-	 * @param pagado guarda el estado del pago de la matricula. Si esta pagado sera true, si esta pendiente de pago sera false
-	 * @param matriculas_sin_pagar es un objeto de tipo ArrayList que guarda la lista de matriculas sin pagar
-	 */
 	private int num;
 	private Alumno alumno;
 	private Curso curso;
