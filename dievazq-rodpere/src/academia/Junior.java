@@ -2,8 +2,8 @@ package academia;
 
 public class Junior extends Alumno {
 
-	public Junior(String nombre, String apellidos, String dni) {
-		super(nombre, apellidos, dni);
+	public Junior(String nombre, String apellidos) {
+		super(nombre, apellidos);
 		// TODO Auto-generated constructor stub
 	}
 

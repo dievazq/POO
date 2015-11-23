@@ -3,16 +3,15 @@ package academia;
 import java.util.ArrayList;
 
 /**
- * Implementa cada uno de los alumnos de una academia. Mantiene informacion sobre la lista de los cursos en que se inscribe, 
- * ademas del nombre, apellidos y DNI. Es capaz de informar de la deuda total del alumno.
+ * Clase abstracta cada uno de los alumnos de una academia. Mantiene informacion sobre la lista de los cursos en que se inscribe, 
+ * ademas del nombre, apellidos y DNI.
  *  
  * @author Rodrigo Perez Hidalgo y Diego Vazquez Blanco.
  */
-public class Alumno {
+public abstract class Alumno {
 	
 	private String nombre;
 	private String apellidos;
-	private String dni;
 	private int deuda;
 
 	private ArrayList<Curso> cursos_inscritos;
@@ -25,11 +24,10 @@ public class Alumno {
 	 * @param apellidos inicializa el atributo 'apellidos' al valor pasado por este parametro.
 	 * @param dni inicializa el atributo 'dni' al valor pasado por este parametro.
 	 */
-	public Alumno(String nombre, String apellidos, String dni) {
+	public Alumno(String nombre, String apellidos) {
 		cursos_inscritos = new ArrayList<Curso>();
 		this.nombre = nombre;
 		this.apellidos = apellidos;
-		this.dni = dni;
 		deuda = 0;
 	}
 
@@ -44,35 +42,11 @@ public class Alumno {
 	}
 	
 	/**
-	 * Metodo getter para obtener DNI existente.
-	 * 
-	 * @return devuelve el DNI.
-	 */
-	public String getDNI() {
-		return dni;
-	}
-	
-	/**
-	 * Devuelve la deuda adquirida por un alumno. Recorre la lista de matriculas realizadas en la 
-	 * academia y si encuentra una matricula del alumno, identificada por comparacion con su DNI, y
-	 * que no haya sido pagada, siendo el valor de su atributo Pagado false, añade el valor de tal matricula
-	 * al contador de la deuda.
+	 * Método abstracto que tiene como parámetro de entrada una lista de matrículas.
 	 * 
 	 * @param matriculas son todas las matriculas que hay en la academia.
-	 * @return devuelve el valor de la deuda adquirida por un alumno.
 	 */
-	public int getDeuda(ArrayList<Matricula> matriculas) {
-		
-		deuda = 0;
-		
-		for(int i=0; i < matriculas.size(); i++) {
-			if ( (dni == matriculas.get(i).getAlumno().getDNI()) &&
-					(matriculas.get(i).getPagado() == false) )
-				deuda += matriculas.get(i).getCurso().getPrecio();
-		}
-		
-		return deuda;
-	}
+	public abstract int getDeuda(ArrayList<Matricula> matriculas);
 	
 	/**
 	 * Devuelve la lista de cursos en los que esta matriculado un alumno. Recorre la lista de matriculas 
@@ -88,7 +62,7 @@ public class Alumno {
 		cursos_inscritos.clear();
 		
 		for(int i=0; i < matriculas.size(); i++) {
-			if (matriculas.get(i).getAlumno().getDNI() == dni)
+			if (matriculas.get(i).getAlumno().equals(this))
 				cursos_inscritos.add(matriculas.get(i).getCurso());
 		}
 		
