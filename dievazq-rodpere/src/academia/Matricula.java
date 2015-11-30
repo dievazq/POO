@@ -27,6 +27,8 @@ public class Matricula {
 		this.alumno = alumno;
 		this.curso = curso;
 		pagado = false;
+		alumno.anadirMatricula(this);
+		curso.anadirMatricula(this);
     }
 
 

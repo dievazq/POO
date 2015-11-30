@@ -3,8 +3,8 @@ package academia;
 import java.util.ArrayList;
 
 /**
- * Clase abstracta cada uno de los alumnos de una academia. Mantiene informacion sobre la lista de los cursos en que se inscribe, 
- * ademas del nombre, apellidos y DNI.
+ * Clase abstracta que hereda a Adulto y Junior. Mantiene informacion sobre la lista de los cursos en que se inscribe el alumno, 
+ * ademas del nombre, apellidos y deuda.
  *  
  * @author Rodrigo Perez Hidalgo y Diego Vazquez Blanco.
  */
@@ -12,9 +12,8 @@ public abstract class Alumno {
 	
 	private String nombre;
 	private String apellidos;
-	private int deuda;
 
-	private ArrayList<Curso> cursos_inscritos;
+	private ArrayList<Matricula> matriculas_alumno;
 	
 	/**
 	 * Constructor de la clase. Crea una lista de cursos con inscripcion vacia e 
@@ -22,18 +21,24 @@ public abstract class Alumno {
 	 * 
 	 * @param nombre inicializa el atributo 'nombre' al valor pasado por este parametro.
 	 * @param apellidos inicializa el atributo 'apellidos' al valor pasado por este parametro.
-	 * @param dni inicializa el atributo 'dni' al valor pasado por este parametro.
 	 */
 	public Alumno(String nombre, String apellidos) {
-		cursos_inscritos = new ArrayList<Curso>();
+		matriculas_alumno = new ArrayList<Matricula>();
 		this.nombre = nombre;
 		this.apellidos = apellidos;
-		deuda = 0;
 	}
-
-	// GETTERS
+	
 	/**
-	 * Metodo getter para obtener nombre existente.
+	 * Metodo getter para obtene la lista de matriculas del alumno.
+	 * 
+	 * @return devuelve la lista de matriculas del alumno.
+	 */
+	public ArrayList<Matricula> getMatriculasAlumno() {
+		return matriculas_alumno;
+	}
+	
+	/**
+	 * Metodo getter para obtene atributo nombre.
 	 * 
 	 * @return devuelve el nombre.
 	 */
@@ -42,40 +47,36 @@ public abstract class Alumno {
 	}
 	
 	/**
-	 * Método abstracto que tiene como parámetro de entrada una lista de matrículas.
+	 * Metodo getter para obtener atributo apellidos.
 	 * 
-	 * @param matriculas son todas las matriculas que hay en la academia.
+	 * @return devuelve los apellidos.
 	 */
-	public abstract int getDeuda(ArrayList<Matricula> matriculas);
+	public String getApellidos() {
+		return apellidos;
+	}
 	
 	/**
-	 * Devuelve la lista de cursos en los que esta matriculado un alumno. Recorre la lista de matriculas 
-	 * realizadas en la academia y si encuentra una matricula del alumno, identificada por comparacion con su DNI, 
-	 * añade el curso a la lista de cursos en los que se ha matriculado el alumno.
+	 * Devuelve la lista de cursos en los que esta matriculado un alumno. 
+	 * Recorre la lista de matriculas del alumno realizadas en la academia y 
+	 * las añade en un array sólo de cursos en los que se ha matriculado el alumno.
 	 * 
-	 * @param matriculas son todas las matriculas que hay en la academia.
-	 * @return devuelve la lista de cursos en los que esta matriculado un alumno.
+	 * @return devuelve la lista de cursos en los que esta matriculado el alumno.
 	 */
 	
-	public ArrayList<Curso> getCursos(ArrayList<Matricula> matriculas) {
+	public ArrayList<Curso> getCursos() {
 		
-		cursos_inscritos.clear();
+		ArrayList<Curso> cursos_alumno = new ArrayList<Curso>();
 		
-		for(int i=0; i < matriculas.size(); i++) {
-			if (matriculas.get(i).getAlumno().equals(this))
-				cursos_inscritos.add(matriculas.get(i).getCurso());
+		for(int i=0; i < matriculas_alumno.size(); i++) {
+			cursos_alumno.add(matriculas_alumno.get(i).getCurso());
 		}
 		
-		return cursos_inscritos;
+		return cursos_alumno;
 	}
 	
 	/**
-	 * Metodo toString sobreescrito para retornar los atributos de la clase a la hora de querer imprimirlos por la salida estandar.
-	 * 
-	 * @return devuelve los atributos de la clase en forma de String
+	 * Método abstracto que tiene como parámetro de entrada una lista de matrículas.
 	 */
-	public String toString() {
-		
-		return "Nombre: " + nombre + ", Apellidos: " + apellidos + ", DNI: " + dni;
-	}
+	public abstract int getDeuda();
+
 }

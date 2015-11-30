@@ -6,6 +6,12 @@ public class Adulto extends Alumno {
 	
 	private String dni;
 
+	/**
+	 * 
+	 * @param nombre Atributo heredado de la superclase Alumno.
+	 * @param apellidos Atributo heredado de la superclase Alumno.
+	 * @param dni inicializa el atributo 'dni' al valor pasado por este parametro.
+	 */
 	public Adulto(String nombre, String apellidos, String dni) {
 		super(nombre, apellidos);
 		this.dni = dni;
@@ -29,16 +35,28 @@ public class Adulto extends Alumno {
 	 * @param matriculas son todas las matriculas que hay en la academia.
 	 * @return devuelve el valor de la deuda adquirida por un alumno.
 	 */
-	public int getDeuda(ArrayList<Matricula> matriculas){
+	public int getDeuda(){
 		
-		this.deuda = 0;
+		int deuda = 0;
 		
-		for(int i=0; i < matriculas.size(); i++) {
-			if ( (matriculas.get(i).getAlumno().getDNI() == dni) &&
-					(matriculas.get(i).getPagado() == false) )
-				this.deuda += matriculas.get(i).getCurso().getPrecio();
+		for(int i=0; i < getMatriculasAlumno().size(); i++) {
+			if (getMatriculasAlumno().get(i).getPagado() == false)
+				deuda += getMatriculasAlumno().get(i).getCurso().getPrecio();
 		}
+		
+		// Incluir el calculo de los junior que dependen del adulto
+		
+		return deuda;
 	}
 	
-	return deuda;
+	/**
+	 * Metodo toString sobreescrito para retornar los atributos de la clase a la hora de querer imprimirlos por la salida estandar.
+	 * 
+	 * @return devuelve los atributos de la clase en forma de String
+	 */
+	public String toString() {
+		
+		return "Nombre: " + super.getNombre() + ", Apellidos: " + super.getApellidos() + ", DNI: " + dni;
+	}
+	
 }
