@@ -29,6 +29,18 @@ public abstract class Alumno {
 	}
 	
 	/**
+	 * Añade una matricula de un alumno a la lista de matriculas del alumno que llama 
+	 * a este metodo.
+	 * 
+	 * @param matricula Matricula que se añade a la lista de matriculas del alumno que 
+	 * llama a este metodo.
+	 */
+	public void anadirMatricula(Matricula matricula) {
+		
+		matriculas_alumno.add(matricula);
+	}
+	
+	/**
 	 * Metodo getter para obtene la lista de matriculas del alumno.
 	 * 
 	 * @return devuelve la lista de matriculas del alumno.
