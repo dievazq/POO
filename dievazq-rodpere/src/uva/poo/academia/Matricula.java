@@ -1,4 +1,4 @@
-package academia;
+package uva.poo.academia;
 
 /**
  * Implementa la inscripcion de un alumno en un curso concreto. Cada matricula tiene un numero unico 

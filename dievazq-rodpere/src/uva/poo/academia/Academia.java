@@ -1,4 +1,4 @@
-package academia;
+package uva.poo.academia;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -36,11 +36,11 @@ public class Academia {
 		// Construimos los objetos
 		Academia academia = new Academia();
 		
-		Alumno alumno1 = new Alumno("Rodrigo", "Perez Hidalgo", "14348131P");
-		Alumno alumno2 = new Alumno("Diego", "Vazquez Blanco", "29831381K");
-		Alumno alumno3 = new Alumno("Felix", "Prieto Arambillet", "35323239D");
-		Alumno alumno4 = new Alumno("Pedro", "Gonzalez Herrera", "49365827H");
-		Alumno alumno5 = new Alumno("Juan", "del Valle Perez", "51656157E");
+		Adulto alumno1 = new Adulto("Rodrigo", "Perez Hidalgo", "14348131P");
+		Adulto alumno2 = new Adulto("Diego", "Vazquez Blanco", "29831381K");
+		Adulto alumno3 = new Adulto("Felix", "Prieto Arambillet", "35323239D");
+		Adulto alumno4 = new Adulto("Pedro", "Gonzalez Herrera", "49365827H");
+		Adulto alumno5 = new Adulto("Juan", "del Valle Perez", "51656157E");
 		
 		Curso curso1 = new Curso("F1", "Frances", 1, new Date(115, 9, 31), new Date(116, 6, 30), 10, 30, 100);
 		Curso curso2 = new Curso("F2", "Frances", 2, new Date(115, 9, 31), new Date(116, 6, 30), 10, 1, 200);

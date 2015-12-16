@@ -1,4 +1,4 @@
-package academia;
+package uva.poo.academia;
 
 public class MatriculaNormal extends Matricula {
 
