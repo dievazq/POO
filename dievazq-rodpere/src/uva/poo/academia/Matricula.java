@@ -31,8 +31,6 @@ public class Matricula {
 		curso.anadirMatricula(this);
     }
 
-
-	// GETTERS
     /**
 	 * Metodo getter para obtener el numero de matricula.
 	 * 
@@ -69,9 +67,7 @@ public class Matricula {
 	public Boolean getPagado() {
 		return pagado;
 	}
-	
 
-	// SETTERS
 	/**
 	 * Metodo setter para modificar el estado de pago de la matricula. 
 	 * Sera false si esta pendiente y true si esta pagada.
@@ -80,15 +76,5 @@ public class Matricula {
 	 */
 	public void setPagado() {
 		pagado = true;
-	}
-	
-	/**
-	 * Metodo toString sobreescrito para retornar los atributos de la clase a la hora de querer imprimirlos por la salida estandar.
-	 * 
-	 * @return devuelve los atributos de la clase en forma de String
-	 */
-	public String toString() {
-		
-		return "nº: " + num + ", Alumno: " + alumno.getNombre() + ", Curso: " + curso.getID() + ", Pagado: " + pagado;
 	}
 }

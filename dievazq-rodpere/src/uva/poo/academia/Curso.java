@@ -1,7 +1,7 @@
 package uva.poo.academia;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * Implementa cada uno de los cursos que organiza la academia. Cada curso tiene un codigo identificador unico 
@@ -14,14 +14,13 @@ public class Curso {
 	
 	private String id;
 	private String idioma;
-	private int nivel;
-	private Date fechaInicio;
-	private Date fechaFinal;
+	private GregorianCalendar fechaInicio;
+	private GregorianCalendar fechaFinal;
 	private int hora;
 	private int num_max_alumnos;
 	private int precio;
 
-	private ArrayList<Alumno> alumnos_inscritos;
+	private ArrayList<Matricula> matriculas_curso;
 	
 	/**
 	 * Constructor de la clase. Crea una lista de alumnos inscritos vacia.
@@ -35,25 +34,43 @@ public class Curso {
 	 * @param num_max_alumnos inicializa el atributo 'num_max_alumnos' al valor pasado por este parametro.
 	 * @param precio inicializa el atributo 'precio' al valor pasado por este parametro.
 	 */
-	public Curso(String id, String idioma, int nivel, Date fechaInicio, Date fechaFinal, int hora,
+	public Curso(String id, String idioma, GregorianCalendar fechaInicio, GregorianCalendar fechaFinal, int hora,
 					int num_max_alumnos, int precio) {
-		alumnos_inscritos = new ArrayList<Alumno>();
+		matriculas_curso = new ArrayList<Matricula>();
 		this.id = id;
 		this.idioma = idioma;
-		this.nivel = nivel;
 		this.fechaInicio = fechaInicio;
 		this.fechaFinal = fechaFinal;
 		this.hora = hora;
 		this.num_max_alumnos = num_max_alumnos;
 		this.precio = precio;
 	}
-
 	
-	// GETTERS
+	/**
+	 * Añade una matricula de un curso a la lista de matriculas del curso que llama 
+	 * a este metodo.
+	 * 
+	 * @param matricula Matricula que se añade a la lista de matriculas del curso que 
+	 * llama a este metodo.
+	 */
+	public void anadirMatricula(Matricula matricula) {
+		
+		matriculas_curso.add(matricula);
+	}
+	
+	/**
+	 * Metodo getter para obtene la lista de matriculas del curso.
+	 * 
+	 * @return devuelve la lista de matriculas del curso.
+	 */
+	public ArrayList<Matricula> getMatriculasCurso() {
+		return matriculas_curso;
+	}
+	
 	/**
 	 * Metodo getter para obtener el identificador unico del curso.
 	 * 
-	 * @return devuelve el identificador del curso.
+	 * @return id Devuelve el identificador del curso.
 	 */
 	public String getID() {
 		return id;
@@ -62,19 +79,37 @@ public class Curso {
 	/**
 	 * Metodo getter para obtener el idioma del curso que se imparte.
 	 * 
-	 * @return devuelve el idioma del curso que se imparte.
+	 * @return idioma Devuelve el idioma del curso que se imparte.
 	 */
 	public String getIdioma() {
 		return idioma;
 	}
 	
 	/**
-	 * Metodo getter para obtener el nivel del curso.
+	 * Metodo getter para obtener la fecha de inicio del curso.
 	 * 
-	 * @return devuelve el nivel del curso.
+	 * @return fechaInicio Devuelve la fecha de inicio del curso.
 	 */	
-	public int getNivel() {
-		return nivel;
+	public GregorianCalendar getFechaInicio() {
+		return fechaInicio;
+	}
+	
+	/**
+	 * Metodo getter para obtener la fecha de fin del curso.
+	 * 
+	 * @return fechaInicio la fecha de fin del curso.
+	 */	
+	public GregorianCalendar getFechaFin() {
+		return fechaFinal;
+	}
+	
+	/**
+	 * Metodo getter para obtener la hora a la que se imparte el curso.
+	 * 
+	 * @return hora Devuelve la hora a la que se imparte el curso.
+	 */	
+	public int getHora() {
+		return hora;
 	}
 	
 	/**
@@ -98,18 +133,17 @@ public class Curso {
 	/**
 	 * Devuelve la lista de alumnos matriculados en un curso. Recorre la lista de matriculas 
 	 * realizadas en la academia y si encuentra una matricula del curso, identificada por comparacion con su identificador, 
-	 * aÃ±ade al alumno a la lista de alumnos que se han matriculado en el curso.
+	 * añade al alumno a la lista de alumnos que se han matriculado en el curso.
 	 * 
 	 * @param matriculas son todas las matriculas que hay en la academia.
 	 * @return devuelve la lista de alumnos matriculados en un curso.
 	 */	
-	public ArrayList<Alumno> getAlumnos(ArrayList<Matricula> matriculas) {
+	public ArrayList<Alumno> getAlumnos() {
 		
-		alumnos_inscritos.clear();
+		ArrayList<Alumno> alumnos_inscritos = new ArrayList<Alumno>();
 		
-		for(int i=0; i < matriculas.size(); i++) {
-			if (matriculas.get(i).getCurso().getID() == id) 
-				alumnos_inscritos.add(matriculas.get(i).getAlumno());
+		for(int i=0; i < matriculas_curso.size(); i++) {
+			alumnos_inscritos.add(matriculas_curso.get(i).getAlumno());
 		}
 		
 		return alumnos_inscritos;
@@ -118,24 +152,14 @@ public class Curso {
 	/**
 	 * Devuelve el numero de alumnos matriculados en un curso. Recorre la lista de matriculas 
 	 * realizadas en la academia y si encuentra una matricula del curso, identificada por comparacion con su identificador, 
-	 * aÃ±ade al alumno a la lista de alumnos que se han matriculado en el curso. El tamaÃ±o de esa lista
+	 * añade al alumno a la lista de alumnos que se han matriculado en el curso. El tamaño de esa lista
 	 * es el numero de alumnos matriculados en un curso.
 	 * 
 	 * @param matriculas son todas las matriculas que hay en la academia.
 	 * @return devuelve el numero de alumnos matriculados en un curso.
 	 */	
-	public int getNumAlumnos(ArrayList<Matricula> matriculas) {
+	public int getNumAlumnos() {
 
-		return getAlumnos(matriculas).size();
-	}
-	
-	/**
-	 * Metodo toString sobreescrito para retornar los atributos de la clase a la hora de querer imprimirlos por la salida estandar.
-	 * 
-	 * @return devuelve los atributos de la clase en forma de String
-	 */
-	public String toString() {
-		
-		return "ID: " + id + ", Idioma: " + idioma + ", Nivel: " + nivel + ", Precio: " + precio;
+		return matriculas_curso.size();
 	}
 }

@@ -1,7 +1,7 @@
 package uva.poo.academia;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * Implementa una academia donde se imparten cursos. Comprueba el buen funcionamiento de las clases Alumno, Curso y Matricula.
@@ -20,7 +20,7 @@ public class Academia {
 	private ArrayList<Matricula> matriculas_sin_pagar;
 	
 	/**
-	 * Constructor vacio de la clase que nos va a permitir utilizar los metodos publicos de Academia en otras clases.
+	 * Constructor de la clase que nos va a permitir utilizar los metodos publicos de Academia.
 	 */
 	public Academia(){
 		alumnos = new ArrayList<Alumno>();
@@ -42,10 +42,10 @@ public class Academia {
 		Adulto alumno4 = new Adulto("Pedro", "Gonzalez Herrera", "49365827H");
 		Adulto alumno5 = new Adulto("Juan", "del Valle Perez", "51656157E");
 		
-		Curso curso1 = new Curso("F1", "Frances", 1, new Date(115, 9, 31), new Date(116, 6, 30), 10, 30, 100);
-		Curso curso2 = new Curso("F2", "Frances", 2, new Date(115, 9, 31), new Date(116, 6, 30), 10, 1, 200);
-		Curso curso3 = new Curso("F3", "Frances", 3, new Date(115, 9, 31), new Date(116, 6, 30), 10, 30, 300);
-		Curso curso4 = new Curso("I1", "Ingles", 1, new Date(115, 10, 6), new Date(116, 5, 20), 12, 3, 100);
+		CursoNormal curso1 = new CursoNormal("F1", "Frances", new GregorianCalendar(2015, 8, 31), new GregorianCalendar(2016, 5, 30), 10, 30, 100, 1);
+		CursoNormal curso2 = new CursoNormal("F2", "Frances", new GregorianCalendar(2015, 8, 31), new GregorianCalendar(2016, 5, 30), 10, 1, 200, 2);
+		CursoNormal curso3 = new CursoNormal("F3", "Frances", new GregorianCalendar(2015, 8, 31), new GregorianCalendar(2016, 5, 30), 10, 30, 300, 3);
+		CursoNormal curso4 = new CursoNormal("I1", "Ingles", new GregorianCalendar(2015, 9, 6), new GregorianCalendar(2016, 6, 5), 12, 3, 100, 1);
 		
 		Matricula matricula1 = new Matricula(1, alumno1, curso1);
 		Matricula matricula2 = new Matricula(2, alumno2, curso1);
@@ -54,7 +54,7 @@ public class Academia {
 		Matricula matricula5 = new Matricula(5, alumno5, curso4);
 		Matricula matricula6 = new Matricula(6, alumno2, curso4);
 		
-		// AÃ±adimos los cursos a la lista de cursos
+		// Añadimos los cursos a la lista de cursos
 		academia.anadirCurso(curso1);
 		academia.anadirCurso(curso2);
 		academia.anadirCurso(curso3);
@@ -78,7 +78,7 @@ public class Academia {
 			}
 		}
 		
-		// AÃ±adimos los alumnos a la lista de alumnos
+		// Añadimos los alumnos a la lista de alumnos
 		academia.anadirAlumno(alumno1);
 		academia.anadirAlumno(alumno2);
 		academia.anadirAlumno(alumno3);
@@ -94,7 +94,7 @@ public class Academia {
 		academia.anadirAlumno(alumno3);
 		academia.anadirCurso(curso1);
 		
-		// AÃ±adimos las matriculas a la lista de matriculas
+		// Añadimos las matriculas a la lista de matriculas
 		academia.anadirMatricula(matricula1);
 		academia.anadirMatricula(matricula2);
 		academia.anadirMatricula(matricula3);
@@ -357,6 +357,42 @@ public class Academia {
 	}
 	
 	/**
+	 * Comprueba si el junior está dentro de la edad del curso. Devuelve false si se encuentra en el rango 
+	 * y true si no está dentro de la edad.
+	 * Hace el calculo de la edad de un junior tomando la fecha de nacimineto y restandosela 
+	 * a la fecha actual. Si aun no es el mes de su cumpleanos (resta de los meses < 0), se 
+	 * resta uno al resultado de la resta de los años. Del mismo modo si es el mismo mes (resta 
+	 * de los meses == 0), si la resta de los dias es < 0 tambien se le resta uno a los años.
+	 * 
+	 * @param curso_junior Es el curso del que se quiere comprobar si la inscripcion de un nuevo junior se encuentra 
+	 * dentro del rango de edad.
+	 * @param junior Es el alumno
+	 * @return true si no está dentro de la edad, false si se encuentra en el rango.
+	 */
+	public Boolean comprobarEdad(CursoJunior curso_junior, Junior junior) {
+		
+	    // Calculamos las diferencias.
+	    int anios = curso_junior.getFechaInicio().get(GregorianCalendar.YEAR) - junior.getFechaNac().get(GregorianCalendar.YEAR);
+	    int meses = curso_junior.getFechaInicio().get(GregorianCalendar.MONTH) - junior.getFechaNac().get(GregorianCalendar.MONTH);
+	    int dias = curso_junior.getFechaInicio().get(GregorianCalendar.DAY_OF_MONTH) - junior.getFechaNac().get(GregorianCalendar.DAY_OF_MONTH);
+	 
+	    // Hay que comprobar si el dia de su cumpleaños es posterior
+	    // a la fecha actual, para restar 1 a la diferencia de años,
+	    // pues aun no ha sido su cumpleaños.
+	 
+	    if(meses < 0 // Aun no es el mes de su cumpleaños
+	       || (meses==0 && dias < 0)) { // o es el mes pero no ha llegado el dia.
+	 
+	        anios--;
+	    }
+		
+		if (anios >= curso_junior.getEdadMinima() && anios <= curso_junior.getEdadMaxima())
+			return false;
+		else
+			return true;
+	}
+	
+	/**
 	 * Cambia de nivel a un alumno dado, dentro de un mismo idioma. Antes de realizar el cambio se comprueba que cumple
 	 * con las siguiente restricciones: solo se puede subir o bajar un nivel, el curso antiguo y nuevo son del mismo idioma, 
 	 * y no se supera el numero maximo de alumnos del nuevo nivel.
@@ -367,7 +403,7 @@ public class Academia {
 	 */			
 	public void cambiarNivel(Alumno alumno, Curso curso, Curso nuevoCurso){
 		
-		Matricula matricula;
+		MatriculaNormal matricula;
 		int numero;
 		
 		// Comprueba si el nivel del nuevo curso es como mucho 1 nivel superior o inferior.
@@ -380,7 +416,7 @@ public class Academia {
 				System.out.println("ERROR. El nuevo curso debe ser del mismo idioma.");
 			}
 			else {
-				// Comprueba si el nuevo curso estÃ¡ completo. 
+				// Comprueba si el nuevo curso esta completo. 
 				if (comprobarMaxAlumnos(nuevoCurso) == true) {
 					System.out.println("ERROR. Curso completo. No caben mas alumnos.");
 				}

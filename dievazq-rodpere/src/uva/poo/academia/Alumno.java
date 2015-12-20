@@ -3,9 +3,9 @@ package uva.poo.academia;
 import java.util.ArrayList;
 
 /**
- * Clase abstracta que hereda a Adulto y Junior. Mantiene informacion sobre la lista de los cursos en que se inscribe el alumno, 
+ * Clase abstracta que mantiene informacion sobre la lista de los cursos en que se inscribe el alumno 
  * ademas del nombre, apellidos y deuda.
- *  
+ * 
  * @author Rodrigo Perez Hidalgo y Diego Vazquez Blanco.
  */
 public abstract class Alumno {
@@ -70,7 +70,7 @@ public abstract class Alumno {
 	/**
 	 * Devuelve la lista de cursos en los que esta matriculado un alumno. 
 	 * Recorre la lista de matriculas del alumno realizadas en la academia y 
-	 * las añade en un array sólo de cursos en los que se ha matriculado el alumno.
+	 * las a�ade en un array solo de cursos en los que se ha matriculado el alumno.
 	 * 
 	 * @return devuelve la lista de cursos en los que esta matriculado el alumno.
 	 */
@@ -87,7 +87,7 @@ public abstract class Alumno {
 	}
 	
 	/**
-	 * Método abstracto que tiene como parámetro de entrada una lista de matrículas.
+	 * Metodo abstracto que tiene como parametro de entrada una lista de matriculas.
 	 */
 	public abstract int getDeuda();
 

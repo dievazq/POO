@@ -2,6 +2,13 @@ package uva.poo.academia;
 
 import java.util.ArrayList;
 
+/**
+ * Clase que hereda de Alumno. Implementa los Adultos que se crean en Academia y mantiene la lista 
+ * de juniors de los que se encarga el Adulto además de el numero de DNI. En esta calse se redefine 
+ * el método abstracto getDeuda() del padre.
+ * 
+ * @author Rodrigo Perez Hidalgo y Diego Vazquez Blanco.
+ */
 public class Adulto extends Alumno {
 	
 	private String dni;
@@ -76,14 +83,14 @@ public class Adulto extends Alumno {
 	}
 	
 	/**
-	 * Metodo toString sobreescrito para retornar los atributos de la clase a la hora de querer imprimirlos por la salida estandar.
+	 * Metodo toString sobreescrito para retornar los atributos de la clase a la hora de querer 
+	 * imprimirlos por la salida estandar.
 	 * 
 	 * @return devuelve los atributos de la clase en forma de String
 	 */
 	@Override
 	public String toString() {
 		
-		return "Nombre: " + super.getNombre() + ", Apellidos: " + super.getApellidos() + ", DNI: " + dni;
+		return "Nombre: " + super.getNombre() + ", Apellidos: " + super.getApellidos() + ", DNI: " + dni + ", Juniors: " + juniors;
 	}
-	
 }
