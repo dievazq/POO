@@ -13,6 +13,14 @@ public class Junior extends Alumno {
 	private GregorianCalendar fechaNac;
 	private Adulto responsable;
 	
+	/**
+	 * Constructor de la clase.
+	 * 
+	 * @param nombre Atributo heredado de la clase Alumno.
+	 * @param apellidos Atributo heredado de la clase Alumno.
+	 * @param fechaNac Fecha en la que nacio el alumno junior.
+	 * @param responsable Adulto responsable del junior.
+	 */
 	public Junior(String nombre, String apellidos, GregorianCalendar fechaNac, Adulto responsable) {
 		super(nombre, apellidos);
 		// matriculas_alumno = new ArrayList<Matricula>(); En el constructor del padre.

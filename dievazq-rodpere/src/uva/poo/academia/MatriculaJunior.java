@@ -11,8 +11,16 @@ public class MatriculaJunior extends Matricula {
 
 	private int tfno_contacto;
 	
-	public MatriculaJunior(int numero, Junior alumno_junior, Curso curso, int tfno_contacto) {
-		super(numero, alumno_junior, curso);
+	/**
+	 * Construcotr de la clase.
+	 * 
+	 * @param numero Atributo heredado de la clase Curso.
+	 * @param alumno_junior Alumno Junior a incluir en la matricula.
+	 * @param curso_junior Curso Junior a incluir en la matricula.
+	 * @param tfno_contacto Telefono por seguridad en caso de necesitar ponerse en contacto.
+	 */
+	public MatriculaJunior(int numero, Junior alumno_junior, CursoJunior curso_junior, int tfno_contacto) {
+		super(numero, alumno_junior, curso_junior);
 		// pagado = false; En el constructor del padre
 		this.tfno_contacto = tfno_contacto;
 	}

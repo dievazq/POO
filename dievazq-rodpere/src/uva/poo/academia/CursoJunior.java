@@ -13,6 +13,19 @@ public class CursoJunior extends Curso {
 	private int edad_minima;
 	private int edad_maxima;
 
+	/**
+	 * Constructor de la clase.
+	 * 
+	 * @param id Atributo heredado de la clase Curso.
+	 * @param idioma Atributo heredado de la clase Curso.
+	 * @param fechaInicio Atributo heredado de la clase Curso.
+	 * @param fechaFinal Atributo heredado de la clase Curso.
+	 * @param hora Atributo heredado de la clase Curso.
+	 * @param num_max_alumnos Atributo heredado de la clase Curso.
+	 * @param precio Atributo heredado de la clase Curso.
+	 * @param edad_minima Edad minima de ingreso a fecha de inicio del curso.
+	 * @param edad_maxima Edad maxima de ingreso a fecha de inicio del curso
+	 */
 	public CursoJunior(String id, String idioma, GregorianCalendar fechaInicio, GregorianCalendar fechaFinal, int hora,
 			int num_max_alumnos, int precio, int edad_minima, int edad_maxima) {
 		super(id, idioma, fechaInicio, fechaFinal, hora, num_max_alumnos, precio);

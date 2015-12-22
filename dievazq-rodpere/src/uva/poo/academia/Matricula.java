@@ -15,7 +15,7 @@ public class Matricula {
 	
 	/**
 	 * Constructor de la clase. Inicializa el valor del atributo 'pagado' a false, siendo el estado de pago 
-	 * de la matricula el de 'pendiente'.
+	 * de la matricula el de 'pendiente'. Añade el alumno y el curso en la matricula.
 	 * 
 	 * @assert.pre No debe haber un alumno ya existente en el curso a matricular, ni tampoco superar el numero de alumnos maximo.
 	 * @assert.post Se crea la matricula del alumno en el curso.

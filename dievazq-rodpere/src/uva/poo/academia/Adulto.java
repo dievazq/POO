@@ -16,10 +16,11 @@ public class Adulto extends Alumno {
 	private ArrayList<Junior> juniors;
 
 	/**
+	 * Constructor de la clase. Crea una lista de juniors vacia.
 	 * 
-	 * @param nombre Atributo heredado de la superclase Alumno.
-	 * @param apellidos Atributo heredado de la superclase Alumno.
-	 * @param dni inicializa el atributo 'dni' al valor pasado por este parametro.
+	 * @param nombre Atributo heredado de la lase Alumno.
+	 * @param apellidos Atributo heredado de la clase Alumno.
+	 * @param dni Inicializa el atributo 'dni' al valor pasado por este parametro.
 	 */
 	public Adulto(String nombre, String apellidos, String dni) {
 		super(nombre, apellidos);
@@ -76,8 +77,6 @@ public class Adulto extends Alumno {
 			if (getMatriculasAlumno().get(i).getPagado() == false)
 				deuda += getMatriculasAlumno().get(i).getCurso().getPrecio();
 		}
-		
-		
 		
 		return deuda;
 	}

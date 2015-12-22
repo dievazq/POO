@@ -16,8 +16,7 @@ public abstract class Alumno {
 	private ArrayList<Matricula> matriculas_alumno;
 	
 	/**
-	 * Constructor de la clase. Crea una lista de cursos con inscripcion vacia e 
-	 * inicializa la deuda con valor 0.
+	 * Constructor de la clase. Crea una lista de cursos con inscripcion vacia.
 	 * 
 	 * @param nombre inicializa el atributo 'nombre' al valor pasado por este parametro.
 	 * @param apellidos inicializa el atributo 'apellidos' al valor pasado por este parametro.

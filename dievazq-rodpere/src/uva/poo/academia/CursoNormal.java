@@ -12,6 +12,18 @@ public class CursoNormal extends Curso {
 	
 	private int nivel;
 
+	/**
+	 * Constructor de la clase.
+	 * 
+	 * @param id Atributo heredado de la clase Curso.
+	 * @param idioma Atributo heredado de la clase Curso.
+	 * @param fechaInicio Atributo heredado de la clase Curso.
+	 * @param fechaFinal Atributo heredado de la clase Curso.
+	 * @param hora Atributo heredado de la clase Curso.
+	 * @param num_max_alumnos Atributo heredado de la clase Curso.
+	 * @param precio Atributo heredado de la clase Curso.
+	 * @param nivel Nivel del curso normal.
+	 */
 	public CursoNormal(String id, String idioma, GregorianCalendar fechaInicio, GregorianCalendar fechaFinal, int hora,
 			int num_max_alumnos, int precio, int nivel) {
 		super(id, idioma, fechaInicio, fechaFinal, hora, num_max_alumnos, precio);

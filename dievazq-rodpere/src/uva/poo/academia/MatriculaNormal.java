@@ -7,6 +7,13 @@ package uva.poo.academia;
  */
 public class MatriculaNormal extends Matricula {
 
+	/**
+	 * Constructor de la clase.
+	 * 
+	 * @param numero Atributo heredado de la clase Curso.
+	 * @param alumno Alumno a incluir en la matricula. Puede ser Adulto o Junior.
+	 * @param curso_normal Curso normal a incluir en la matricula.
+	 */
 	public MatriculaNormal(int numero, Alumno alumno, CursoNormal curso_normal) {
 		super(numero, alumno, curso_normal);
 		// pagado = false; En el constructor del padre

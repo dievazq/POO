@@ -87,9 +87,9 @@ public class Academia {
 			curso_normal3 = new CursoNormal("F3", "Frances", new GregorianCalendar(2015, 8, 31), new GregorianCalendar(2016, 5, 30), 10, 30, 300, 3);
 			curso_normal4 = new CursoNormal("I1", "Ingles", new GregorianCalendar(2015, 9, 6), new GregorianCalendar(2016, 6, 5), 12, 3, 100, 1);
 			
-			curso_junior1 = new CursoJunior("FJ1", "Frances Junior", new GregorianCalendar(2015, 8, 31), new GregorianCalendar(2016, 5, 30), 10, 30, 100, 4, 6);
-			curso_junior2 = new CursoJunior("FJ2", "Frances Junior", new GregorianCalendar(2015, 8, 31), new GregorianCalendar(2016, 5, 30), 10, 1, 200, 4, 6);
-			curso_junior3 = new CursoJunior("FJ3", "Frances Junior", new GregorianCalendar(2015, 8, 31), new GregorianCalendar(2016, 5, 30), 10, 30, 300, 4, 6);
+			curso_junior1 = new CursoJunior("FJ1", "Frances Junior", new GregorianCalendar(2015, 8, 31), new GregorianCalendar(2016, 5, 30), 10, 30, 50, 4, 6);
+			curso_junior2 = new CursoJunior("FJ2", "Frances Junior", new GregorianCalendar(2015, 8, 31), new GregorianCalendar(2016, 5, 30), 10, 1, 150, 4, 6);
+			curso_junior3 = new CursoJunior("FJ3", "Frances Junior", new GregorianCalendar(2015, 8, 31), new GregorianCalendar(2016, 5, 30), 10, 30, 200, 4, 6);
 			curso_junior4 = new CursoJunior("IJ1", "Ingles Junior", new GregorianCalendar(2015, 9, 6), new GregorianCalendar(2016, 6, 5), 12, 3, 50, 4, 6);
 			curso_junior5 = new CursoJunior("IJ2", "Ingles Junior", new GregorianCalendar(2015, 9, 6), new GregorianCalendar(2016, 6, 5), 12, 3, 150, 7, 9);
 

@@ -25,7 +25,7 @@ public class Curso {
 	/**
 	 * Constructor de la clase. Crea una lista de alumnos inscritos vacia.
 	 * 
-	 * @param id inicializa el atributo 'id' al valor pasado por este parametro.
+	 * @param id Inicializa el atributo 'id' al valor pasado por este parametro.
 	 * @param idioma inicializa el atributo 'idioma' al valor pasado por este parametro.
 	 * @param fechaInicio inicializa el atributo 'fechaInicio' al valor pasado por este parametro.
 	 * @param fechaFinal inicializa el atributo 'fechaFinal' al valor pasado por este parametro.
