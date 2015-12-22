@@ -15,6 +15,9 @@ public class CursoNormal extends Curso {
 	/**
 	 * Constructor de la clase.
 	 * 
+	 * @assert.pre El nivel del curso normal debe ser mayor que cero.
+	 * @assert.post Se crea el objeto CursoNormal.
+	 * 
 	 * @param id Atributo heredado de la clase Curso.
 	 * @param idioma Atributo heredado de la clase Curso.
 	 * @param fechaInicio Atributo heredado de la clase Curso.
@@ -27,6 +30,7 @@ public class CursoNormal extends Curso {
 	public CursoNormal(String id, String idioma, GregorianCalendar fechaInicio, GregorianCalendar fechaFinal, int hora,
 			int num_max_alumnos, int precio, int nivel) {
 		super(id, idioma, fechaInicio, fechaFinal, hora, num_max_alumnos, precio);
+		assert(nivel > 0): "ERROR. El nivel del curso normal " + this.getID() + " es menor que cero.";
 		// matriculas_curso = new ArrayList<Matricula>(); En el constructor del padre.
 		this.nivel = nivel;
 	}

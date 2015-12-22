@@ -14,6 +14,9 @@ public class MatriculaJunior extends Matricula {
 	/**
 	 * Construcotr de la clase.
 	 * 
+	 * @assert.pre El numero de telefono debe estar entre 600 000 000 y 699 999 999.
+	 * @assert.post Se crea la matricula junior del alumno junior en el curso junior.
+	 * 
 	 * @param numero Atributo heredado de la clase Curso.
 	 * @param alumno_junior Alumno Junior a incluir en la matricula.
 	 * @param curso_junior Curso Junior a incluir en la matricula.
@@ -21,6 +24,11 @@ public class MatriculaJunior extends Matricula {
 	 */
 	public MatriculaJunior(int numero, Junior alumno_junior, CursoJunior curso_junior, int tfno_contacto) {
 		super(numero, alumno_junior, curso_junior);
+		assert(comprobarEdad(curso_junior, alumno_junior) == false): 
+			"ERROR. Edad del junior " + alumno_junior.getNombre() + " no esta en el rango de edades del curso junior " 
+				+ curso_junior.getID() + ".";
+		assert(600000000 <= tfno_contacto && tfno_contacto <= 699999999): 
+			"ERROR. Telefono de contacto incorrecto en matricula junior numero" + this.getNum() + ".";
 		// pagado = false; En el constructor del padre
 		this.tfno_contacto = tfno_contacto;
 	}

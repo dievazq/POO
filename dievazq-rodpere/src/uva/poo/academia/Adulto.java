@@ -18,12 +18,16 @@ public class Adulto extends Alumno {
 	/**
 	 * Constructor de la clase. Crea una lista de juniors vacia.
 	 * 
+	 * @assert.pre El DNI debe tener 9 caracteres.
+	 * @assert.post Se crea el objeto Adulto.
+	 * 
 	 * @param nombre Atributo heredado de la lase Alumno.
 	 * @param apellidos Atributo heredado de la clase Alumno.
 	 * @param dni Inicializa el atributo 'dni' al valor pasado por este parametro.
 	 */
 	public Adulto(String nombre, String apellidos, String dni) {
 		super(nombre, apellidos);
+		assert(dni.length() == 9): "ERROR. El DNI debe tener 9 caracteres.";
 		// matriculas_alumno = new ArrayList<Matricula>(); En el constructor del padre.
 		juniors = new ArrayList<Junior>();
 		this.dni = dni;

@@ -16,6 +16,10 @@ public class CursoJunior extends Curso {
 	/**
 	 * Constructor de la clase.
 	 * 
+	 * @assert.pre  Las edades minima y maxima deben estar comprendidas entre 4 y 12 ambos incluidos.
+	 * 				La edad maxima debe ser mayor que la edad minima.
+	 * @assert.post Se crea el objeto CursoJunior.
+	 * 
 	 * @param id Atributo heredado de la clase Curso.
 	 * @param idioma Atributo heredado de la clase Curso.
 	 * @param fechaInicio Atributo heredado de la clase Curso.
@@ -29,6 +33,8 @@ public class CursoJunior extends Curso {
 	public CursoJunior(String id, String idioma, GregorianCalendar fechaInicio, GregorianCalendar fechaFinal, int hora,
 			int num_max_alumnos, int precio, int edad_minima, int edad_maxima) {
 		super(id, idioma, fechaInicio, fechaFinal, hora, num_max_alumnos, precio);
+		assert(4 <= edad_minima && edad_maxima <= 12): "ERROR. Las edades no estan entre 4 y 12 (ambos incluidos).";
+		assert(edad_minima < edad_maxima): "ERROR. La edad maxima debe ser mayor que la edad minima.";
 		// matriculas_curso = new ArrayList<Matricula>(); En el constructor del padre.
 		this.edad_minima = edad_minima;
 		this.edad_maxima = edad_maxima;

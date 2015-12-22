@@ -25,6 +25,11 @@ public class Curso {
 	/**
 	 * Constructor de la clase. Crea una lista de alumnos inscritos vacia.
 	 * 
+	 * @assert.pre  La hora de comienzo de las clases debe estar entre las 8 y las 22.
+	 * 				El numero max de alumnos debe ser 1 o mayor.
+	 * 				El precio del curso debe ser 0 o mayor.
+	 * @assert.post Se crea el objeto Curso.
+	 * 
 	 * @param id Inicializa el atributo 'id' al valor pasado por este parametro.
 	 * @param idioma inicializa el atributo 'idioma' al valor pasado por este parametro.
 	 * @param fechaInicio inicializa el atributo 'fechaInicio' al valor pasado por este parametro.
@@ -35,6 +40,9 @@ public class Curso {
 	 */
 	public Curso(String id, String idioma, GregorianCalendar fechaInicio, GregorianCalendar fechaFinal, int hora,
 					int num_max_alumnos, int precio) {
+		assert(8 <= hora && hora <= 22): "ERROR. Hora del curso " + this.getID() + " incorrecto (debe ser de 8 a 22).";
+		assert(num_max_alumnos >= 1): "ERROR. Numero max de alumnos del curso " + this.getID() + " es menor que uno.";
+		assert(precio >= 0): "ERROR. Precio del curso " + this.getID() + " es menor que cero.";
 		matriculas_curso = new ArrayList<Matricula>();
 		this.id = id;
 		this.idioma = idioma;

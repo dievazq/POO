@@ -17,7 +17,8 @@ public class Matricula {
 	 * Constructor de la clase. Inicializa el valor del atributo 'pagado' a false, siendo el estado de pago 
 	 * de la matricula el de 'pendiente'. Añade el alumno y el curso en la matricula.
 	 * 
-	 * @assert.pre No debe haber un alumno ya existente en el curso a matricular, ni tampoco superar el numero de alumnos maximo.
+	 * @assert.pre  No debe haber un alumno ya existente en el curso a matricular, ni tampoco superar el numero de alumnos maximo.
+	 * 				El numero de matricula debe ser mayor que cero.
 	 * @assert.post Se crea la matricula del alumno en el curso.
 	 * 
 	 * @param numero inicializa el atributo 'num' al valor pasado por este parametro.
@@ -26,8 +27,10 @@ public class Matricula {
 	 */
     public Matricula(int numero, Alumno alumno, Curso curso) {
     	
-    	assert(comprobarDuplicadoMatricula(alumno, curso) == false): "ERROR. El alumno " + alumno.getNombre() + " ya existe en ese curso.";
+    	assert(comprobarDuplicadoMatricula(alumno, curso) == false): 
+    		"ERROR. El alumno " + alumno.getNombre() + " ya existe en el curso " + curso.getID() + ".";
 		assert(comprobarMaxAlumnos(curso) == false): "ERROR. El curso " + curso.getID() + " ya esta completo.";
+		assert(numero > 0): "ERROR. El numero de matricula debe ser mayor que cero.";
 	
 		this.num = numero;
 		this.alumno = alumno;
