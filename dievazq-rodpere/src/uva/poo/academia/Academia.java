@@ -90,8 +90,8 @@ public class Academia {
 			curso_junior1 = new CursoJunior("FJ1", "Frances Junior", new GregorianCalendar(2015, 8, 31), new GregorianCalendar(2016, 5, 30), 10, 30, 100, 4, 6);
 			curso_junior2 = new CursoJunior("FJ2", "Frances Junior", new GregorianCalendar(2015, 8, 31), new GregorianCalendar(2016, 5, 30), 10, 1, 200, 4, 6);
 			curso_junior3 = new CursoJunior("FJ3", "Frances Junior", new GregorianCalendar(2015, 8, 31), new GregorianCalendar(2016, 5, 30), 10, 30, 300, 4, 6);
-			curso_junior4 = new CursoJunior("IJ1", "Ingles Junior", new GregorianCalendar(2015, 9, 6), new GregorianCalendar(2016, 6, 5), 12, 3, 100, 4, 6);
-			curso_junior5 = new CursoJunior("IJ2", "Ingles Junior", new GregorianCalendar(2015, 9, 6), new GregorianCalendar(2016, 6, 5), 12, 3, 100, 7, 9);
+			curso_junior4 = new CursoJunior("IJ1", "Ingles Junior", new GregorianCalendar(2015, 9, 6), new GregorianCalendar(2016, 6, 5), 12, 3, 50, 4, 6);
+			curso_junior5 = new CursoJunior("IJ2", "Ingles Junior", new GregorianCalendar(2015, 9, 6), new GregorianCalendar(2016, 6, 5), 12, 3, 150, 7, 9);
 
 			matricula_normal1 = new MatriculaNormal(1, adulto1, curso_normal1);
 			matricula_normal2 = new MatriculaNormal(2, adulto2, curso_normal1);
@@ -99,8 +99,8 @@ public class Academia {
 			matricula_normal4 = new MatriculaNormal(4, adulto4, curso_normal4);
 			matricula_normal5 = new MatriculaNormal(5, adulto5, curso_normal4);
 			matricula_normal6 = new MatriculaNormal(6, adulto2, curso_normal4);
-			matricula_normal7 = new MatriculaNormal(7, junior2, curso_normal4);
-			matricula_normal8 = new MatriculaNormal(8, junior6, curso_normal4);
+			matricula_normal7 = new MatriculaNormal(7, junior2, curso_normal3);
+			matricula_normal8 = new MatriculaNormal(8, junior6, curso_normal3);
 			
 			matricula_junior1 = new MatriculaJunior(1, junior1, curso_junior1, 678945613);
 			matricula_junior2 = new MatriculaJunior(2, junior2, curso_junior1, 654987312);
@@ -457,7 +457,7 @@ public class Academia {
 	 */
 	public void anadirAlumno(Alumno alumno) {
 		
-		assert(comprobarAlumnoExistente(alumno) == false): "ERROR. El alumno ya existe.";
+		assert(comprobarAlumnoExistente(alumno) == false): "ERROR. El alumno " + alumno.getNombre() + " ya existe.";
 		getAlumnos().add(alumno);
 	}
 	
@@ -473,7 +473,7 @@ public class Academia {
 	 */	
 	public void anadirCurso(Curso curso) {
 		
-		assert(comprobarCursoExistente(curso) == false): "ERROR. El curso ya existe.";
+		assert(comprobarCursoExistente(curso) == false): "ERROR. El curso " + curso.getID() + " ya existe.";
 		cursos.add(curso);
 	}
 	

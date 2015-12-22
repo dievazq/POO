@@ -26,8 +26,8 @@ public class Matricula {
 	 */
     public Matricula(int numero, Alumno alumno, Curso curso) {
     	
-    	assert(comprobarDuplicadoMatricula(alumno, curso) == false): "ERROR. El alumno ya existe en ese curso.";
-		assert(comprobarMaxAlumnos(curso) == false): "ERROR. El curso ya esta completo.";
+    	assert(comprobarDuplicadoMatricula(alumno, curso) == false): "ERROR. El alumno " + alumno.getNombre() + " ya existe en ese curso.";
+		assert(comprobarMaxAlumnos(curso) == false): "ERROR. El curso " + curso.getID() + " ya esta completo.";
 	
 		this.num = numero;
 		this.alumno = alumno;
