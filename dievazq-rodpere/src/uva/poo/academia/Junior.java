@@ -67,6 +67,6 @@ public class Junior extends Alumno {
 	@Override
 	public String toString() {
 		
-		return "Nombre: " + super.getNombre() + ", Apellidos: " + super.getApellidos() + ", Responsable: " + responsable;
+		return "Nombre: " + super.getNombre() + ", Apellidos: " + super.getApellidos() + ", Responsable: " + responsable.getNombre();
 	}
 }

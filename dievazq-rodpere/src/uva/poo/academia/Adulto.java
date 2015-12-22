@@ -90,6 +90,11 @@ public class Adulto extends Alumno {
 	@Override
 	public String toString() {
 		
-		return "Nombre: " + super.getNombre() + ", Apellidos: " + super.getApellidos() + ", DNI: " + dni + ", Juniors: " + juniors;
+		String junior = "";
+		
+		for (int i = 0; i < juniors.size(); i++)
+			junior.concat(juniors.get(i).toString() + ", ");
+		
+		return "Nombre: " + super.getNombre() + ", Apellidos: " + super.getApellidos() + ", DNI: " + dni + ", Juniors: " + junior;
 	}
 }

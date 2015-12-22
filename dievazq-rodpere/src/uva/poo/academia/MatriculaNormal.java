@@ -1,5 +1,7 @@
 package uva.poo.academia;
 
+import java.util.ArrayList;
+
 /**
  * Clase que hereda de Matricula. Implementa las matriculas normales que se crean en Academia. 
  * 
@@ -31,8 +33,8 @@ public class MatriculaNormal extends Matricula {
 	 * con las siguiente restricciones: solo se puede subir o bajar un nivel, el curso antiguo y nuevo son del mismo idioma, 
 	 * y no se supera el numero maximo de alumnos del nuevo nivel.
 	 * 
-	 * @assert.pre Los niveles entre curso y nuevoCurso no deben distar mas de 1 nivel. 
-	 * 				 El idioma de curso y nuevoCurso debe ser el mismo.
+	 * @assert.pre 	 El idioma de curso y nuevoCurso debe ser el mismo.
+	 * 				 Los niveles entre curso y nuevoCurso no deben distar mas de 1 nivel y no debe ser el mismo nivel. 
 	 * 				 El numero de alumnos de nuevoCurso contando el cambio de nivel, no debe 
 	 * 					sobrepasar el numero maximo de alumnos.
 	 * @assert.post Se cambia el curso normal de la matricula normal del alumno que solicita el cambio.
@@ -40,21 +42,28 @@ public class MatriculaNormal extends Matricula {
 	 * @param alumno Es el alumno al que se quiere cambiar de nivel.
 	 * @param curso Es el curso normal en el que se encuentra matriculado el alumno antes del cambio de nivel.
 	 * @param nuevoCurso Es el nuevo curso normal en el que se quiere incribir al alumno.
+	 * @param matriculas Lista de todas las matriculas de la academia.
 	 */			
-	public void cambiarNivel(Alumno alumno, CursoNormal curso, CursoNormal nuevoCurso){
+	public void cambiarNivel(Alumno alumno, CursoNormal curso, CursoNormal nuevoCurso, ArrayList<Matricula> matriculas){
 		
-		assert(nuevoCurso.getNivel() > (curso.getNivel() + 1) || 
-				nuevoCurso.getNivel() < (curso.getNivel() - 1)): 
+		MatriculaNormal matricula_normal;
+		
+		assert(nuevoCurso.getIdioma() == curso.getIdioma()): 
+			"ERROR. El nuevo curso debe ser del mismo idioma.";
+		assert(nuevoCurso.getNivel() == (curso.getNivel() + 1) || 
+				nuevoCurso.getNivel() == (curso.getNivel() - 1)): 
 					"ERROR. No se puede subir o bajar mas de 1 nivel.";
-		assert(nuevoCurso.getIdioma() != curso.getIdioma()): 
-				"ERROR. El nuevo curso debe ser del mismo idioma.";
-		assert(comprobarMaxAlumnos(nuevoCurso) == true): 
+		assert(comprobarMaxAlumnos(nuevoCurso) == false): 
 				"ERROR. Curso completo. No caben mas alumnos.";
 		
-		for(int i = 0; i < alumno.getMatriculasAlumno().size(); i++){
-			if (alumno.getMatriculasAlumno().get(i).getCurso().equals(curso))
+		for(int i = 0; i < matriculas.size(); i++){
+			if (matriculas.get(i).getAlumno().equals(alumno) && matriculas.get(i).getCurso().equals(curso))
 			{
-				alumno.getMatriculasAlumno().get(i).setCurso(nuevoCurso);
+				alumno.getMatriculasAlumno().remove(matriculas.get(i));
+				curso.getMatriculasCurso().remove(matriculas.get(i));
+				matriculas.remove(i);
+				matricula_normal = new MatriculaNormal(matriculas.size() + 1, alumno, nuevoCurso);
+				matriculas.add(matricula_normal);
 			}
 		}
 	}

@@ -49,6 +49,7 @@ public class CursoNormal extends Curso {
 	@Override
 	public String toString() {
 		
-		return "ID: " + super.getID() + ", Idioma: " + super.getIdioma() + ", Nivel: " + nivel + ", Precio: " + super.getPrecio();
+		return "ID: " + super.getID() + ", Idioma: " + super.getIdioma() + ", Nivel: " + nivel + 
+				", Precio: " + super.getPrecio() + ", MaxAlumnos: " + super.getNumMaxAlumnos();
 	}
 }

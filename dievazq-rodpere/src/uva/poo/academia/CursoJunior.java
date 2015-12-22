@@ -62,6 +62,6 @@ public class CursoJunior extends Curso {
 	public String toString() {
 		
 		return "ID: " + super.getID() + ", Idioma: " + super.getIdioma() + ", Precio: " + super.getPrecio() +
-				", De " + edad_minima + " a " + edad_maxima + " años";
+				", De " + edad_minima + " a " + edad_maxima + " años" + ", MaxAlumnos: " + super.getNumMaxAlumnos();
 	}
 }

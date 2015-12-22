@@ -81,7 +81,36 @@ public class Academia {
 			junior4 = new Junior("David (Junior)", "Iruela Pinto", new GregorianCalendar(2010, 10, 17), adulto2);
 			junior5 = new Junior("Eric (Junior)", "Hergueta Jimenez", new GregorianCalendar(2009, 5, 29), adulto3);
 			junior6 = new Junior("Ivan (Junior)", "Romero Pascual", new GregorianCalendar(2009, 11, 15), adulto3);
+		} catch (AssertionError e){
+			 String message = e.getMessage();
+		     System.out.println(message);
+		}
 			
+		// Añadimos los adultos y junior a la lista de alumnos
+		try {
+			academia.anadirAlumno(adulto1);
+			academia.anadirAlumno(adulto2);
+			academia.anadirAlumno(adulto3);
+			academia.anadirAlumno(adulto4);
+			academia.anadirAlumno(adulto5);
+	
+			academia.anadirAlumno(junior1);
+			academia.anadirAlumno(junior2);
+			academia.anadirAlumno(junior3);
+			academia.anadirAlumno(junior4);
+			academia.anadirAlumno(junior5);
+			academia.anadirAlumno(junior6);
+		} catch (AssertionError e){
+			 String message = e.getMessage();
+		     System.out.println(message);
+		}
+		
+		System.out.println("\nALUMNOS:");
+		for(int i = 0; i < academia.getAlumnos().size(); i++) {
+			System.out.println(academia.getAlumnos().get(i).toString());
+		}
+			
+		try {
 			curso_normal1 = new CursoNormal("F1", "Frances", new GregorianCalendar(2015, 8, 31), new GregorianCalendar(2016, 5, 30), 10, 30, 100, 1);
 			curso_normal2 = new CursoNormal("F2", "Frances", new GregorianCalendar(2015, 8, 31), new GregorianCalendar(2016, 5, 30), 10, 1, 200, 2);
 			curso_normal3 = new CursoNormal("F3", "Frances", new GregorianCalendar(2015, 8, 31), new GregorianCalendar(2016, 5, 30), 10, 30, 300, 3);
@@ -92,22 +121,6 @@ public class Academia {
 			curso_junior3 = new CursoJunior("FJ3", "Frances Junior", new GregorianCalendar(2015, 8, 31), new GregorianCalendar(2016, 5, 30), 10, 30, 200, 4, 6);
 			curso_junior4 = new CursoJunior("IJ1", "Ingles Junior", new GregorianCalendar(2015, 9, 6), new GregorianCalendar(2016, 6, 5), 12, 3, 50, 4, 6);
 			curso_junior5 = new CursoJunior("IJ2", "Ingles Junior", new GregorianCalendar(2015, 9, 6), new GregorianCalendar(2016, 6, 5), 12, 3, 150, 7, 9);
-
-			matricula_normal1 = new MatriculaNormal(1, adulto1, curso_normal1);
-			matricula_normal2 = new MatriculaNormal(2, adulto2, curso_normal1);
-			matricula_normal3 = new MatriculaNormal(3, adulto3, curso_normal3);
-			matricula_normal4 = new MatriculaNormal(4, adulto4, curso_normal4);
-			matricula_normal5 = new MatriculaNormal(5, adulto5, curso_normal4);
-			matricula_normal6 = new MatriculaNormal(6, adulto2, curso_normal4);
-			matricula_normal7 = new MatriculaNormal(7, junior2, curso_normal3);
-			matricula_normal8 = new MatriculaNormal(8, junior6, curso_normal3);
-			
-			matricula_junior1 = new MatriculaJunior(1, junior1, curso_junior1, 678945613);
-			matricula_junior2 = new MatriculaJunior(2, junior2, curso_junior1, 654987312);
-			matricula_junior4 = new MatriculaJunior(4, junior4, curso_junior4, 654321987);
-			matricula_junior3 = new MatriculaJunior(3, junior3, curso_junior3, 631265498);
-			matricula_junior5 = new MatriculaJunior(5, junior5, curso_junior4, 675341289);
-			matricula_junior6 = new MatriculaJunior(6, junior6, curso_junior4, 695187463);
 		} catch (AssertionError e){
 			 String message = e.getMessage();
 		     System.out.println(message);
@@ -135,7 +148,7 @@ public class Academia {
 			System.out.println(academia.getCursos().get(i).toString());
 		}
 		
-		System.out.println("\nAlumnos matriculados en los cursos (Cuando no hay alumnos):");
+		System.out.println("\nAlumnos matriculados en los cursos (Cuando no hay alumnos matriculados):");
 		for(int i = 0; i < academia.getCursos().size(); i++) {
 			System.out.println("Curso: " + academia.getCursos().get(i).getID());
 			if (academia.getCursos().get(i).getAlumnos().size() > 0){
@@ -147,53 +160,23 @@ public class Academia {
 				System.out.println("   No hay alumnos en el curso " + academia.getCursos().get(i).getID());
 			}
 		}
-		
-		// Añadimos los adultos y junior a la lista de alumnos
+				
 		try {
-			academia.anadirAlumno(adulto1);
-			academia.anadirAlumno(adulto2);
-			academia.anadirAlumno(adulto3);
-			academia.anadirAlumno(adulto4);
-			academia.anadirAlumno(adulto5);
-	
-			academia.anadirAlumno(junior1);
-			academia.anadirAlumno(junior2);
-			academia.anadirAlumno(junior3);
-			academia.anadirAlumno(junior4);
-			academia.anadirAlumno(junior5);
-			academia.anadirAlumno(junior6);
-		} catch (AssertionError e){
-			 String message = e.getMessage();
-		     System.out.println(message);
-		}
-		
-		System.out.println("\nALUMNOS:");
-		for(int i = 0; i < academia.getAlumnos().size(); i++) {
-			System.out.println(academia.getAlumnos().get(i).toString());
-		}
-		
-		System.out.println("\nIntentamos añadir adulto, junior, curso normal y curso junior ya existentes:");
-		try {
-			academia.anadirAlumno(adulto3);
-		} catch (AssertionError e){
-			 String message = e.getMessage();
-		     System.out.println(message);
-		}
-		try {
-			academia.anadirAlumno(junior2);
-		} catch (AssertionError e){
-			 String message = e.getMessage();
-		     System.out.println(message);
-		}
-		try {
-			academia.anadirCurso(curso_normal1);
-		} catch (AssertionError e){
-			 String message = e.getMessage();
-		     System.out.println(message);
-		}
-		try {
-			academia.anadirCurso(curso_junior3);
-		
+			matricula_normal1 = new MatriculaNormal(1, adulto1, curso_normal1);
+			matricula_normal2 = new MatriculaNormal(2, adulto2, curso_normal1);
+			matricula_normal3 = new MatriculaNormal(3, adulto3, curso_normal3);
+			matricula_normal4 = new MatriculaNormal(4, adulto4, curso_normal4);
+			matricula_normal5 = new MatriculaNormal(5, adulto5, curso_normal4);
+			matricula_normal6 = new MatriculaNormal(6, adulto2, curso_normal4);
+			matricula_normal7 = new MatriculaNormal(7, junior2, curso_normal3);
+			matricula_normal8 = new MatriculaNormal(8, junior6, curso_normal3);
+			
+			matricula_junior1 = new MatriculaJunior(1, junior1, curso_junior1, 678945613);
+			matricula_junior2 = new MatriculaJunior(2, junior2, curso_junior1, 654987312);
+			matricula_junior4 = new MatriculaJunior(4, junior4, curso_junior4, 654321987);
+			matricula_junior3 = new MatriculaJunior(3, junior3, curso_junior3, 631265498);
+			matricula_junior5 = new MatriculaJunior(5, junior5, curso_junior4, 675341289);
+			matricula_junior6 = new MatriculaJunior(6, junior6, curso_junior4, 695187463);
 		} catch (AssertionError e){
 			 String message = e.getMessage();
 		     System.out.println(message);
@@ -251,6 +234,33 @@ public class Academia {
 				System.out.println("   No tiene cursos el alumno " + academia.getAlumnos().get(i).getNombre());
 			}
 			System.out.println("   Deuda: " + academia.getAlumnos().get(i).getDeuda());
+		}
+				
+		System.out.println("\nIntentamos añadir adulto, junior, curso normal y curso junior ya existentes:");
+		try {
+			academia.anadirAlumno(adulto3);
+		} catch (AssertionError e){
+			 String message = e.getMessage();
+		     System.out.println(message);
+		}
+		try {
+			academia.anadirAlumno(junior2);
+		} catch (AssertionError e){
+			 String message = e.getMessage();
+		     System.out.println(message);
+		}
+		try {
+			academia.anadirCurso(curso_normal1);
+		} catch (AssertionError e){
+			 String message = e.getMessage();
+		     System.out.println(message);
+		}
+		try {
+			academia.anadirCurso(curso_junior3);
+		
+		} catch (AssertionError e){
+			 String message = e.getMessage();
+		     System.out.println(message);
 		}
 		
 		System.out.println("\nIntento de matricular adulto en curso normal lleno:");
@@ -326,7 +336,7 @@ public class Academia {
 		
 		System.out.println("\nCambiamos de nivel adulto2 (Diego) del curso normal F1 al F2:");
 		try {
-			matricula_normal.cambiarNivel(adulto2, curso_normal1, curso_normal2);
+			matricula_normal.cambiarNivel(adulto2, curso_normal1, curso_normal2, academia.getMatriculas());
 		} catch (AssertionError e){
 			 String message = e.getMessage();
 		     System.out.println(message);
@@ -361,7 +371,7 @@ public class Academia {
 		
 		System.out.println("\nCambiamos de nivel adulto1 (Rodrigo) del curso normal F1 al F3 (Mas de 1 nivel):");
 		try {
-			matricula_normal.cambiarNivel(adulto1, curso_normal1, curso_normal3);
+			matricula_normal.cambiarNivel(adulto1, curso_normal1, curso_normal3, academia.getMatriculas());
 		} catch (AssertionError e){
 			 String message = e.getMessage();
 		     System.out.println(message);
@@ -369,7 +379,7 @@ public class Academia {
 		
 		System.out.println("\nCambiamos de nivel adulto1 (Rodrigo) del curso normal F1 al I1 (Distinto idioma):");
 		try {
-			matricula_normal.cambiarNivel(adulto1, curso_normal1, curso_normal4);
+			matricula_normal.cambiarNivel(adulto1, curso_normal1, curso_normal4, academia.getMatriculas());
 		} catch (AssertionError e){
 			 String message = e.getMessage();
 		     System.out.println(message);
@@ -377,7 +387,7 @@ public class Academia {
 		
 		System.out.println("\nCambiamos de nivel adulto1 (Rodrigo) del curso normal F1 al F2 (Supera max alumnos):");
 		try {
-			matricula_normal.cambiarNivel(adulto1, curso_normal1, curso_normal2);
+			matricula_normal.cambiarNivel(adulto1, curso_normal1, curso_normal2, academia.getMatriculas());
 		} catch (AssertionError e){
 			 String message = e.getMessage();
 		     System.out.println(message);
@@ -394,6 +404,20 @@ public class Academia {
 			else{
 				System.out.println("   No hay alumnos en el curso " + academia.getCursos().get(i).getID());
 			}
+		}
+		
+		System.out.println("\nCursos en los que estan matriculados los alumnos:");
+		for(int i = 0; i < academia.getAlumnos().size(); i++) {
+			System.out.println("Alumno: " + academia.getAlumnos().get(i).getNombre());
+			if (academia.getAlumnos().get(i).getCursos().size() > 0){
+				for(int j = 0; j < academia.getAlumnos().get(i).getCursos().size(); j++){
+					System.out.println("   Curso:" + academia.getAlumnos().get(i).getCursos().get(j).getID());
+				}
+			}
+			else{
+				System.out.println("   No tiene cursos el alumno " + academia.getAlumnos().get(i).getNombre());
+			}
+			System.out.println("   Deuda: " + academia.getAlumnos().get(i).getDeuda());
 		}
 		
 	} // Fin Main
