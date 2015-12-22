@@ -17,7 +17,6 @@ public class Academia {
 	private ArrayList<Alumno> alumnos;
 	private ArrayList<Curso> cursos;
 	private ArrayList<Matricula> matriculas;
-	private ArrayList<Matricula> matriculas_sin_pagar;
 	
 	/**
 	 * Constructor de la clase que nos va a permitir utilizar los metodos publicos de Academia.
@@ -26,39 +25,111 @@ public class Academia {
 		alumnos = new ArrayList<Alumno>();
 		cursos = new ArrayList<Curso>();
 		matriculas = new ArrayList<Matricula>();
-		matriculas_sin_pagar = new ArrayList<Matricula>();
 	}
 
 	
 	@SuppressWarnings("deprecation")
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
-		// Construimos los objetos
+		// Declaramos variables y construimos los objetos
 		Academia academia = new Academia();
 		
-		Adulto alumno1 = new Adulto("Rodrigo", "Perez Hidalgo", "14348131P");
-		Adulto alumno2 = new Adulto("Diego", "Vazquez Blanco", "29831381K");
-		Adulto alumno3 = new Adulto("Felix", "Prieto Arambillet", "35323239D");
-		Adulto alumno4 = new Adulto("Pedro", "Gonzalez Herrera", "49365827H");
-		Adulto alumno5 = new Adulto("Juan", "del Valle Perez", "51656157E");
+		Adulto 	adulto1 = null, 
+				adulto2 = null, 
+				adulto3 = null, 
+				adulto4 = null, 
+				adulto5 = null;
+		Junior 	junior1 = null, 
+				junior2 = null, 
+				junior3 = null, 
+				junior4 = null, 
+				junior5 = null, 
+				junior6 = null;
+		CursoNormal curso_normal1 = null, 
+					curso_normal2 = null, 
+					curso_normal3 = null, 
+					curso_normal4 = null;
+		CursoJunior curso_junior1 = null, 
+					curso_junior2 = null, 
+					curso_junior3 = null, 
+					curso_junior4 = null, 
+					curso_junior5 = null;
+		MatriculaNormal matricula_normal1 = null, 
+						matricula_normal2 = null, 
+						matricula_normal3 = null, 
+						matricula_normal4 = null, 
+						matricula_normal5 = null, 
+						matricula_normal6 = null, 
+						matricula_normal7 = null, 
+						matricula_normal8 = null;
+		MatriculaJunior matricula_junior1 = null, 
+						matricula_junior2 = null, 
+						matricula_junior3 = null, 
+						matricula_junior4 = null, 
+						matricula_junior5 = null, 
+						matricula_junior6 = null;
 		
-		CursoNormal curso1 = new CursoNormal("F1", "Frances", new GregorianCalendar(2015, 8, 31), new GregorianCalendar(2016, 5, 30), 10, 30, 100, 1);
-		CursoNormal curso2 = new CursoNormal("F2", "Frances", new GregorianCalendar(2015, 8, 31), new GregorianCalendar(2016, 5, 30), 10, 1, 200, 2);
-		CursoNormal curso3 = new CursoNormal("F3", "Frances", new GregorianCalendar(2015, 8, 31), new GregorianCalendar(2016, 5, 30), 10, 30, 300, 3);
-		CursoNormal curso4 = new CursoNormal("I1", "Ingles", new GregorianCalendar(2015, 9, 6), new GregorianCalendar(2016, 6, 5), 12, 3, 100, 1);
-		
-		Matricula matricula1 = new Matricula(1, alumno1, curso1);
-		Matricula matricula2 = new Matricula(2, alumno2, curso1);
-		Matricula matricula3 = new Matricula(3, alumno3, curso3);
-		Matricula matricula4 = new Matricula(4, alumno4, curso4);
-		Matricula matricula5 = new Matricula(5, alumno5, curso4);
-		Matricula matricula6 = new Matricula(6, alumno2, curso4);
+		try {
+			adulto1 = new Adulto("Rodrigo", "Perez Hidalgo", "14348131P");
+			adulto2= new Adulto("Diego", "Vazquez Blanco", "29831381K");
+			adulto3 = new Adulto("Felix", "Prieto Arambillet", "35323239D");
+			adulto4 = new Adulto("Pedro", "Gonzalez Herrera", "49365827H");
+			adulto5 = new Adulto("Juan", "del Valle Perez", "51656157E");
+			
+			junior1 = new Junior("Alvaro (Junior)", "Herrera Gomez", new GregorianCalendar(2011, 4, 31), adulto1);
+			junior2 = new Junior("Bertin (Junior)", "Garcia Gutierrez", new GregorianCalendar(2010, 3, 24), adulto1);
+			junior3 = new Junior("Carlos (Junior)", "del Bosque Cuadrado", new GregorianCalendar(2010, 2, 10), adulto1);
+			junior4 = new Junior("David (Junior)", "Iruela Pinto", new GregorianCalendar(2010, 10, 17), adulto2);
+			junior5 = new Junior("Eric (Junior)", "Hergueta Jimenez", new GregorianCalendar(2009, 5, 29), adulto3);
+			junior6 = new Junior("Ivan (Junior)", "Romero Pascual", new GregorianCalendar(2009, 11, 15), adulto3);
+			
+			curso_normal1 = new CursoNormal("F1", "Frances", new GregorianCalendar(2015, 8, 31), new GregorianCalendar(2016, 5, 30), 10, 30, 100, 1);
+			curso_normal2 = new CursoNormal("F2", "Frances", new GregorianCalendar(2015, 8, 31), new GregorianCalendar(2016, 5, 30), 10, 1, 200, 2);
+			curso_normal3 = new CursoNormal("F3", "Frances", new GregorianCalendar(2015, 8, 31), new GregorianCalendar(2016, 5, 30), 10, 30, 300, 3);
+			curso_normal4 = new CursoNormal("I1", "Ingles", new GregorianCalendar(2015, 9, 6), new GregorianCalendar(2016, 6, 5), 12, 3, 100, 1);
+			
+			curso_junior1 = new CursoJunior("FJ1", "Frances Junior", new GregorianCalendar(2015, 8, 31), new GregorianCalendar(2016, 5, 30), 10, 30, 100, 4, 6);
+			curso_junior2 = new CursoJunior("FJ2", "Frances Junior", new GregorianCalendar(2015, 8, 31), new GregorianCalendar(2016, 5, 30), 10, 1, 200, 4, 6);
+			curso_junior3 = new CursoJunior("FJ3", "Frances Junior", new GregorianCalendar(2015, 8, 31), new GregorianCalendar(2016, 5, 30), 10, 30, 300, 4, 6);
+			curso_junior4 = new CursoJunior("IJ1", "Ingles Junior", new GregorianCalendar(2015, 9, 6), new GregorianCalendar(2016, 6, 5), 12, 3, 100, 4, 6);
+			curso_junior5 = new CursoJunior("IJ2", "Ingles Junior", new GregorianCalendar(2015, 9, 6), new GregorianCalendar(2016, 6, 5), 12, 3, 100, 7, 9);
+
+			matricula_normal1 = new MatriculaNormal(1, adulto1, curso_normal1);
+			matricula_normal2 = new MatriculaNormal(2, adulto2, curso_normal1);
+			matricula_normal3 = new MatriculaNormal(3, adulto3, curso_normal3);
+			matricula_normal4 = new MatriculaNormal(4, adulto4, curso_normal4);
+			matricula_normal5 = new MatriculaNormal(5, adulto5, curso_normal4);
+			matricula_normal6 = new MatriculaNormal(6, adulto2, curso_normal4);
+			matricula_normal7 = new MatriculaNormal(7, junior2, curso_normal4);
+			matricula_normal8 = new MatriculaNormal(8, junior6, curso_normal4);
+			
+			matricula_junior1 = new MatriculaJunior(1, junior1, curso_junior1, 678945613);
+			matricula_junior2 = new MatriculaJunior(2, junior2, curso_junior1, 654987312);
+			matricula_junior4 = new MatriculaJunior(4, junior4, curso_junior4, 654321987);
+			matricula_junior3 = new MatriculaJunior(3, junior3, curso_junior3, 631265498);
+			matricula_junior5 = new MatriculaJunior(5, junior5, curso_junior4, 675341289);
+			matricula_junior6 = new MatriculaJunior(6, junior6, curso_junior4, 695187463);
+		} catch (AssertionError e){
+			 String message = e.getMessage();
+		     System.out.println(message);
+		}
 		
 		// Añadimos los cursos a la lista de cursos
-		academia.anadirCurso(curso1);
-		academia.anadirCurso(curso2);
-		academia.anadirCurso(curso3);
-		academia.anadirCurso(curso4);
+		try {
+			academia.anadirCurso(curso_normal1);
+			academia.anadirCurso(curso_normal2);
+			academia.anadirCurso(curso_normal3);
+			academia.anadirCurso(curso_normal4);
+	
+			academia.anadirCurso(curso_junior1);
+			academia.anadirCurso(curso_junior2);
+			academia.anadirCurso(curso_junior3);
+			academia.anadirCurso(curso_junior4);
+			academia.anadirCurso(curso_junior5);
+		} catch (AssertionError e){
+			 String message = e.getMessage();
+		     System.out.println(message);
+		}
 		
 		System.out.println("\nCURSOS:");
 		for(int i = 0; i < academia.getCursos().size(); i++) {
@@ -68,9 +139,9 @@ public class Academia {
 		System.out.println("\nAlumnos matriculados en los cursos (Cuando no hay alumnos):");
 		for(int i = 0; i < academia.getCursos().size(); i++) {
 			System.out.println("Curso: " + academia.getCursos().get(i).getID());
-			if (academia.getCursos().get(i).getAlumnos(academia.getMatriculas()).size() > 0){
-				for(int j = 0; j < academia.getCursos().get(i).getAlumnos(academia.getMatriculas()).size(); j++){
-					System.out.println("   Alumno:" + academia.getCursos().get(i).getAlumnos(academia.getMatriculas()).get(j).getNombre());
+			if (academia.getCursos().get(i).getAlumnos().size() > 0){
+				for(int j = 0; j < academia.getCursos().get(i).getAlumnos().size(); j++){
+					System.out.println("   Alumno:" + academia.getCursos().get(i).getAlumnos().get(j).getNombre());
 				}
 			}
 			else{
@@ -78,29 +149,78 @@ public class Academia {
 			}
 		}
 		
-		// Añadimos los alumnos a la lista de alumnos
-		academia.anadirAlumno(alumno1);
-		academia.anadirAlumno(alumno2);
-		academia.anadirAlumno(alumno3);
-		academia.anadirAlumno(alumno4);
-		academia.anadirAlumno(alumno5);
+		// Añadimos los adultos y junior a la lista de alumnos
+		try {
+			academia.anadirAlumno(adulto1);
+			academia.anadirAlumno(adulto2);
+			academia.anadirAlumno(adulto3);
+			academia.anadirAlumno(adulto4);
+			academia.anadirAlumno(adulto5);
+	
+			academia.anadirAlumno(junior1);
+			academia.anadirAlumno(junior2);
+			academia.anadirAlumno(junior3);
+			academia.anadirAlumno(junior4);
+			academia.anadirAlumno(junior5);
+			academia.anadirAlumno(junior6);
+		} catch (AssertionError e){
+			 String message = e.getMessage();
+		     System.out.println(message);
+		}
 		
 		System.out.println("\nALUMNOS:");
 		for(int i = 0; i < academia.getAlumnos().size(); i++) {
 			System.out.println(academia.getAlumnos().get(i).toString());
 		}
 		
-		System.out.println("\nIntentamos aÃ±adir alumno y curso ya existentes:");
-		academia.anadirAlumno(alumno3);
-		academia.anadirCurso(curso1);
+		System.out.println("\nIntentamos añadir adulto, junior, curso normal y curso junior ya existentes:");
+		try {
+			academia.anadirAlumno(adulto3);
+		} catch (AssertionError e){
+			 String message = e.getMessage();
+		     System.out.println(message);
+		}
+		try {
+			academia.anadirAlumno(junior2);
+		} catch (AssertionError e){
+			 String message = e.getMessage();
+		     System.out.println(message);
+		}
+		try {
+			academia.anadirCurso(curso_normal1);
+		} catch (AssertionError e){
+			 String message = e.getMessage();
+		     System.out.println(message);
+		}
+		try {
+			academia.anadirCurso(curso_junior3);
+		
+		} catch (AssertionError e){
+			 String message = e.getMessage();
+		     System.out.println(message);
+		}
 		
 		// Añadimos las matriculas a la lista de matriculas
-		academia.anadirMatricula(matricula1);
-		academia.anadirMatricula(matricula2);
-		academia.anadirMatricula(matricula3);
-		academia.anadirMatricula(matricula4);
-		academia.anadirMatricula(matricula5);
-		academia.anadirMatricula(matricula6);
+		try {
+			academia.anadirMatricula(matricula_normal1);
+			academia.anadirMatricula(matricula_normal2);
+			academia.anadirMatricula(matricula_normal3);
+			academia.anadirMatricula(matricula_normal4);
+			academia.anadirMatricula(matricula_normal5);
+			academia.anadirMatricula(matricula_normal6);
+			academia.anadirMatricula(matricula_normal7);
+			academia.anadirMatricula(matricula_normal8);
+			
+			academia.anadirMatricula(matricula_junior2);
+			academia.anadirMatricula(matricula_junior3);
+			academia.anadirMatricula(matricula_junior4);
+			academia.anadirMatricula(matricula_junior5);
+			academia.anadirMatricula(matricula_junior1);
+			academia.anadirMatricula(matricula_junior6);
+		} catch (AssertionError e){
+			 String message = e.getMessage();
+		     System.out.println(message);
+		}
 		
 		System.out.println("\nMATRICULAS:");
 		for(int i=0; i < academia.getMatriculas().size(); i++) {
@@ -110,9 +230,9 @@ public class Academia {
 		System.out.println("\nAlumnos matriculados en los cursos:");
 		for(int i = 0; i < academia.getCursos().size(); i++) {
 			System.out.println("Curso: " + academia.getCursos().get(i).getID());
-			if (academia.getCursos().get(i).getAlumnos(academia.getMatriculas()).size() > 0){
-				for(int j = 0; j < academia.getCursos().get(i).getAlumnos(academia.getMatriculas()).size(); j++){
-					System.out.println("   Alumno:" + academia.getCursos().get(i).getAlumnos(academia.getMatriculas()).get(j).getNombre());
+			if (academia.getCursos().get(i).getAlumnos().size() > 0){
+				for(int j = 0; j < academia.getCursos().get(i).getAlumnos().size(); j++){
+					System.out.println("   Alumno:" + academia.getCursos().get(i).getAlumnos().get(j).getNombre());
 				}
 			}
 			else{
@@ -123,29 +243,79 @@ public class Academia {
 		System.out.println("\nCursos en los que estan matriculados los alumnos:");
 		for(int i = 0; i < academia.getAlumnos().size(); i++) {
 			System.out.println("Alumno: " + academia.getAlumnos().get(i).getNombre());
-			if (academia.getAlumnos().get(i).getCursos(academia.getMatriculas()).size() > 0){
-				for(int j = 0; j < academia.getAlumnos().get(i).getCursos(academia.getMatriculas()).size(); j++){
-					System.out.println("   Curso:" + academia.getAlumnos().get(i).getCursos(academia.getMatriculas()).get(j).getID());
+			if (academia.getAlumnos().get(i).getCursos().size() > 0){
+				for(int j = 0; j < academia.getAlumnos().get(i).getCursos().size(); j++){
+					System.out.println("   Curso:" + academia.getAlumnos().get(i).getCursos().get(j).getID());
 				}
 			}
 			else{
 				System.out.println("   No tiene cursos el alumno " + academia.getAlumnos().get(i).getNombre());
 			}
-			System.out.println("   Deuda: " + academia.getAlumnos().get(i).getDeuda(academia.getMatriculas()));
+			System.out.println("   Deuda: " + academia.getAlumnos().get(i).getDeuda());
 		}
 		
-		System.out.println("\nIntento de matricular alumno en curso lleno:");
-		Matricula matricula7 = new Matricula(7, alumno1, curso4);
-		academia.anadirMatricula(matricula7);
+		System.out.println("\nIntento de matricular adulto en curso normal lleno:");
+		try {
+			MatriculaNormal matricula_normal9 = new MatriculaNormal(9, adulto1, curso_normal4);
+			academia.anadirMatricula(matricula_normal9);
+		} catch (AssertionError e){
+			 String message = e.getMessage();
+		     System.out.println(message);
+		}
 		
-		System.out.println("\nIntento de matricular alumno en un curso en el que ya esta:");
-		Matricula matricula8 = new Matricula(8, alumno1, curso1);
-		academia.anadirMatricula(matricula8);
+		System.out.println("\nIntento de matricular adulto en un curso normal en el que ya esta:");
+		try {
+			Matricula matricula_normal10 = new MatriculaNormal(10, adulto1, curso_normal1);
+			academia.anadirMatricula(matricula_normal10);
+		} catch (AssertionError e){
+			String message = e.getMessage();
+			System.out.println(message);
+		}
 		
-		System.out.println("\nPagar matricula2");
-		matricula2.setPagado();
+		System.out.println("\nIntento de matricular junior en curso junior lleno:");
+		try {
+			Matricula matricula_junior7 = new MatriculaJunior(7, junior1, curso_junior4, 614158519);
+			academia.anadirMatricula(matricula_junior7);
+		} catch (AssertionError e){
+			String message = e.getMessage();
+			System.out.println(message);
+		}
 		
-		System.out.println("\nMatriculas con matricula2 pagada:");
+		System.out.println("\nIntento de matricular junior en un curso junior en el que ya esta:");
+		try {
+			Matricula matricula_junior8 = new MatriculaJunior(8, junior1, curso_junior1, 674146167);
+			academia.anadirMatricula(matricula_junior8);
+		} catch (AssertionError e){
+			String message = e.getMessage();
+			System.out.println(message);
+		}
+		
+		System.out.println("\nIntento de matricular junior cuya edad no esta en el rango del curso junior:");
+		try {
+			Matricula matricula_junior9 = new MatriculaJunior(9, junior1, curso_junior5, 612875519);
+			academia.anadirMatricula(matricula_junior9);
+		} catch (AssertionError e){
+			String message = e.getMessage();
+			System.out.println(message);
+		}
+		
+		System.out.println("\nPagar matricula normal 2");
+		try {
+			matricula_normal2.pagarMatricula();
+		} catch (AssertionError e){
+			 String message = e.getMessage();
+		     System.out.println(message);
+		}
+		
+		System.out.println("\nPagar matricula junior 3");
+		try {
+			matricula_junior3.pagarMatricula();
+		} catch (AssertionError e){
+			 String message = e.getMessage();
+		     System.out.println(message);
+		}
+		
+		System.out.println("\nListado de Matriculas con matricula_normal2 y matricula_junior3 pagadas:");
 		for(int i = 0; i < academia.getMatriculas().size(); i++) {
 			System.out.println(academia.getMatriculas().get(i).toString());
 		}
@@ -155,15 +325,15 @@ public class Academia {
 			System.out.println(academia.getMatriculasSinPagar().get(i).toString());
 		}
 		
-		System.out.println("\nCambiamos de nivel alumno2 (Diego) del curso F1 al F2:");
-		academia.cambiarNivel(alumno2, curso1, curso2);
+		System.out.println("\nCambiamos de nivel adulto2 (Diego) del curso normal F1 al F2:");
+		academia.cambiarNivel(adulto2, curso_normal1, curso_normal2);
 		
 		System.out.println("\nAlumnos matriculados en los cursos:");
 		for(int i = 0; i < academia.getCursos().size(); i++) {
 			System.out.println("Curso: " + academia.getCursos().get(i).getID());
-			if (academia.getCursos().get(i).getAlumnos(academia.getMatriculas()).size() > 0){
-				for(int j = 0; j < academia.getCursos().get(i).getAlumnos(academia.getMatriculas()).size(); j++){
-					System.out.println("   Alumno:" + academia.getCursos().get(i).getAlumnos(academia.getMatriculas()).get(j).getNombre());
+			if (academia.getCursos().get(i).getAlumnos().size() > 0){
+				for(int j = 0; j < academia.getCursos().get(i).getAlumnos().size(); j++){
+					System.out.println("   Alumno:" + academia.getCursos().get(i).getAlumnos().get(j).getNombre());
 				}
 			}
 			else{
@@ -174,39 +344,55 @@ public class Academia {
 		System.out.println("\nCursos en los que estan matriculados los alumnos:");
 		for(int i = 0; i < academia.getAlumnos().size(); i++) {
 			System.out.println("Alumno: " + academia.getAlumnos().get(i).getNombre());
-			if (academia.getAlumnos().get(i).getCursos(academia.getMatriculas()).size() > 0){
-				for(int j = 0; j < academia.getAlumnos().get(i).getCursos(academia.getMatriculas()).size(); j++){
-					System.out.println("   Curso:" + academia.getAlumnos().get(i).getCursos(academia.getMatriculas()).get(j).getID());
+			if (academia.getAlumnos().get(i).getCursos().size() > 0){
+				for(int j = 0; j < academia.getAlumnos().get(i).getCursos().size(); j++){
+					System.out.println("   Curso:" + academia.getAlumnos().get(i).getCursos().get(j).getID());
 				}
 			}
 			else{
 				System.out.println("   No tiene cursos el alumno " + academia.getAlumnos().get(i).getNombre());
 			}
-			System.out.println("   Deuda: " + academia.getAlumnos().get(i).getDeuda(academia.getMatriculas()));
+			System.out.println("   Deuda: " + academia.getAlumnos().get(i).getDeuda());
 		}
 		
-		System.out.println("\nCambiamos de nivel alumno1 (Rodrigo) del curso F1 al F3 (Mas de 1 nivel):");
-		academia.cambiarNivel(alumno1, curso1, curso3);
+		System.out.println("\nCambiamos de nivel adulto1 (Rodrigo) del curso normal F1 al F3 (Mas de 1 nivel):");
+		try {
+			academia.cambiarNivel(adulto1, curso_normal1, curso_normal3);
+		} catch (AssertionError e){
+			 String message = e.getMessage();
+		     System.out.println(message);
+		}
 		
-		System.out.println("\nCambiamos de nivel alumno1 (Rodrigo) del curso F1 al I1 (Distinto idioma):");
-		academia.cambiarNivel(alumno1, curso1, curso4);
+		System.out.println("\nCambiamos de nivel adulto1 (Rodrigo) del curso normal F1 al I1 (Distinto idioma):");
+		try {
+			academia.cambiarNivel(adulto1, curso_normal1, curso_normal4);
+		} catch (AssertionError e){
+			 String message = e.getMessage();
+		     System.out.println(message);
+		}
 		
-		System.out.println("\nCambiamos de nivel alumno1 (Rodrigo) del curso F1 al F2 (Supera max alumnos):");
-		academia.cambiarNivel(alumno1, curso1, curso2);
+		System.out.println("\nCambiamos de nivel adulto1 (Rodrigo) del curso normal F1 al F2 (Supera max alumnos):");
+		try {
+			academia.cambiarNivel(adulto1, curso_normal1, curso_normal2);
+		} catch (AssertionError e){
+			 String message = e.getMessage();
+		     System.out.println(message);
+		}
 		
 		System.out.println("\nAlumnos matriculados en los cursos:");
 		for(int i = 0; i < academia.getCursos().size(); i++) {
 			System.out.println("Curso: " + academia.getCursos().get(i).getID());
-			if (academia.getCursos().get(i).getAlumnos(academia.getMatriculas()).size() > 0){
-				for(int j = 0; j < academia.getCursos().get(i).getAlumnos(academia.getMatriculas()).size(); j++){
-					System.out.println("   Alumno:" + academia.getCursos().get(i).getAlumnos(academia.getMatriculas()).get(j).getNombre());
+			if (academia.getCursos().get(i).getAlumnos().size() > 0){
+				for(int j = 0; j < academia.getCursos().get(i).getAlumnos().size(); j++){
+					System.out.println("   Alumno:" + academia.getCursos().get(i).getAlumnos().get(j).getNombre());
 				}
 			}
 			else{
 				System.out.println("   No hay alumnos en el curso " + academia.getCursos().get(i).getID());
 			}
 		}
-	}
+		
+	} // Fin Main
 	
 	
 	
@@ -238,15 +424,15 @@ public class Academia {
 	}
 	
 	/**
-	 * Devuelve la lista de matriculas sin pagar. Recorre la lista de matriculas realizadas en la academia 
-	 * y si encuentra una matricula no pagada, siendo el valor se su atributo 'pagado' false, 
-	 * la aÃ±ade a la lista de matriculas sin pagar.
+	 * Recorre la lista de matriculas realizadas en la academia 
+	 * y si encuentra una matricula no pagada, siendo el valor se su atributo 'pagado' {@code False}, 
+	 * la añade a la lista de matriculas sin pagar.
 	 * 
 	 * @return devuelve la lista de matriculas sin pagar.
 	 */
 	public ArrayList<Matricula> getMatriculasSinPagar() {
 		
-		matriculas_sin_pagar.clear();
+		ArrayList<Matricula> matriculas_sin_pagar = new ArrayList<Matricula>();
 		
 		for (int i=0; i < getMatriculas().size(); i++) {
 			if (getMatriculas().get(i).getPagado() == false)
@@ -256,109 +442,56 @@ public class Academia {
 	}
 	
 	/**
-	 * AÃ±ade un alumno a la lista de alumnos en la academia. Recorre la lista de alumnos en la academia 
-	 * y si el DNI de alguno de ellos coincide con el del alumno que se quiere aÃ±adir se informa de su existencia en la lista, 
-	 * en caso contrario se aÃ±ade el alumno a la lista.
+	 * Añade un alumno a la lista de alumnos en la academia. Recorre la lista de alumnos en la academia 
+	 * y alguno de ellos coincide con el alumno que se quiere añadir se informa de su existencia en la lista, 
+	 * en caso contrario se añade el alumno a la lista.
 	 * 
-	 * @param alumno es el alumno que queremos aÃ±adir a la lista de alumnos en la academia.
+	 * @param alumno es el alumno que queremos añadir a la lista de alumnos en la academia.
+	 * @Requires({ "" })
+	 * @Ensures({ "" })
 	 */
 	public void anadirAlumno(Alumno alumno) {
 		
-		int i = 0;
-		
-		while (i < getAlumnos().size()) {
-			if (getAlumnos().get(i).getDNI() == alumno.getDNI())
-				break;
-			i++;
-		}
-		
-		if (i == getAlumnos().size())
-			getAlumnos().add(alumno);
-		else
-			System.out.println("ERROR. El alumno ya existe.");
+		assert(comprobarAlumnoExistente(alumno) == false): "ERROR. El alumno ya existe.";
+		getAlumnos().add(alumno);
 	}
 	
 	/**
-	 * AÃ±ade un curso a la lista de cursos en la academia. Recorre la lista de cursos en la academia 
-	 * y si el identificador de alguno de ellos coincide con el del curso que se quiere aÃ±adir se informa de su existencia en la lista, 
-	 * en caso contrario se aÃ±ade el curso a la lista.
+	 * Añade un curso a la lista de cursos en la academia. Recorre la lista de cursos en la academia 
+	 * y si el identificador de alguno de ellos coincide con el del curso que se quiere añadir se informa de su existencia en la lista, 
+	 * en caso contrario se añade el curso a la lista.
 	 * 
-	 * @param curso es el curso que queremos aÃ±adir a la lista de cursos en la academia.
+	 * @param curso es el curso que queremos añadir a la lista de cursos en la academia.
+	 * @Requires({ "" })
+	 * @Ensures({ "" })
 	 */	
 	public void anadirCurso(Curso curso) {
 		
-		int i = 0;
-		
-		while (i < cursos.size()) {
-			if (cursos.get(i).getID() == curso.getID())
-				break;
-			i++;
-		}
-		
-		if (i == cursos.size())
-			cursos.add(curso);
-		else
-			System.out.println("ERROR. El curso ya existe.");
+		assert(comprobarCursoExistente(curso) == false): "ERROR. El curso ya existe.";
+		cursos.add(curso);
 	}
 	
 	/**
-	 * AÃ±ade una matricula a la lista de matriculas en la academia. Comprueba tanto que un alumno no se matricula dos veces en un mismo curso 
-	 * como que el curso no tendria mas alumnos que los maximos autorizados antes de aÃ±adir una matricula.
+	 * Añade una matricula a la lista de matriculas en la academia. Comprueba tanto que un alumno no se matricula dos veces en un mismo curso 
+	 * como que el curso no tendria mas alumnos que los maximos autorizados antes de añadir una matricula.
 	 * 
-	 * @param matricula es la matricula que queremos aÃ±adir a la lista de matriculas en la academia.
+	 * Precondicion: No debe haber un alumno ya existente en el curso a matricular, ni tampoco superar el numero de alumnos maximo.
+	 * Postcondicion: Se crea la matricula del alumno en el curso. 
+	 * @param matricula es la matricula que queremos añadir a la lista de matriculas en la academia.
 	 */	
 	public void anadirMatricula(Matricula matricula) {
 		
-		// Comprueba si ya existe un alumno en el curso
-		if (comprobarDuplicadoMatricula(matricula.getAlumno(), matricula.getCurso()) == true)
-			System.out.println("ERROR. El alumno ya existe en ese curso.");
-		else {
-			// Comprueba si supera el max de alumnos
-			if (comprobarMaxAlumnos(matricula.getCurso()) == true) {
-				System.out.println("ERROR. Curso completo. No caben mas alumnos.");
-			}
-			else {
-				getMatriculas().add(matricula);
-			}
-		}
-	}
-	
-	/**
-	 * Comprueba si un alumno se encuentra matriculado en curso. Si en la lista de alumnos del curso dado se encuentra 
-	 * un alumno con el mismo valor de DNI que el alumno dado se considera que el alumno dado ya se encuentra matriculado
-	 * y devuelve true, en caso contrario, no se encuentra matriculado en tal curso y devuelve false.
-	 * 
-	 * @param alumno es el alumno que se quiere comprobar si esta matriculado en un determinado curso.
-	 * @param curso es el curso en el que se quiere comprobar si un alumno determinado ya esta matriculado.
-	 * @return true si el alumno dado ya se encuentra matriculado en el curso, false si no lo esta.
-	 */
-	public Boolean comprobarDuplicadoMatricula(Alumno alumno, Curso curso) {
+		assert(comprobarDuplicadoMatricula(matricula.getAlumno(), matricula.getCurso()) == false && 
+				comprobarMaxAlumnos(matricula.getCurso()) == false): "ERROR. El alumno ya existe en ese curso o el curso esta completo.";
 		
-		for (int i=0; i < curso.getAlumnos(getMatriculas()).size(); i++) {
-			if (alumno.getDNI() == curso.getAlumnos(getMatriculas()).get(i).getDNI())
-				return true;
-		}
-		return false;
+		getMatriculas().add(matricula);
 	}
 	
-	/**
-	 * Comprueba si la matricula de un nuevo alumno en un determinado curso sobrepasaria el numero maximo de alumnos 
-	 * de ese curso. Devuelve true si lo sobrepasase y false si no lo hace.
-	 * 
-	 * @param curso es el curso del que se quiere comprobar si la inscripcion de un nuevo alumno sobrepasaria su numero maximo de alumnos permitido.
-	 * @return true si el numero maximo de alumnos en el curso es sobrepasado, false si no lo es.
-	 */
-	public Boolean comprobarMaxAlumnos(Curso curso) {
-		
-		if ( (curso.getNumAlumnos(getMatriculas()) + 1) <= curso.getNumMaxAlumnos() )
-			return false;
-		else
-			return true;
-	}
+	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	/**
-	 * Comprueba si el junior está dentro de la edad del curso. Devuelve false si se encuentra en el rango 
-	 * y true si no está dentro de la edad.
+	 * Comprueba si el junior está dentro de la edad del curso. Devuelve {@code False} si se encuentra en el rango 
+	 * y {@code True} si no está dentro de la edad.
 	 * Hace el calculo de la edad de un junior tomando la fecha de nacimineto y restandosela 
 	 * a la fecha actual. Si aun no es el mes de su cumpleanos (resta de los meses < 0), se 
 	 * resta uno al resultado de la resta de los años. Del mismo modo si es el mismo mes (resta 
@@ -367,7 +500,7 @@ public class Academia {
 	 * @param curso_junior Es el curso del que se quiere comprobar si la inscripcion de un nuevo junior se encuentra 
 	 * dentro del rango de edad.
 	 * @param junior Es el alumno
-	 * @return true si no está dentro de la edad, false si se encuentra en el rango.
+	 * @return {@code True} si no está dentro de la edad, {@code False} si se encuentra en el rango.
 	 */
 	public Boolean comprobarEdad(CursoJunior curso_junior, Junior junior) {
 		
@@ -432,6 +565,52 @@ public class Academia {
 				}
 			}
 		}
+	}
+	
+	/**
+	 * Comprueba si un alumno se encuentra en la lista de todos los alumnos de la academia 
+	 * recorriendo el array y verificando que no se encuentren coincidencias.
+	 * 
+	 * @param alumno Alumno del que se quiere comprobar si ya está en la academia.
+	 * @return devuelve {@code False} si no esta el alumno en la academia y {@code True} si ya esta.
+	 */
+	public Boolean comprobarAlumnoExistente(Alumno alumno) {
+			
+		int i = 0;
+		
+		while (i < getAlumnos().size()) {
+			if (getAlumnos().get(i).equals(alumno))
+				break;
+			i++;
+		}
+		
+		if (i == getAlumnos().size())
+			return false;
+		else
+			return true;
+	}
+	
+	/**
+	 * Comprueba si un curso se encuentra en la lista de todos los cursos de la academia 
+	 * recorriendo el array y verificando que no se encuentren coincidencias.
+	 * 
+	 * @param curso Curso del que se quiere comprobar si ya está en la academia.
+	 * @return devuelve {@code False} si no esta el curso en la academia y {@code True} si ya esta.
+	 */
+	public Boolean comprobarCursoExistente(Curso curso) {
+			
+		int i = 0;
+		
+		while (i < getCursos().size()) {
+			if (getCursos().get(i).equals(curso))
+				break;
+			i++;
+		}
+		
+		if (i == getCursos().size())
+			return false;
+		else
+			return true;
 	}
 	
 }
