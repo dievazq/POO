@@ -27,7 +27,7 @@ public class Adulto extends Alumno {
 	 */
 	public Adulto(String nombre, String apellidos, String dni) {
 		super(nombre, apellidos);
-		assert(dni.length() == 9): "ERROR. El DNI debe tener 9 caracteres.";
+		assert(dni.length() == 9): "ERROR. El DNI de " + nombre + " debe tener 9 caracteres.";
 		// matriculas_alumno = new ArrayList<Matricula>(); En el constructor del padre.
 		juniors = new ArrayList<Junior>();
 		this.dni = dni;
@@ -64,11 +64,9 @@ public class Adulto extends Alumno {
 	}
 
 	/**
-	 * Devuelve la deuda adquirida por un alumno. Recorre la lista de matriculas realizadas en la 
-	 * academia y si encuentra una matricula del alumno, identificada por comparacion con su DNI, y
-	 * que no haya sido pagada, siendo el valor de su atributo Pagado false,añade el valor de tal matricula
-	 * al contador de la deuda. En este caso, el alumno es un adulto, se incluye el calculo de la deuda de 
-	 * los junior de los que es responsable.
+	 * Devuelve la deuda adquirida por un adulto y los junior a su cargo. Recorre la lista de matriculas realizadas en la 
+	 * academia y si encuentra una matricula del alumno o alguno de sus junior y que no haya sido pagada, siendo el valor 
+	 * de su atributo {@code pagado} false, añade el valor de tal matricula al contador de la deuda.
 	 * 
 	 * @return devuelve el valor de la deuda adquirida por el adulto y sus junior.
 	 */
@@ -77,9 +75,16 @@ public class Adulto extends Alumno {
 		
 		int deuda = 0;
 		
-		for(int i=0; i < getMatriculasAlumno().size(); i++) {
+		for(int i = 0; i < getMatriculasAlumno().size(); i++) {
 			if (getMatriculasAlumno().get(i).getPagado() == false)
 				deuda += getMatriculasAlumno().get(i).getCurso().getPrecio();
+		}
+		
+		for(int j = 0; j < juniors.size(); j++) {
+			for(int i = 0; i < juniors.get(j).getMatriculasAlumno().size(); i++) {
+				if (juniors.get(j).getMatriculasAlumno().get(i).getPagado() == false)
+					deuda += juniors.get(j).getMatriculasAlumno().get(i).getCurso().getPrecio();
+			}
 		}
 		
 		return deuda;

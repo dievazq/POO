@@ -28,7 +28,7 @@ public class MatriculaJunior extends Matricula {
 			"ERROR. Edad del junior " + alumno_junior.getNombre() + " no esta en el rango de edades del curso junior " 
 				+ curso_junior.getID() + ".";
 		assert(600000000 <= tfno_contacto && tfno_contacto <= 699999999): 
-			"ERROR. Telefono de contacto incorrecto en matricula junior numero" + this.getNum() + ".";
+			"ERROR. Telefono de contacto incorrecto en matricula junior numero" + numero + ".";
 		// pagado = false; En el constructor del padre
 		this.tfno_contacto = tfno_contacto;
 	}

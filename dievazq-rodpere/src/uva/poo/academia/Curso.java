@@ -40,9 +40,9 @@ public class Curso {
 	 */
 	public Curso(String id, String idioma, GregorianCalendar fechaInicio, GregorianCalendar fechaFinal, int hora,
 					int num_max_alumnos, int precio) {
-		assert(8 <= hora && hora <= 22): "ERROR. Hora del curso " + this.getID() + " incorrecto (debe ser de 8 a 22).";
-		assert(num_max_alumnos >= 1): "ERROR. Numero max de alumnos del curso " + this.getID() + " es menor que uno.";
-		assert(precio >= 0): "ERROR. Precio del curso " + this.getID() + " es menor que cero.";
+		assert(8 <= hora && hora <= 22): "ERROR. Hora del curso " + id + " incorrecto (debe ser de 8 a 22).";
+		assert(num_max_alumnos >= 1): "ERROR. Numero max de alumnos del curso " + id + " es menor que uno.";
+		assert(precio >= 0): "ERROR. Precio del curso " + id + " es menor que cero.";
 		matriculas_curso = new ArrayList<Matricula>();
 		this.id = id;
 		this.idioma = idioma;

@@ -1,5 +1,6 @@
 package uva.poo.academia;
 
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
@@ -16,6 +17,9 @@ public class Junior extends Alumno {
 	/**
 	 * Constructor de la clase.
 	 * 
+	 * @assert.pre El junior debe tener menos de 18 años.
+	 * @assert.post Se crea el alumno junior.
+	 * 
 	 * @param nombre Atributo heredado de la clase Alumno.
 	 * @param apellidos Atributo heredado de la clase Alumno.
 	 * @param fechaNac Fecha en la que nacio el alumno junior.
@@ -23,6 +27,7 @@ public class Junior extends Alumno {
 	 */
 	public Junior(String nombre, String apellidos, GregorianCalendar fechaNac, Adulto responsable) {
 		super(nombre, apellidos);
+		assert(calcularEdad(fechaNac) < 18): "ERROR. El junior " + nombre + " no es menor de edad.";
 		// matriculas_alumno = new ArrayList<Matricula>(); En el constructor del padre.
 		this.fechaNac = fechaNac;
 		this.responsable = responsable;
@@ -56,6 +61,33 @@ public class Junior extends Alumno {
 	@Override
 	public int getDeuda() {
 		return 0;
+	}
+	
+	/**
+	 * Calcula la edad a partir de la fecha de nacimiento hasta la fecha actual.
+	 * 
+	 * @param fechaNac Es la fecha de nacimiento de un alumno junior.
+	 * @return anios Devuelve la edad del junior en años.
+	 */
+	public int calcularEdad(GregorianCalendar fechaNac) {
+		
+		Calendar fechaActual = Calendar.getInstance();
+		 
+	    // Calculo de las diferencias.
+	    int anios = fechaActual.get(Calendar.YEAR) - fechaNac.get(Calendar.YEAR);
+	    int meses = fechaActual.get(Calendar.MONTH) - fechaNac.get(Calendar.MONTH);
+	    int dias = fechaActual.get(Calendar.DAY_OF_MONTH) - fechaNac.get(Calendar.DAY_OF_MONTH);
+	 
+	    // Hay que comprobar si el dia de su cumpleaños es posterior
+	    // a la fecha actual, para restar 1 a la diferencia de años,
+	    // pues aun no ha sido su cumpleaños.
+	 
+	    if(meses < 0 // Aun no es el mes de su cumpleaños
+	       || (meses==0 && dias < 0)) { // o es el mes pero no ha llegado el dia.
+	 
+	        anios--;
+	    }
+	    return anios;
 	}
 	
 	/**

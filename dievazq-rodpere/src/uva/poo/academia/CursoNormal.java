@@ -30,7 +30,7 @@ public class CursoNormal extends Curso {
 	public CursoNormal(String id, String idioma, GregorianCalendar fechaInicio, GregorianCalendar fechaFinal, int hora,
 			int num_max_alumnos, int precio, int nivel) {
 		super(id, idioma, fechaInicio, fechaFinal, hora, num_max_alumnos, precio);
-		assert(nivel > 0): "ERROR. El nivel del curso normal " + this.getID() + " es menor que cero.";
+		assert(nivel > 0): "ERROR. El nivel del curso normal " + id + " es menor que cero.";
 		// matriculas_curso = new ArrayList<Matricula>(); En el constructor del padre.
 		this.nivel = nivel;
 	}
