@@ -27,7 +27,6 @@ public class Curso {
 	 * 
 	 * @param id inicializa el atributo 'id' al valor pasado por este parametro.
 	 * @param idioma inicializa el atributo 'idioma' al valor pasado por este parametro.
-	 * @param nivel inicializa el atributo 'nivel' al valor pasado por este parametro.
 	 * @param fechaInicio inicializa el atributo 'fechaInicio' al valor pasado por este parametro.
 	 * @param fechaFinal inicializa el atributo 'fechaFinal' al valor pasado por este parametro.
 	 * @param hora inicializa el atributo 'hora' al valor pasado por este parametro.
@@ -135,7 +134,6 @@ public class Curso {
 	 * realizadas en la academia y si encuentra una matricula del curso, identificada por comparacion con su identificador, 
 	 * añade al alumno a la lista de alumnos que se han matriculado en el curso.
 	 * 
-	 * @param matriculas son todas las matriculas que hay en la academia.
 	 * @return devuelve la lista de alumnos matriculados en un curso.
 	 */	
 	public ArrayList<Alumno> getAlumnos() {
@@ -155,7 +153,6 @@ public class Curso {
 	 * añade al alumno a la lista de alumnos que se han matriculado en el curso. El tamaño de esa lista
 	 * es el numero de alumnos matriculados en un curso.
 	 * 
-	 * @param matriculas son todas las matriculas que hay en la academia.
 	 * @return devuelve el numero de alumnos matriculados en un curso.
 	 */	
 	public int getNumAlumnos() {

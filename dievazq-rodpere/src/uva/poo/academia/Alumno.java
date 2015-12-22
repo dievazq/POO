@@ -87,7 +87,9 @@ public abstract class Alumno {
 	}
 	
 	/**
-	 * Metodo abstracto que tiene como parametro de entrada una lista de matriculas.
+	 * Metodo abstracto que devuelve el resultado de calcular la deuda pendiente.
+	 * 
+	 * @return Devuelve la deuda que tiene pendiente de pago el alumno.
 	 */
 	public abstract int getDeuda();
 

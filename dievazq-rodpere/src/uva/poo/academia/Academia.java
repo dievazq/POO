@@ -27,12 +27,11 @@ public class Academia {
 		matriculas = new ArrayList<Matricula>();
 	}
 
-	
-	@SuppressWarnings("deprecation")
 	public static void main(String[] args) throws Exception {
 		
 		// Declaramos variables y construimos los objetos
 		Academia academia = new Academia();
+		MatriculaNormal matricula_normal = new MatriculaNormal();
 		
 		Adulto 	adulto1 = null, 
 				adulto2 = null, 
@@ -326,7 +325,12 @@ public class Academia {
 		}
 		
 		System.out.println("\nCambiamos de nivel adulto2 (Diego) del curso normal F1 al F2:");
-		academia.cambiarNivel(adulto2, curso_normal1, curso_normal2);
+		try {
+			matricula_normal.cambiarNivel(adulto2, curso_normal1, curso_normal2);
+		} catch (AssertionError e){
+			 String message = e.getMessage();
+		     System.out.println(message);
+		}
 		
 		System.out.println("\nAlumnos matriculados en los cursos:");
 		for(int i = 0; i < academia.getCursos().size(); i++) {
@@ -357,7 +361,7 @@ public class Academia {
 		
 		System.out.println("\nCambiamos de nivel adulto1 (Rodrigo) del curso normal F1 al F3 (Mas de 1 nivel):");
 		try {
-			academia.cambiarNivel(adulto1, curso_normal1, curso_normal3);
+			matricula_normal.cambiarNivel(adulto1, curso_normal1, curso_normal3);
 		} catch (AssertionError e){
 			 String message = e.getMessage();
 		     System.out.println(message);
@@ -365,7 +369,7 @@ public class Academia {
 		
 		System.out.println("\nCambiamos de nivel adulto1 (Rodrigo) del curso normal F1 al I1 (Distinto idioma):");
 		try {
-			academia.cambiarNivel(adulto1, curso_normal1, curso_normal4);
+			matricula_normal.cambiarNivel(adulto1, curso_normal1, curso_normal4);
 		} catch (AssertionError e){
 			 String message = e.getMessage();
 		     System.out.println(message);
@@ -373,7 +377,7 @@ public class Academia {
 		
 		System.out.println("\nCambiamos de nivel adulto1 (Rodrigo) del curso normal F1 al F2 (Supera max alumnos):");
 		try {
-			academia.cambiarNivel(adulto1, curso_normal1, curso_normal2);
+			matricula_normal.cambiarNivel(adulto1, curso_normal1, curso_normal2);
 		} catch (AssertionError e){
 			 String message = e.getMessage();
 		     System.out.println(message);
@@ -446,9 +450,10 @@ public class Academia {
 	 * y alguno de ellos coincide con el alumno que se quiere añadir se informa de su existencia en la lista, 
 	 * en caso contrario se añade el alumno a la lista.
 	 * 
-	 * @param alumno es el alumno que queremos añadir a la lista de alumnos en la academia.
-	 * @Requires({ "" })
-	 * @Ensures({ "" })
+	 * @assert.pre No debe haber un alumno ya existente en la lista de alumnos de la academia.
+	 * @assert.post Se añade al alumno a la lista de alumnos de la academia. 
+	 *  
+	 * @param alumno Es el alumno que queremos añadir a la lista de alumnos en la academia.
 	 */
 	public void anadirAlumno(Alumno alumno) {
 		
@@ -461,9 +466,10 @@ public class Academia {
 	 * y si el identificador de alguno de ellos coincide con el del curso que se quiere añadir se informa de su existencia en la lista, 
 	 * en caso contrario se añade el curso a la lista.
 	 * 
-	 * @param curso es el curso que queremos añadir a la lista de cursos en la academia.
-	 * @Requires({ "" })
-	 * @Ensures({ "" })
+	 * @assert.pre No debe haber un curso ya existente en la lista de cursos de la academia.
+	 * @assert.post Se añade al curso a la lista de cursos de la academia. 
+	 * 
+	 * @param curso Es el curso que queremos añadir a la lista de cursos en la academia.
 	 */	
 	public void anadirCurso(Curso curso) {
 		
@@ -472,99 +478,13 @@ public class Academia {
 	}
 	
 	/**
-	 * Añade una matricula a la lista de matriculas en la academia. Comprueba tanto que un alumno no se matricula dos veces en un mismo curso 
-	 * como que el curso no tendria mas alumnos que los maximos autorizados antes de añadir una matricula.
+	 * Añade una matricula a la lista de matriculas en la academia.
 	 * 
-	 * Precondicion: No debe haber un alumno ya existente en el curso a matricular, ni tampoco superar el numero de alumnos maximo.
-	 * Postcondicion: Se crea la matricula del alumno en el curso. 
-	 * @param matricula es la matricula que queremos añadir a la lista de matriculas en la academia.
+	 * @param matricula Es la matricula que queremos añadir a la lista de matriculas en la academia.
 	 */	
 	public void anadirMatricula(Matricula matricula) {
 		
-		assert(comprobarDuplicadoMatricula(matricula.getAlumno(), matricula.getCurso()) == false && 
-				comprobarMaxAlumnos(matricula.getCurso()) == false): "ERROR. El alumno ya existe en ese curso o el curso esta completo.";
-		
 		getMatriculas().add(matricula);
-	}
-	
-	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	
-	/**
-	 * Comprueba si el junior está dentro de la edad del curso. Devuelve {@code False} si se encuentra en el rango 
-	 * y {@code True} si no está dentro de la edad.
-	 * Hace el calculo de la edad de un junior tomando la fecha de nacimineto y restandosela 
-	 * a la fecha actual. Si aun no es el mes de su cumpleanos (resta de los meses < 0), se 
-	 * resta uno al resultado de la resta de los años. Del mismo modo si es el mismo mes (resta 
-	 * de los meses == 0), si la resta de los dias es < 0 tambien se le resta uno a los años.
-	 * 
-	 * @param curso_junior Es el curso del que se quiere comprobar si la inscripcion de un nuevo junior se encuentra 
-	 * dentro del rango de edad.
-	 * @param junior Es el alumno
-	 * @return {@code True} si no está dentro de la edad, {@code False} si se encuentra en el rango.
-	 */
-	public Boolean comprobarEdad(CursoJunior curso_junior, Junior junior) {
-		
-	    // Calculamos las diferencias.
-	    int anios = curso_junior.getFechaInicio().get(GregorianCalendar.YEAR) - junior.getFechaNac().get(GregorianCalendar.YEAR);
-	    int meses = curso_junior.getFechaInicio().get(GregorianCalendar.MONTH) - junior.getFechaNac().get(GregorianCalendar.MONTH);
-	    int dias = curso_junior.getFechaInicio().get(GregorianCalendar.DAY_OF_MONTH) - junior.getFechaNac().get(GregorianCalendar.DAY_OF_MONTH);
-	 
-	    // Hay que comprobar si el dia de su cumpleaños es posterior
-	    // a la fecha actual, para restar 1 a la diferencia de años,
-	    // pues aun no ha sido su cumpleaños.
-	 
-	    if(meses < 0 // Aun no es el mes de su cumpleaños
-	       || (meses==0 && dias < 0)) { // o es el mes pero no ha llegado el dia.
-	 
-	        anios--;
-	    }
-		
-		if (anios >= curso_junior.getEdadMinima() && anios <= curso_junior.getEdadMaxima())
-			return false;
-		else
-			return true;
-	}
-	
-	/**
-	 * Cambia de nivel a un alumno dado, dentro de un mismo idioma. Antes de realizar el cambio se comprueba que cumple
-	 * con las siguiente restricciones: solo se puede subir o bajar un nivel, el curso antiguo y nuevo son del mismo idioma, 
-	 * y no se supera el numero maximo de alumnos del nuevo nivel.
-	 * 
-	 * @param alumno es el alumno al que se quiere cambiar de nivel.
-	 * @param curso es el curso en el que se encuentra matriculado el alumno antes del cambio de nivel
-	 * @param nuevoCurso es el nuevo curso en el que se quiere incribir al alumno
-	 */			
-	public void cambiarNivel(Alumno alumno, Curso curso, Curso nuevoCurso){
-		
-		MatriculaNormal matricula;
-		int numero;
-		
-		// Comprueba si el nivel del nuevo curso es como mucho 1 nivel superior o inferior.
-		if (nuevoCurso.getNivel() > (curso.getNivel() + 1) || nuevoCurso.getNivel() < (curso.getNivel() - 1)){
-			System.out.println("ERROR. No se puede subir o bajar mas de 1 nivel.");
-		}
-		else {
-			// Comprueba si el nuevo curso es del mismo idioma que el anterior.
-			if (nuevoCurso.getIdioma() != curso.getIdioma()) {
-				System.out.println("ERROR. El nuevo curso debe ser del mismo idioma.");
-			}
-			else {
-				// Comprueba si el nuevo curso esta completo. 
-				if (comprobarMaxAlumnos(nuevoCurso) == true) {
-					System.out.println("ERROR. Curso completo. No caben mas alumnos.");
-				}
-				else {
-					for(int i = 0; i < getMatriculas().size(); i++){
-						if (alumno.equals(getMatriculas().get(i).getAlumno()) && curso.equals(getMatriculas().get(i).getCurso())){
-							numero = getMatriculas().get(i).getNum();
-							getMatriculas().remove(i);
-							matricula = new Matricula(numero, alumno, nuevoCurso);
-							anadirMatricula(matricula);
-						}
-					}
-				}
-			}
-		}
 	}
 	
 	/**

@@ -16,6 +16,7 @@ public class CursoJunior extends Curso {
 	public CursoJunior(String id, String idioma, GregorianCalendar fechaInicio, GregorianCalendar fechaFinal, int hora,
 			int num_max_alumnos, int precio, int edad_minima, int edad_maxima) {
 		super(id, idioma, fechaInicio, fechaFinal, hora, num_max_alumnos, precio);
+		// matriculas_curso = new ArrayList<Matricula>(); En el constructor del padre.
 		this.edad_minima = edad_minima;
 		this.edad_maxima = edad_maxima;
 	}

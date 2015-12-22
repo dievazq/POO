@@ -15,6 +15,7 @@ public class Junior extends Alumno {
 	
 	public Junior(String nombre, String apellidos, GregorianCalendar fechaNac, Adulto responsable) {
 		super(nombre, apellidos);
+		// matriculas_alumno = new ArrayList<Matricula>(); En el constructor del padre.
 		this.fechaNac = fechaNac;
 		this.responsable = responsable;
 		this.responsable.anadirJunior(this);

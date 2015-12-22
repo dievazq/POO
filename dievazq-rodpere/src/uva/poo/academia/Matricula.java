@@ -17,11 +17,17 @@ public class Matricula {
 	 * Constructor de la clase. Inicializa el valor del atributo 'pagado' a false, siendo el estado de pago 
 	 * de la matricula el de 'pendiente'.
 	 * 
-	 * @param num inicializa el atributo 'num' al valor pasado por este parametro.
+	 * @assert.pre No debe haber un alumno ya existente en el curso a matricular, ni tampoco superar el numero de alumnos maximo.
+	 * @assert.post Se crea la matricula del alumno en el curso.
+	 * 
+	 * @param numero inicializa el atributo 'num' al valor pasado por este parametro.
 	 * @param alumno inicializa el atributo 'alumno' al valor pasado por este parametro.
 	 * @param curso inicializa el atributo 'curso' al valor pasado por este parametro.
 	 */
     public Matricula(int numero, Alumno alumno, Curso curso) {
+    	
+    	assert(comprobarDuplicadoMatricula(alumno, curso) == false): "ERROR. El alumno ya existe en ese curso.";
+		assert(comprobarMaxAlumnos(curso) == false): "ERROR. El curso ya esta completo.";
 	
 		this.num = numero;
 		this.alumno = alumno;
@@ -29,6 +35,13 @@ public class Matricula {
 		pagado = false;
 		alumno.anadirMatricula(this);
 		curso.anadirMatricula(this);
+    }
+    
+    /**
+     * Constructor Vacio para poder hacer uso de los metodos publicos de la clase.
+     */
+    public Matricula() {
+    	
     }
 
     /**
@@ -71,27 +84,34 @@ public class Matricula {
 	/**
 	 * Metodo setter para modificar el estado de pago de la matricula. 
 	 * Sera false si esta pendiente y true si esta pagada.
-	 * 
-	 * @param pagado modifica el atributo 'pagado' al valor pasado por este parametro. Sera false si esta pendiente y true si esta pagada.
 	 */
 	public void pagarMatricula() {
 		pagado = true;
 	}
 	
-	// MODIFICAR LOS METODOS DE ABAJO
 	/**
-	 * Comprueba si un alumno se encuentra matriculado en curso. Si en la lista de alumnos del curso dado se encuentra 
-	 * un alumno con el mismo valor de DNI que el alumno dado se considera que el alumno dado ya se encuentra matriculado
-	 * y devuelve {@code True}, en caso contrario, no se encuentra matriculado en tal curso y devuelve {@code False}.
+	 * Metodo getter para cambiar un curso de la matricula. Usaremos 
+	 * este metodo para realizar el cambio de nivel de un alumno en un curso.
 	 * 
-	 * @param alumno es el alumno que se quiere comprobar si esta matriculado en un determinado curso.
-	 * @param curso es el curso en el que se quiere comprobar si un alumno determinado ya esta matriculado.
+	 * @param curso Nuevo curso que va a tener la matricula.
+	 */	
+	public void setCurso(Curso curso) {
+		this.curso = curso;
+	}
+	
+	/**
+	 * Comprueba si un alumno se encuentra matriculado en un curso. Si en la lista de alumnos del curso dado se encuentra 
+	 * el mismo alumno que otro igual, se considera que el alumno dado ya se encuentra matriculado
+	 * y devuelve {@code True}. En caso contrario, no se encuentra matriculado en tal curso y devuelve {@code False}.
+	 * 
+	 * @param alumno Es el alumno que se quiere comprobar si esta matriculado en un determinado curso.
+	 * @param curso Es el curso en el que se quiere comprobar si un alumno determinado ya esta matriculado.
 	 * @return {@code True} si el alumno dado ya se encuentra matriculado en el curso, {@code False} si no lo esta.
 	 */
 	public Boolean comprobarDuplicadoMatricula(Alumno alumno, Curso curso) {
 
-		for (int i=0; i < curso.getAlumnos(getMatriculas()).size(); i++) {
-			if (alumno.getDNI() == curso.getAlumnos(getMatriculas()).get(i).getDNI())
+		for (int i=0; i < curso.getMatriculasCurso().size(); i++) {
+			if (curso.getAlumnos().get(i).equals(alumno))
 				return true;
 		}
 		return false;
@@ -106,7 +126,7 @@ public class Matricula {
 	 */
 	public Boolean comprobarMaxAlumnos(Curso curso) {
 		
-		if ( (curso.getNumAlumnos(getMatriculas()) + 1) <= curso.getNumMaxAlumnos() )
+		if ( (curso.getNumAlumnos() + 1) <= curso.getNumMaxAlumnos() )
 			return false;
 		else
 			return true;

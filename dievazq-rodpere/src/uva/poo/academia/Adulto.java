@@ -23,6 +23,7 @@ public class Adulto extends Alumno {
 	 */
 	public Adulto(String nombre, String apellidos, String dni) {
 		super(nombre, apellidos);
+		// matriculas_alumno = new ArrayList<Matricula>(); En el constructor del padre.
 		juniors = new ArrayList<Junior>();
 		this.dni = dni;
 	}
@@ -41,8 +42,7 @@ public class Adulto extends Alumno {
 	/**
 	 * Devuelve la lista de alumnos junior de los que es responsable el adulto.
 	 * 
-	 * @param juniors Alumnos junior de los que se responsable el adulto que 
-	 * llama a este metodo.
+	 * @return juniors Alumnos junior de los que se responsable el adulto que llama a este metodo.
 	 */
 	public ArrayList<Junior> getJuniors() {
 		
